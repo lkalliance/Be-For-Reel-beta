@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title goes here</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+
+<body>
+  <header>
+    <h1><a href="/">main header</a></h1>
+    {{#if userInfo.loggedIn}}
+    <p>{{userInfo.username}}<br/>
+    <a href="/" id="logout">Log out</a>
+    {{else}}
+    <p><a href="/login">Log in</a></p>
+    {{/if}}
+  </header>
+  <nav>
+  </nav>
+  <main>
+    {{{body}}}
+  </main>
+
+  {{#if userInfo.loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src="/js/script.js"></script>
+</body>
+
+</html>
