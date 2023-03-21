@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
       loggedIn: req.session.loggedIn
     }
 
-    const data = 'QUERY DATABASE HERE'
-    const results = data.get({ plain: true })
+    // const data = 'QUERY DATABASE HERE'
+    // const results = data.get({ plain: true })
 
-    res.render('HANDLEBARS TEMPLATE', { userInfo, results });
+    res.render('homepage', { userInfo });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
