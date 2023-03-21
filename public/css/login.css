@@ -1,0 +1,31 @@
+
+
+form {
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: auto;
+    padding-left: 5em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.option {
+    font-size: 30px;
+}
+
+@media screen and (max-width: 650px) {
+    form {
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-family: "Raleway", sans-serif;
+    border-radius: 3px;
+    opacity: 1;
+    width: 90%;
+}
+}
