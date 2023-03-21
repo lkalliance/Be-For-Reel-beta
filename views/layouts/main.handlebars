@@ -10,13 +10,8 @@
 
 <body>
   <header>
-    <h1><a href="/">main header</a></h1>
-    {{#if userInfo.loggedIn}}
-    <p>{{userInfo.username}}<br/>
-    <a href="/" id="logout">Log out</a>
-    {{else}}
-    <p><a href="/login">Log in</a></p>
-    {{/if}}
+    <h1><a href="/">Be For Real</a></h1>
+    
   </header>
   <nav>
   </nav>
@@ -24,9 +19,6 @@
     {{{body}}}
   </main>
 
-  {{#if userInfo.loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
   <script src="/js/script.js"></script>
 </body>
 
