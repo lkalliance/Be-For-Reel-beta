@@ -24,6 +24,7 @@ footer {
   text-align: left;
 }
 
+
 footer p {
   text-align: left;
 }
@@ -35,17 +36,14 @@ a {
   font-size: 1.2rem;
   font-weight: 600;
   transition: color 0.2s ease-in-out; 
-}
 
 a:hover {
   color: #ccc;
 }
 
-
 .custom-navbar {
   opacity: 0.9;
 }
-
 
 .custom-header {
  padding: auto;
@@ -54,8 +52,6 @@ a:hover {
   right: 0;
   opacity: 0.9;
   background-color: transparent;
-
-
 }
 
 
@@ -89,8 +85,5 @@ a:hover {
   vertical-align: middle;
   margin-left: 10px;
 }
-
-
-
 
 
