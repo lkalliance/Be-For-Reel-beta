@@ -12,10 +12,13 @@ router.get('/', async (req, res) => {
       loggedIn: req.session.loggedIn
     }
 
+    const css = { url: '/css/homepage.css' }
+    const today = { year: new Date().getFullYear() }
+
     // const data = 'QUERY DATABASE HERE'
     // const results = data.get({ plain: true })
 
-    res.render('homepage', { userInfo });
+    res.render('homepage', { userInfo, css, today });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
