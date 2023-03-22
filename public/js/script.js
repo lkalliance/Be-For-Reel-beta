@@ -23,7 +23,6 @@ btnNoms.addEventListener("click", (e) => {
     getNominees();
 })
 
-
 function searchMovie() {
 
     removeChildren(results);
@@ -72,7 +71,7 @@ function getNominees() {
             movies.sort((a, b) => {
                 return (a.title < b.title) ? -1 : (b.title < a.title) ? 1 : 0;
             })
-            
+
             console.log(movies);
 
             for (movie of movies) {

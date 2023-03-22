@@ -8,10 +8,20 @@ form {
   font-family: "Raleway", sans-serif;
   border-radius: 3px;
   opacity: 1;
+  margin-bottom: 20px !important;
 }
 
 .option {
   font-size: 30px;
+}
+
+.custom-btn {
+    background-color: #1BA098 !important;
+     border: solid #051622;
+}
+
+.custom-btn:hover {
+    background-color: #DEB992 !important;
 }
 
 @media screen and (max-width: 650px) {
@@ -25,5 +35,25 @@ form {
     border-radius: 3px;
     opacity: 1;
     width: 90%;
+    margin-bottom: 10px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fff !important;
+    padding: 10px;
+    text-align: left;
+    font-size: small;
+  }
+
+  .container {
+    margin: auto;
+  }
+
+  footer p {
+    text-align: left;
   }
 }
