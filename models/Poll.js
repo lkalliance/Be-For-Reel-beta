@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
-class User extends Model {}
+class Poll extends Model {}
 
-User.init(
+Poll.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,42 +12,34 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlphanumeric: true,
-        len: [1, 30],
+        notEmpty: true,
+        len: [1, 50],
       },
     },
-    email: {
+    description: {
       type: DataTypes.STRING,
       allowNull: true,
-      validate: {
-        isEmail: true,
-      },
     },
-    password: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [8],
+      references: {
+        model: "user",
+        key: "id",
       },
     },
   },
   {
-    hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "poll",
   }
 );
 
-module.exports = User;
+module.exports = Poll;

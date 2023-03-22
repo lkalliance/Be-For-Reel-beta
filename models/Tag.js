@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
-class User extends Model {}
+class Tag extends Model {}
 
-User.init(
+Tag.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,12 +12,11 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    Tagname: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isAlphanumeric: true,
-        len: [1, 30],
       },
     },
     email: {
@@ -37,17 +36,17 @@ User.init(
   },
   {
     hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+      async beforeCreate(newTagData) {
+        newTagData.password = await bcrypt.hash(newTagData.password, 10);
+        return newTagData;
       },
     },
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "Tag",
   }
 );
 
-module.exports = User;
+module.exports = Tag;
