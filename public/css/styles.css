@@ -12,6 +12,7 @@ body {
 header {
   border-bottom: solid white;
   padding: 10px
+
 }
 
 footer {
@@ -43,7 +44,8 @@ a:hover {
 
 
 .custom-navbar {
-  opacity: 0.9;
+  color: white;
+  font-weight: bold;
 }
 
 
@@ -62,7 +64,7 @@ a:hover {
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(249, 248, 248); 
+  color: rgb(255, 255, 255); 
 }
 
 .imdbRight {
@@ -89,8 +91,4 @@ a:hover {
   vertical-align: middle;
   margin-left: 10px;
 }
-
-
-
-
 
