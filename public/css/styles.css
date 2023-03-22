@@ -1,6 +1,17 @@
-/* Footer Styles */
+
 body {
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  height: 100%; 
+  margin: 0;
+   background-image: url('../images/blurry-gradient-haikei.png');
+  background-size: cover;
+  
+ 
+}
+
+header {
+  border-bottom: solid white;
+  padding: 10px
 }
 
 footer {
@@ -8,38 +19,78 @@ footer {
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: #fff; /* Use a light background color */
+  background-color: #fff !important; 
   padding: 10px;
+  text-align: left;
 }
 
-/* Anchor Link Styles */
+footer p {
+  text-align: left;
+}
+
+
 a {
-  color: rgb(16, 14, 14); /* Use white text color */
+  color: rgb(250, 246, 246) !important; 
   font-family: 'Raleway', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  transition: color 0.2s ease-in-out; /* Add a smooth transition effect */
+  transition: color 0.2s ease-in-out; 
 }
 
 a:hover {
-  color: #ccc; /* Change the text color on hover */
+  color: #ccc;
 }
 
-/* Custom Navbar Styles */
+
 .custom-navbar {
   opacity: 0.9;
 }
 
-/* Custom Header Styles */
+
 .custom-header {
-  padding: 0px; /* Add some padding to the header */
+ padding: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.9;
+  background-color: transparent;
+
+
 }
 
-/* Navbar Brand Styles */
+
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(2, 1, 1); /* Use white text color */
+  color: rgb(249, 248, 248); 
 }
+
+.imdbRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 15px 10px;
+  
+}
+
+.imdb-icon {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  color: #f5c518;
+}
+
+.navbar-toggler-icon {
+  color: black;
+}
+
+
+.powered-by {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+
+
 
 

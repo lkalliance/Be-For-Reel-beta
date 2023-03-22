@@ -1,4 +1,3 @@
-<!-- views/layouts/main.handlebars -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <body>
     <header class='display-flex justify-space-between align-center mx-auto custom-header'>
 
         <!-- Conditionally render login or logout links -->
-        <nav class='navbar navbar-expand-lg navbar-light bg-light custom-navbar'>
+        <nav class='navbar navbar-expand-lg navbar-dark custom-navbar nav'>
           <div class='container-fluid'>
-            <a class='navbar-brand custom-navbar' href='#'>Be For Reel</a>
+            <div class="logo">
+            <a class='navbar-brand custom-navbar' href='#'>LOGO</a>
+            </div>
             <button
-              class='navbar-toggler'
+              class='navbar-toggler bg-light'
               type='button'
               data-bs-toggle='collapse'
               data-bs-target='#navbarNav'
@@ -38,14 +44,10 @@
                      <a  href='/createPolls'>Create Polls</a>
                      <a  href='/viewPolls'>Polls</a>
                      <a href='/'>Logout</a>
-
                     |
                     <button class='no-button' id='logout'>logout</button>
                   {{else}}
-                    <a  href='/login'>Login</a>
-                    <a href='/profiles'>Profiles</a>
-                    <a href='/viewPolls'>Polls</a>
-                    
+                    <a  href='/login'>Login</a>          
                   {{/if}}
 
                 </li>
@@ -57,10 +59,13 @@
 
   {{{body}}}
 
- <footer class='text-center'>
-          <p>&copy; {{currentYear}} Be For Reel App. All rights reserved.</p>
-        </footer>
+<footer>
+  <p>&copy; {{currentYear}} Be For Reel App. All rights reserved.</p>
+  <p class="powered-by imdbRight">Powered by <i class="fab fa-imdb imdb-icon"></i></p>
+</footer>
 
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
