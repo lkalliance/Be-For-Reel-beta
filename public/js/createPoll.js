@@ -83,6 +83,9 @@ $(document).ready(() => {
     function savePoll(e) {
         e.preventDefault();
         resultsDisplay.empty();
+        const header = $('<li>', { class: "list-group-item fs-6", id: "results-header" });
+        header.text("Search Results");
+        resultsDisplay.append(header);
 
         const title = titleText.val();
         const desc = descText.val();
@@ -93,7 +96,7 @@ $(document).ready(() => {
             desc,
             films
         }
-
+        window.location.href = window.location.href;
         console.log(bodyObj);
     }
 })
