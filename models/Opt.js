@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
-class Option extends Model {}
+class Opt extends Model {}
 
-Option.init(
+Opt.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -38,8 +38,8 @@ Option.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "option",
+    modelName: "opt",
   }
 );
 
-module.exports = Option;
+module.exports = Opt;
