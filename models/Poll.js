@@ -17,7 +17,7 @@ Poll.init(
       allowNull: false,
       validate: {
         notEmpty: true,
-        len: [1, 50],
+        len: [1, 80],
       },
     },
     description: {
