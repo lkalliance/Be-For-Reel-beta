@@ -3,34 +3,35 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6">
-          <label for="titleText">Enter your poll's title</label>
-          <input id="titleText" />
-          <label for="descText">Enter your poll's description</label>
-          <textarea id="descText"></textarea>
+          <form id="poll-data">
+            <label for="titleText">Enter your poll's title</label>
+            <input id="titleText" />
+            <label for="descText">Enter your poll's description</label>
+            <textarea id="descText"></textarea>
+          </form>
         </div>
-<!-- Search controls -->
-
-    <div class="col-12 col-md-6">
-      <h2>Search for your movies</h2>
-      <form id="searchMovies" class="col-12">
-          <label for="searchField">Enter all or part of a movie title</label>
-          <input id="searchField" />
-          <button class="custom-btn" id="searchBtn">Search</button>
-      </form>
-    </div>
-    <div class="col-12 col-md-6">
-        <ul id="search-results" class="list-group">
-          <li class="list-group-item fs-6"><h4>Search results</h4></li>
-        </ul>
-    </div>
-    <div class="col-12 col-md-6">
-        <ul id="selected" class="list-group">
-          <li class="list-group-item fs-6"><h4>Selected</h4></li>
-        </ul>
+        <div class="col-12 col-md-6">
+          <form id="searchMovies" class="col-12">
+            <label for="searchField">Enter all or part of a movie title</label>
+            <input id="searchField" />
+            <button class="custom-btn" id="searchBtn">Search</button>
+          </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <ul id="selected" class="list-group">
+              <li id="selected-header" class="list-group-item fs-6">Selected films</li>
+            </ul>
+            <button id="savePollBtn" class="custom-btn">Save Poll</button>
+        </div>
+        <div class="col-12 col-md-6">
+            <ul id="search-results" class="list-group">
+              <li id="results-header" class="list-group-item fs-6">Search results</li>
+            </ul>
+        </div>
     </div>
 </div>
 
-<button id="savePollBtn" class="custom-btn">Save Poll</button>
+<button id="savePollBtn">Save Poll</button>
 
 
 <script src="/js/createPoll.js"></script>
