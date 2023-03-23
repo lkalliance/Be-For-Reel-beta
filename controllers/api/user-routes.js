@@ -11,5 +11,10 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/login', async (req, res) => {
+  console.log(req.body);
+  // CHANGE THE ROUTE HERE TO WHATEVER 
+  res.sendStatus(200);
+});
 
 module.exports = router;

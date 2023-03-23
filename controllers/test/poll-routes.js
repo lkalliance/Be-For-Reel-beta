@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
       userId: req.session.userId,
       loggedIn: req.session.loggedIn
     }
-
     res.render('createpoll', { userInfo });
   } catch (err) {
     console.log(err);
