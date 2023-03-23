@@ -3,7 +3,7 @@ body {
   font-family: 'Raleway', sans-serif;
   height: 100%; 
   margin: 0;
-   background-image: url('../images/blurry-gradient-haikei.png');
+   background-image: url('../images/all.jpg');
   background-size: cover;
   
  
@@ -41,7 +41,9 @@ a {
 }
 
 h2 {
-  font-family: "Limelight", cursive;;
+  font-family: "Limelight", cursive;
+  color: white !important;
+  text-align: center;
 }
 a:hover {
   color: #ccc;
@@ -54,7 +56,7 @@ a:hover {
 
 .navbar-toggler {
   border-color: white solid 3px;
-  background-color: rgba(240, 19, 11, 0.2); /* Adds a semi-transparent white background */
+  background-color: rgba(255, 251, 251, 0.2); /* Adds a semi-transparent white background */
   border-radius: 5px; /* Optional: Adds rounded corners */
 }
 
