@@ -12,11 +12,16 @@ $(document).ready(() => {
 
     resultsDisplay.on("click", "li", select);
     selectedDisplay.on("click", "li", deselect);
+
     savePollBtn.on("click", savePoll);
 
-    searchBtn.on("click", (e) => {
+    searchBtn.on("click", async (e) => {
         e.preventDefault();
+
         resultsDisplay.empty();
+        const header = $('<li>', { class: "list-group-item fs-6", id: "results-header" });
+        header.text("Search Results");
+        resultsDisplay.append(header);
         
         // Here we will query the API for the search results.
 
@@ -61,6 +66,7 @@ $(document).ready(() => {
 
     function select(e) {
         e.preventDefault();
+        if( e.currentTarget.id == "results-header" || e.currentTarget.id == "selected-header" ) return;
         const selected = document.querySelector('#search-results').removeChild(e.currentTarget);
         selectedFilms.push(selected.id);
         document.querySelector('#selected').appendChild(selected);
@@ -68,6 +74,7 @@ $(document).ready(() => {
 
     function deselect(e) {
         e.preventDefault();
+        if( e.currentTarget.id == "results-header" || e.currentTarget.id == "selected-header" ) return;
         const selected = document.querySelector('#selected').removeChild(e.currentTarget);
         selectedFilms.splice(selectedFilms.indexOf(selected.id), 1);
         document.querySelector('#search-results').appendChild(selected);

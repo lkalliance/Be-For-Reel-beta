@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const isAuth = require('../../utils/auth');
+const { Poll } = require('../../models');
 
 
-router.get('/', async (req, res) => {
+router.get('/create', async (req, res) => {
   // Sample
   try {
     const userInfo = {

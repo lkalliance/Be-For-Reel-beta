@@ -1,7 +1,40 @@
-#selected cite {
+ul#selected cite {
     display: none;
+}
+
+ul#search-results cite {
+    font-size: .8em;
+    line-height: .8em;
 }
 
 #selected h6 {
     margin-bottom: 0;
+}
+
+#selected li,
+#search-results li {
+    background-color:rgba(255, 255, 255, .8)
+}
+
+#selected li#selected-header,
+#search-results li#results-header {
+    font-weight: 700;
+    background-color: rgb(28, 59, 91);
+    color: white;
+}
+
+form {
+    background-color: rgba(255, 255, 255, .5);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+}
+
+textarea,
+input {
+    width: 75%;
 }
