@@ -11,7 +11,8 @@ router.get('/create', async (req, res) => {
       userId: req.session.userId,
       loggedIn: req.session.loggedIn
     }
-    res.render('createpoll', { userInfo });
+    const css = { url: '/css/create.css' };
+    res.render('createpoll', { userInfo, css });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
