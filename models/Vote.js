@@ -33,7 +33,7 @@ Vote.init(
       allownull: true,
       validate: {
         isAlphanumeric: true,
-        len: [1, 200],
+        len: [1, 500],
       },
     },
   },

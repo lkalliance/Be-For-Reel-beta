@@ -1,16 +1,23 @@
 const sequelize = require('../config/connection');
 const seedUser = require('./userData');
-const seedPost = require('./postData');
-const seedComment = require('./commentData')
+const seedPoll = require('./pollData');
+const seedOpt = require('./optionData')
+const seedMovie = require('./movieData')
+const seedVote = require('./voteData')
+
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
   await seedUser();
 
-  await seedPost();
+  await seedPoll();
 
-  await seedComment();
+  await seedMovie();
+
+  await seedOpt();
+
+  await seedVote();
 
   process.exit(0);
 };

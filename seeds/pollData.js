@@ -1,43 +1,37 @@
-const { Comment } = require('../models');
+const { Poll } = require('../models');
 
-const commentdata = [
+const pollData = [
   {
-    content: 'This is the funniest thing ever made up on the fly.',
-    user_id: '1',
-    post_id: '6',
-  },
-  {
-    content: 'This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment. This is a comment.',
-    user_id: '1',
-    post_id: '2',
-  },
-  {
-    content: 'First!',
-    user_id: '5',
-    post_id: '1',
-  },
-  {
-    content: 'Second!',
-    user_id: '4',
-    post_id: '1',
-  },
-  {
-    content: 'Type much?',
-    user_id: '3',
-    post_id: '7',
-  },
-  {
-    content: `You know, I think I would find this more entertaining if I spoke latin.`,
-    user_id: '2',
-    post_id: '2',
-  },
-  {
-    content: `I've frankly run out of ideas for comments`,
-    user_id: '1',
-    post_id: '8',
-  },
-];
+    title: 'What is your favorite Pirates of the Caribbean movie?',
+    description: "This is a great description of this poll. I don't think it's possible to write a better one. I'm very impressed with myself. The code is more what you would call guidelines than actual rules.",
+    user_id: '1'
+  },{
+    title: 'What is your favorite Star Wars movie?',
+    description: "This is a great description of this poll. I don't think it's possible to write a better one. I'm very impressed with myself. May the Force be with you.",
+    user_id: '1'
+  },{
+    title: 'Which film should have won Best Picture in 1990?',
+    description: "I think they screwed the pooch. Which should have won?",
+    user_id: '2'
+  },{
+    title: 'Which film should have won Best Picture in 1994?',
+    description: "Did they get it right? I kinda think they did, but a lot of people don't. What do you think?",
+    user_id: '2'
+  },{
+    title: 'Which film should have won Best Picture in 1977?',
+    description: "OK, come on. I know you have an opinion on this, right? Everyone does. Which should have won?",
+    user_id: '2'
+  },{
+    title: 'What is your favorite Batman movie?',
+    description: "I'm Batman.\n\nNo, wait, I'm not actually. But several other guys have been. Pick one!",
+    user_id: '4'
+  },{
+    title: 'Which is the best comedy movie of this century?',
+    description: "Ha ha ha ha ha ha ha hahahaha ha ha ha ha!!!",
+    user_id: '3'
+  }
+]
 
-const seedComment = () => Comment.bulkCreate(commentdata);
+const seedPoll = () => Poll.bulkCreate(pollData);
 
-module.exports = seedComment;
+module.exports = seedPoll;
