@@ -1,5 +1,10 @@
-#selected cite {
+ul#selected cite {
     display: none;
+}
+
+ul#search-results cite {
+    font-size: .8em;
+    line-height: .8em;
 }
 
 #selected h6 {

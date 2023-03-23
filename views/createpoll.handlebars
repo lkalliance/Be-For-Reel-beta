@@ -2,73 +2,35 @@
 
 <div class="container">
     <div class="row">
-        <label for="titleText">Enter your poll's title</label>
-        <input id="titleText" />
-        <label for="descText">Enter your poll's description</label>
-        <textarea id="descText"></textarea>
+        <div class="col-12 col-md-6">
+          <label for="titleText">Enter your poll's title</label>
+          <input id="titleText" />
+          <label for="descText">Enter your poll's description</label>
+          <textarea id="descText"></textarea>
+        </div>
 <!-- Search controls -->
 
-<div class="accordion">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="basic-search-heading">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#basic-search" aria-expanded="true" aria-controls="basic-search">
-        Search for your movies
-      </button>
-    </h2>
-    <div id="basic-search" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
-        <form id="searchMovies" class="col-12">
-            <label for="searchField">Enter all or part of a movie title</label>
-            <input id="searchField" />
-            <button class="btn btn-primary btn-sm rounded-pill" id="searchBtn">Search</button>
-        </form>
-      </div>
+    <div class="col-12 col-md-6">
+      <h2>Search for your movies</h2>
+      <form id="searchMovies" class="col-12">
+          <label for="searchField">Enter all or part of a movie title</label>
+          <input id="searchField" />
+          <button class="custom-btn" id="searchBtn">Search</button>
+      </form>
     </div>
-  </div>
-</div>
-<div class="accordion" id="accordionPanelsStayOpenExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Advanced search options
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
-        <form id="advancedSearch">
-            <label for="yearStart">Release window</label>
-            <select id="yearStart"><option value="0">Any</option></select>
-            <select id="yearEnd"><option value="0">Any</option></select>
-            <label for="genres">Genre</label>
-            <select id="genres">
-                <option value="0">any</option>
-                <option value="action">Action</option>
-                <option value="drama">Drama</option>
-                <option value="comedy">Comedy</option>
-            </select>
-            <label for="bestPics">Best picture nominees</label>
-            <input type="checkbox" id="bestPics">
-        </form>
-      </div>
+    <div class="col-12 col-md-6">
+        <ul id="search-results" class="list-group">
+          <li class="list-group-item fs-6"><h4>Search results</h4></li>
+        </ul>
     </div>
-  </div>
-</div>
-  <!-- Results list -->
-        <div class="col-6">
-<h4>Search results</h4>
-            <ul id="search-results" class="list-group"></ul>
-        </div>
-
-<!-- Chosen ones list -->
-        <div class="col-6">
-<h4>Selected</h4>
-            <ul id="selected" class="list-group"></ul>
-        </div>
+    <div class="col-12 col-md-6">
+        <ul id="selected" class="list-group">
+          <li class="list-group-item fs-6"><h4>Selected</h4></li>
+        </ul>
     </div>
 </div>
 
-<button id="savePollBtn">Save Poll</button>
+<button id="savePollBtn" class="custom-btn">Save Poll</button>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
 <script src="/js/createPoll.js"></script>
