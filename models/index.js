@@ -40,7 +40,7 @@ Vote.belongsTo(Option, {
   foreignKey: "option_id",
 });
 
-Movie.belongsToMany(Option, {
+Movie.hasMany(Option, {
   through: "movie_id",
 });
 
