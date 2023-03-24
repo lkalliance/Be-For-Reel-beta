@@ -5,6 +5,7 @@ $(document).ready(() => {
     const resultsDisplay = $('#search-results');
     const selectedDisplay = $('#selected');
     const titleText = $('#titleText');
+    const titleLabel = $('#title-label');
     const descText = $('#descText');
     const savePollBtn = $('#savePollBtn');
 
@@ -18,15 +19,20 @@ $(document).ready(() => {
     searchBtn.on("click", async (e) => {
         e.preventDefault();
 
+        if( searchText.val() == "" ) return;
+
+        clearWarning();
+        clearNoResults();
+
         resultsDisplay.empty();
         const header = $('<li>', { class: "list-group-item fs-6", id: "results-header" });
-        header.text("Search Results");
+        header.text("Search results");
         resultsDisplay.append(header);
         
         const searchUrl = `/api/movies/search/${searchText.val()}`;
         const movieData = await fetch(searchUrl);
-
-        console.log(movieData);
+        const result = await movieData.json();
+        console.log(result);
 
         // const results = [
         //     {"id":"tt5034838","image":"https://m.media-amazon.com/images/M/MV5BZmYzMzU4NjctNDI0Mi00MGExLWI3ZDQtYzQzYThmYzc2ZmNjXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_Ratio0.6837_AL_.jpg","title":"Godzilla vs. Kong","description":"(2021)","runtimeStr":"113 min","genres":"Action, Sci-Fi, Thriller","genreList":[{"key":"Action","value":"Action"},{"key":"Sci-Fi","value":"Sci-Fi"},{"key":"Thriller","value":"Thriller"}],"contentRating":"PG-13","imDbRating":"6.3","imDbRatingVotes":"215905","metacriticRating":"59","plot":"The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against each other--the fearsome Godzilla and the mighty Kong--with humanity caught in the balance.","stars":"Adam Wingard, Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall, Brian Tyree Henry","starList":[{"id":"tt5034838","name":"Adam Wingard"},{"id":"tt5034838","name":"Alexander Skarsgård"},{"id":"tt5034838","name":"Millie Bobby Brown"},{"id":"tt5034838","name":"Rebecca Hall"},{"id":"tt5034838","name":"Brian Tyree Henry"}]},
@@ -47,26 +53,30 @@ $(document).ready(() => {
         //     {"id":"tt0067148","image":"https://m.media-amazon.com/images/M/MV5BMjUzNzVlMzUtNDhiMi00MzUzLWE1YjEtY2I5NWJkODU1ODQ5XkEyXkFqcGdeQXVyNTMxMjgxMzA@._V1_Ratio0.7245_AL_.jpg","title":"Godzilla vs. Hedorah","description":"(1971)","runtimeStr":"85 min","genres":"Animation, Action, Family","genreList":[{"key":"Animation","value":"Animation"},{"key":"Action","value":"Action"},{"key":"Family","value":"Family"}],"contentRating":"PG","imDbRating":"6.0","imDbRatingVotes":"5941","metacriticRating":null,"plot":"An ever evolving alien life-form from the Dark Gaseous Nebula arrives to consume rampant pollution. Spewing mists of sulfuric acid and corrosive sludge, neither humanity or Godzilla may be able to defeat this toxic menace.","stars":"Yoshimitsu Banno, Ishirô Honda, Akira Yamanouchi, Toshie Kimura, Hiroyuki Kawase, Toshio Shiba","starList":[{"id":"tt0067148","name":"Yoshimitsu Banno"},{"id":"tt0067148","name":"Ishirô Honda"},{"id":"tt0067148","name":"Akira Yamanouchi"},{"id":"tt0067148","name":"Toshie Kimura"},{"id":"tt0067148","name":"Hiroyuki Kawase"},{"id":"tt0067148","name":"Toshio Shiba"}]}
         // ];
         
-        // for(movie of results) {
-        //     if (!selectedFilms.includes(movie.id)) {
-        //         const title = `${movie.title} ${movie.description}`;
-        //         const plot = movie.plot;
-
-        //         const li = $('<li>', { id: `${movie.id}`, class: 'list-group-item fs-6'});
-        //         const film = $('<h6>');
-        //         const cite = $('<cite>');
-
-        //         film.text(title);
-        //         cite.text(plot);
-
-        //         li.append(film);
-        //         li.append(cite);
-
-        //         resultsDisplay.append(li);
-        //     }
-        // }
+        if ( result.length == 0 ) {
+            noResults();
+        } else {
+            for(movie of result) {
+                if (!selectedFilms.includes(movie.id)) {
+                    const title = `${movie.title} ${movie.description}`;
+                    const plot = movie.plot;
+                    
+                    const li = $('<li>', { id: `${movie.id}`, class: 'list-group-item fs-6'});
+                    const film = $('<h6>');
+                    const cite = $('<cite>');
+                    
+                    film.text(title);
+                    cite.text(plot);
+                    
+                    li.append(film);
+                    li.append(cite);
+                    
+                    resultsDisplay.append(li);
+                }
+            }
+        }
     })
-
+        
     function select(e) {
         e.preventDefault();
         if( e.currentTarget.id == "results-header" || e.currentTarget.id == "selected-header" ) return;
@@ -83,24 +93,76 @@ $(document).ready(() => {
         document.querySelector('#search-results').appendChild(selected);
     }
 
-    function savePoll(e) {
+    async function savePoll(e) {
         e.preventDefault();
+
+        clearWarning();
+        clearNoResults();
+
         resultsDisplay.empty();
         const header = $('<li>', { class: "list-group-item fs-6", id: "results-header" });
-        header.text("Search Results");
+        header.text("Search results");
         resultsDisplay.append(header);
 
         const title = titleText.val();
         const desc = descText.val();
         const films = selectedFilms;
 
+        if ( title == "" ) {
+            warning("title");
+            return;
+        }
+
+        if ( films.length < 2 ) {
+            warning("films");
+            return;
+        }
+
         const bodyObj = {
             title,
             desc,
             films
         }
-        // window.location.href = window.location.href;
+        const fetchObj = {
+            method: "POST",
+            body: JSON.stringify(bodyObj)
+        }
+
         console.log(bodyObj);
+        await fetch('/api/polls/create', fetchObj);
+
+        // window.location.href = window.location.href;
+    }
+
+    function warning(type) {
+        if ( type == "title" ) {
+            titleText.toggleClass("warning", true);
+            titleLabel.toggleClass("warning", true);
+            titleText.attr("placeholder", "Please provide a title");
+        } else {
+            selectedDisplay.toggleClass("warning", true);
+            const wLi = $('<li>', { id: "warning", class: "list-group-item fs-6 warning" });
+            wLi.text("Please select at least two films");
+            selectedDisplay.append(wLi);
+        }
+    }
+
+    function clearWarning() {
+        titleText.toggleClass("warning", false);
+        titleText.attr("placeholder", "(80 characters max)");
+        titleLabel.toggleClass("warning", false);
+        selectedDisplay.toggleClass("warning", false);
+        $('#warning').remove();
+    }
+
+    function noResults() {
+        const nLi = $('<li>', { id: "noResults", class: "list-group-item fs-6 warning" });
+        nLi.text("Search returned no results");
+        resultsDisplay.append(nLi);
+    }
+
+    function clearNoResults() {
+        $('#noResults').remove();
     }
 })
 
