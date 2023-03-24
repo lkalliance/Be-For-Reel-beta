@@ -1,0 +1,78 @@
+<h2>VOTE</h2>
+<div class="container pt-3 pb-3">
+  <div class="row pb-5 mt-3 mb-3">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+      <div class="card h-100 custom-card">
+        <div class="card-body">
+          <img src="" alt="IMDB PHOTO" />
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+      <div class="card h-100 custom-card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <h6 class="mb-2">TITLE OF POLL</h6>
+            </div>
+          </div>
+ <div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h6 class="mt-3 mb-2">Description:</h6>
+    <p>This poll aims to gather opinions on a specific topic</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h6 class="mt-3 mb-2">Options:</h6>
+    <div id="pollAccordion" class="accordion">
+      <div class="card">
+        <div class="card-header" id="option1Heading">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#option1Collapse" aria-expanded="true" aria-controls="option1Collapse">
+              Movie Option
+              <div>
+              <a href="#" class="text-dark">IMDB</a>
+              </div>
+            </button>
+          </h5>
+        </div>
+
+        <div id="option1Collapse" class="collapse show" aria-labelledby="option1Heading" data-parent="#pollAccordion">
+          <div class="card-body">
+            <p>With:</p>
+            <p>Summary:</p>
+            <a href="#">Trailor</a>
+            <a href="#">Wikipedia</a>
+            
+        
+            <!-- Add your movie information here using data from the IMDB API -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h6 class="mt-3 mb-2">Leave a comment:</h6>
+    <textarea class="form-control" rows="4" placeholder="Type your comment here..."></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="text-right">
+      <button type="button" id="submit" name="submit" class="custom-btn my-1">Submit</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h6 class="mt-3 mb-2">Previous Comments:</h6>
+    <ul>
+      <li>Comment 1</li>
+      <li>Comment 2</li>
+      <li>Comment 3</li>
+    </ul>
+  </div>
+</div>
