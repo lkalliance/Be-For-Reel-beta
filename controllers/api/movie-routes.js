@@ -26,7 +26,7 @@ router.get('/info/:id', async (req, res) => {
   try {
     const movie = {
       method: 'GET',
-      url: `https://imdb-api.com/en/API/Title/${process.env.IMDB_API_KEY}/${req.params.id}/Posters,Images,Trailer,Ratings,Wikipedia`
+      url: `https://imdb-api.com/en/API/Title/${process.env.IMDB_API_KEY}/${req.params.id}/Trailer,Ratings,Wikipedia`
     };
 
     const movieData = await fetch.request(movie);
