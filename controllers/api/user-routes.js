@@ -8,10 +8,10 @@ router.post('/', async (req, res) => {
     const dbUserData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.username = dbUserData.username
+      req.session.username = dbUserData.username;
+      req.session.userId = dbUserData.id;
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
-      console.log('logged in', req.session);
     });
   } catch (err) {
     console.log(err);
@@ -35,7 +35,10 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await dbUserData.checkPassword(req.body.password);
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      dbUserData.password
+    )
 
     if (!validPassword) {
       res
@@ -45,11 +48,10 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.username = dbUserData.username
+      req.session.username = dbUserData.username;
+      req.session.userId = dbUserData.id;
       req.session.loggedIn = true;
-
       res.json({ user: dbUserData, message: 'You are logged in.'});
-      console.log('logged in', req.session);
     });
   } catch (err) {
     console.log(err);
