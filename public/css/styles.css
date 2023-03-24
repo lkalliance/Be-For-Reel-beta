@@ -1,28 +1,29 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-   height: 100vh;
+  height: 100vh;
   margin: 0;
-   background-image: url('../images/all.jpg');
+  background-image: url('../images/all.jpg');
   background-size: cover;
   padding: 20px;
-  background-color: #001625;
+  background-color: #001d2c;
   background-repeat: no-repeat;
 
 }
 
 header {
-  border-bottom: solid white;
+  border-bottom: solid #1BA098;
   padding: 7px;
 
 }
 
 footer {
-   position: relative; 
-  width: 100%;
-  height: 50px; 
-  background-color: #f5f5f5;
-  padding: 10px;
+  position: relative; 
+  height: 70px; 
+  color: white;
+  padding: 0px;
+  border-top: solid #1BA098;
+  margin-top: 90px;
 }
 
 
@@ -55,13 +56,13 @@ a:hover {
 }
 
 .navbar-toggler {
-  border-color: white solid 3px;
-  background-color: rgba(240, 19, 11, 0.2); /* Adds a semi-transparent white background */
-  border-radius: 5px; /* Optional: Adds rounded corners */
+  border-color: white solid 3px !important;
+  background-color: rgba(226, 221, 221, 0.2) !important;
+  border-radius: 5px !important; 
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 
@@ -89,7 +90,7 @@ a:hover {
 
 .custom-btn {
     background-color: #1BA098 !important;
-     border: solid #eaebeb 1px; 
+     border: solid #1BA098 1px; 
      border-radius: 3px;
 }
 
