@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
       user: { id: 1, username: 'UserOne' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BMjIyNjkxNzEyMl5BMl5BanBnXkFtZTYwMjc3MDE3._V1_Ratio0.6762_AL_.jpg',
-      username: 'UserOne'
     },
     {
       id: 2,
@@ -34,7 +33,6 @@ router.get('/', async (req, res) => {
       user: { id: 1, username: 'UserOne' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_Ratio0.6762_AL_.jpg',
-      username: 'UserOne'
     },
     {
       id: 3,
@@ -43,7 +41,6 @@ router.get('/', async (req, res) => {
       user: { id: 2, username: 'UserTwo' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6762_AL_.jpg',
-      username: 'UserTwo'
     },
     {
       id: 4,
@@ -52,7 +49,6 @@ router.get('/', async (req, res) => {
       user: { id: 2, username: 'UserTwo' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_Ratio0.6904_AL_.jpg',
-      username: 'UserTwo'
     },
     {
       id: 5,
@@ -61,7 +57,6 @@ router.get('/', async (req, res) => {
       user: { id: 2, username: 'UserTwo' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_Ratio0.6762_AL_.jpg',
-      username: 'UserTwo'
     },
     {
       id: 6,
@@ -72,7 +67,6 @@ router.get('/', async (req, res) => {
       user: { id: 4, username: 'UserFour' },
       movies: [ 1, 2, 3 ],
       poster: 'https://m.media-amazon.com/images/M/MV5BZDNjOGNhN2UtNmNhMC00YjU4LWEzMmUtNzRkM2RjN2RiMjc5XkEyXkFqcGdeQXVyMTU0OTM5ODc1._V1_Ratio0.6762_AL_.jpg',
-      username: 'UserFour'
     }
   ]
     
