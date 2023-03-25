@@ -11,6 +11,8 @@ router.get('/search/:string', async (req, res) => {
       method: 'GET',
       url: `https://imdb-api.com/API/AdvancedSearch/${process.env.IMDB_API_KEY}?title=${req.params.string}&title_type=feature`
     };
+
+    console.log(options);
     // clean for nc17 or tv-ma
     const movieData = await fetch.request(options);
     res.status(200).json(movieData.data.results);
