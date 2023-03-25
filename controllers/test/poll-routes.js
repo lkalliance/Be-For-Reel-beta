@@ -50,6 +50,114 @@ router.get('/vote/:id', async (req, res) => {
 
     // const poll = pollData.get({ plain: true });
 
+    // const optData = await Opt.findAll({
+    //   where: { poll_id: req.params.id },
+    //   attributes: [ 'id', 'poll_id', 'movie_id' ],
+    //   include: [
+    //     { 
+    //       model: Vote,
+    //       attributes: [ 'comment' ],
+    //       include: {
+    //         model: User,
+    //         attributes: [ 'username', 'id' ]
+    //       }
+    //     },
+    //     {
+    //       model: Movie,
+    //       attributes: ['title']
+    //     }]
+    // })
+
+    // const opts = await optData.map( (opt) => opt.get({ plain: true }));
+    
+    // const optComments = opts.map((opt) => {
+    //   const comms = [];
+    //   for (vote of opt.votes) {
+    //     if (vote.comment !== "") {
+    //       comms.push({
+    //         comment: vote.comment,
+    //         username: vote.user.username,
+    //         user_id: vote.user.id,
+    //         movie: opt.movie.title
+    //       })
+    //     }
+    //   }
+    //   return comms;
+    // });
+
+    // const comments = [];
+    // for (oc of optComments) {
+    //   for (comment of oc) {
+    //     comments.push(comment);
+    //   }
+    // }
+
+    // console.log(comments);
+
+    const comments = [
+      {
+        comment: 'OMG. Why.',
+        username: 'UserTwo',
+        user_id: 2,
+        movie: 'Step Brothers (2008)'
+      },
+      {
+        comment: 'This is a tough one. It took me quite some time to come up with the answer.',
+        username: 'UserFive',
+        user_id: 5,
+        movie: 'Borat (2006)'
+      },
+      {
+        comment: 'I get to comment? I get to express myself? That makes me very happy!',
+        username: 'UserTwo',
+        user_id: 2,
+        movie: 'Borat (2006)'
+      },
+      {
+        comment: 'First!',
+        username: 'UserThree',
+        user_id: 3,
+        movie: 'Borat (2006)'
+      },
+      {
+        comment: "Did you know that that movie even existed? I didn't, and I don't know anyone that did.",
+        username: 'UserFive',
+        user_id: 5,
+        movie: 'The Green Hornet (2011)'
+      },
+      {
+        comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt repudiandae adipisci temporibus deleniti unde atque molestiae error molestias at, fuga, enim ducimus magni iusto excepturi quaerat eum nemo eligendi eos fugit dolor!',
+        username: 'UserOne',
+        user_id: 1,
+        movie: 'The Green Hornet (2011)'
+      },
+      {
+        comment: 'Comments can be much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much longer than one sentence.',
+        username: 'UserThree',
+        user_id: 3,
+        movie: 'The Green Hornet (2011)'
+      },
+      {
+        comment: 'Yay for comments!',
+        username: 'UserFour',
+        user_id: 4,
+        movie: 'The Green Hornet (2011)'
+      },
+      {
+        comment: 'Make money from home! I make $5,000 a  month placing tiny ads, in just two hours a week!',
+        username: 'UserOne',
+        user_id: 1,
+        movie: 'The Banshees of Inisherin (2022)'
+      },
+      {
+        comment: 'Comment goes here',
+        username: 'UserFour',
+        user_id: 4,
+        movie: 'The Banshees of Inisherin (2022)'
+      }
+    ];
+    
+
     const poll = {
       title: 'What is your favorite Star Wars movie?',
       description: "This is a great description of this poll. I don't think it's possible to write a better one. I'm very impressed with myself. May the Force be with you.",
@@ -157,7 +265,7 @@ router.get('/vote/:id', async (req, res) => {
     
     
 
-    res.render('vote', { userInfo, css, poll });
+    res.render('vote', { userInfo, css, poll, comments });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

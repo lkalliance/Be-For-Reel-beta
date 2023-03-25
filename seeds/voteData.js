@@ -54,72 +54,74 @@ const voteData = [
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Putting in a comment here, just to be different."
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Comments can be much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much much longer than one sentence."
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: `Let's pretend I put a really long review here. Like really long. Like longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer. Still longer.
+    
+    And with a second paragraph. That's right, two paragraphs, why not?`
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Comment goes here"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "I get to comment? I get to express myself? That makes me very happy!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Yay for comments!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Comment! Boo-yah!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins! Let's go Twins!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "I'm going to say something like a movie snob would. It will probably reference Martin Scorsese or maybe Francois Truffaut or Orson Welles or Federico Fellini or maybe even Stanley Kramer! But not Quentin Tarantino. Never Quentin Tarantino. Oh, wait, I meant Kubrick, not Kramer."
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "First!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "Nth!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "How am I going to explain this comment to my mother?"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "You like me! You really like me!"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
-    comment: ""
+    comment: "So, like, everyone can see this, right?"
   },
   {
     opt_id: Math.trunc((Math.random() * 25)) + 1,
