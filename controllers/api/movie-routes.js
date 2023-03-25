@@ -12,10 +12,16 @@ router.get('/search/:string', async (req, res) => {
       url: `https://imdb-api.com/API/AdvancedSearch/${process.env.IMDB_API_KEY}?title=${req.params.string}&title_type=feature`
     };
 
-    console.log(options);
-    // clean for nc17 or tv-ma
     const movieData = await fetch.request(options);
-    res.status(200).json(movieData.data.results);
+    const returnMovies = movieData.data.results;
+
+    // clean for nc17, tv-ma, x and upcoming
+    let ratedMovies = returnMovies.filter(val => val.contentRating !== "NC-17");
+    ratedMovies = ratedMovies.filter(val => val.contentRating !== "TV-MA");
+    ratedMovies = ratedMovies.filter(val => val.contentRating !== "X");
+    ratedMovies = ratedMovies.filter(val => val.plot !== null);
+
+    res.status(200).json(ratedMovies);
     
   } catch (err) {
     console.log(err);
