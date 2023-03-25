@@ -21,21 +21,26 @@ Opt.belongsTo(Poll);
 
 Opt.hasMany(Vote, {
   foreignKey: 'opt_id'
-})
+});
 Vote.belongsTo(Opt);
 
 Movie.hasMany(Opt, {
   foreignKey: 'movie_id'
-})
+});
 Opt.belongsTo(Movie);
 
 Poll.belongsToMany(Movie, {
   through: Opt
 });
 
-Movie.belongsToMany(Poll, {
+Vote.hasOne(Movie, {
   through: Opt
-});
+})
+
+
+// Movie.belongsToMany(Vote, {
+//   through: Opt
+// })
 
 // Poll.hasMany(Vote, {
 //   through: Opt

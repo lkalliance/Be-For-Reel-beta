@@ -68,7 +68,13 @@
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <h6 class="mt-3 mb-2 text-light">Previous Comments:</h6>
       <ul class="list-group" id="comment-list">
-        <li class="list-group-item">{{this.comment}}</li>
+        {{#each comments as |comment|}}
+        <li class="list-group-item">
+          <a href='/users/{{comment.user_id}}' style="background-color: black;">{{comment.username}}</a>
+            <div>{{comment.movie}}</div>
+            <div>{{comment.comment}}</div>
+        </li>
+        {{/each}}
       </ul>
     </div>
   </div>
