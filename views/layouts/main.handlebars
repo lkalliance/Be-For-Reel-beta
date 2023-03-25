@@ -40,11 +40,12 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="ms-auto list-unstyled">
               <li class="nav-item">
-                {{#if logged_in}}
+                {{#if userInfo.loggedIn}}
+                  {{userInfo.username}} 
                   <a href="/profile">Users</a>
-                  <a href="/createPolls">Create Polls</a>
+                  <a href="/polls/create">Create Polls</a>
                   <a href="/viewPolls">Polls</a>
-                  <a href="/">Logout</a>
+                  {{!-- <a href="/logout">Logout</a> --}}
                   |
                   <button class="no-button" id="logout">logout</button>
                 {{else}}
@@ -75,5 +76,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/logout.js"></script>
   </body>
 </html>

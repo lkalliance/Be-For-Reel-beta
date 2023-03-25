@@ -25,9 +25,6 @@ router.get('/', async (req, res) => {
   }
 }); 
 
-
-
-
 router.get('/login', (req, res) => {
   const css = { url: "/css/login.css" };
   // Route to render login page
