@@ -19,6 +19,8 @@ $(document).ready(() => {
     searchBtn.on("click", async (e) => {
         e.preventDefault();
 
+        console.log("I clicked the search button");
+
         if( searchText.val() == "" ) return;
 
         clearWarning();
@@ -52,10 +54,10 @@ $(document).ready(() => {
         //     {"id":"tt0064373","image":"https://m.media-amazon.com/images/M/MV5BZmI4OGIwZGItYTkyZS00ODFiLTg1OWQtZTJhNGRhZWVmN2I1XkEyXkFqcGdeQXVyMTQ2MjQyNDc@._V1_Ratio0.7041_AL_.jpg","title":"All Monsters Attack","description":"(1969)","runtimeStr":"70 min","genres":"Adventure, Family, Fantasy","genreList":[{"key":"Adventure","value":"Adventure"},{"key":"Family","value":"Family"},{"key":"Fantasy","value":"Fantasy"}],"contentRating":"G","imDbRating":"3.9","imDbRatingVotes":"4924","metacriticRating":null,"plot":"A latchkey child living in the industrial city of Kawasaki confronts his loneliness through his escapist dreams of Monster Island and friendship with Minilla.","stars":"Ishirô Honda, Jun Fukuda, Kengo Furusawa, Kenji Sahara, Machiko Naka, Tomonori Yazaki, Hideyo Amamoto","starList":[{"id":"tt0064373","name":"Ishirô Honda"},{"id":"tt0064373","name":"Jun Fukuda"},{"id":"tt0064373","name":"Kengo Furusawa"},{"id":"tt0064373","name":"Kenji Sahara"},{"id":"tt0064373","name":"Machiko Naka"},{"id":"tt0064373","name":"Tomonori Yazaki"},{"id":"tt0064373","name":"Hideyo Amamoto"}]},
         //     {"id":"tt0067148","image":"https://m.media-amazon.com/images/M/MV5BMjUzNzVlMzUtNDhiMi00MzUzLWE1YjEtY2I5NWJkODU1ODQ5XkEyXkFqcGdeQXVyNTMxMjgxMzA@._V1_Ratio0.7245_AL_.jpg","title":"Godzilla vs. Hedorah","description":"(1971)","runtimeStr":"85 min","genres":"Animation, Action, Family","genreList":[{"key":"Animation","value":"Animation"},{"key":"Action","value":"Action"},{"key":"Family","value":"Family"}],"contentRating":"PG","imDbRating":"6.0","imDbRatingVotes":"5941","metacriticRating":null,"plot":"An ever evolving alien life-form from the Dark Gaseous Nebula arrives to consume rampant pollution. Spewing mists of sulfuric acid and corrosive sludge, neither humanity or Godzilla may be able to defeat this toxic menace.","stars":"Yoshimitsu Banno, Ishirô Honda, Akira Yamanouchi, Toshie Kimura, Hiroyuki Kawase, Toshio Shiba","starList":[{"id":"tt0067148","name":"Yoshimitsu Banno"},{"id":"tt0067148","name":"Ishirô Honda"},{"id":"tt0067148","name":"Akira Yamanouchi"},{"id":"tt0067148","name":"Toshie Kimura"},{"id":"tt0067148","name":"Hiroyuki Kawase"},{"id":"tt0067148","name":"Toshio Shiba"}]}
         // ];
-        
         if ( result.length == 0 ) {
             noResults();
         } else {
+
             for(movie of result) {
                 if (!selectedFilms.includes(movie.id)) {
                     const title = `${movie.title} ${movie.description}`;

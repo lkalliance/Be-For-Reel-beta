@@ -140,6 +140,531 @@ const voteData = [
     opt_id: Math.trunc((Math.random() * 25)) + 1,
     user_id: Math.trunc((Math.random() * 5)) + 1,
     comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
+  },
+  {
+    opt_id: Math.trunc((Math.random() * 25)) + 1,
+    user_id: Math.trunc((Math.random() * 5)) + 1,
+    comment: ""
   }
 ];
 
