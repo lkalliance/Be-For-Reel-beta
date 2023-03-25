@@ -1,0 +1,83 @@
+<div class="container pt-3 pb-3">
+  <div class="row pb-5 mt-3 mb-3">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h2>{{poll.title}}</h2>
+      <p class="lead text-light">{{poll.description}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h6 class="mt-3 mb-2 text-light">Click or tap to make a selection:</h6>
+      <ul class="list-group" id="option-list">
+        {{#each poll.opts}}
+        <li class="list-group-item option" data-option="{{id}}">
+          <h4 class="mb-1 text-center">{{movie.title}}</h4>
+          <div>
+            <div class="actors text-center">
+              <p>{{movie.stars}}</p>
+            </div>
+            <a href="https://www.imdb.com/title/{{movie.imdb_id}}" class="text-dark text-center" target="_blank">IMDb</a>
+          </div>
+          <div>
+            <button
+              class="btn btn-link"
+              data-toggle="collapse"
+              data-target="#option{{this.id}}Collapse"
+              aria-expanded="true"
+              aria-controls="option{{this.id}}Collapse"
+            >More details</button>
+          </div>
+          <div class="collapse" id="option{{id}}Collapse">
+            <p>{{movie.plot}}</p>
+            <a class="custom-link text-left" href="{{movie.trailer}}" target="_blank">Trailer</a>
+            <a class="custom-link" href="{{movie.wikipedia}}" target="_blank">Wikipedia</a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h6 class="mt-3 mb-2 text-light">Leave a comment:</h6>
+      <textarea
+        id="comment"
+        class="form-control"
+        rows="4"
+        placeholder="Type your comment here..." 
+        disabled
+      ></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="text-right">
+
+        <button
+          type="button"
+          id="submit"
+          name="submit"
+          class="custom-btn my-1"
+          disabled
+        > Submit</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h6 class="mt-3 mb-2 text-light">Previous Comments:</h6>
+      <ul class="list-group" id="comment-list">
+        {{#each comments as |comment|}}
+        <li class="list-group-item">
+          <a href='/users/{{comment.user_id}}' style="background-color: black;">{{comment.username}}</a>
+            <div>{{comment.movie}}</div>
+            <div>{{comment.comment}}</div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="/js/vote_polls.js"></script>
