@@ -1,0 +1,71 @@
+<link href="/css/alreadyVoted.css" rel="stylesheet">
+<div class="container pt-3 pb-3">
+  <div class="row pb-5 mt-3 mb-3">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="row justify-content-center">
+   <div class="alert alert-primary d-flex align-items-center" role="alert">
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  <div>
+   ✅ You already voted on this poll!
+  </div>
+</div>
+  </div>
+      <h2>TITLE OF POLL</h2>
+      <p class="lead text-light">Description of the poll goes here.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <ul class="list-group">
+        {{#each options}}
+        <li class="list-group-item option" data-option="{{this.id}}">
+          <h4 class="mb-1 text-center">{{this.title}}</h4>
+          <div>
+            <div class="actors text-center">
+              <p>Starring:</p>
+            </div>
+            <a href="#" class="text-dark text-center">IMDB</a>
+          </div>
+          <div>
+            <button
+              class="btn btn-link"
+              data-toggle="collapse"
+              data-target="#option{{this.id}}Collapse"
+              aria-expanded="true"
+              aria-controls="option{{this.id}}Collapse"
+            >More details</button>
+          </div>
+          <div class="collapse" id="option{{this.id}}Collapse">
+            <p>{{this.summary}}</p>
+            <a class="custom-link text-left" href="#">Trailer</a>
+            <a class="custom-link" href="#">Wikipedia</a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <form id="vote-form">
+        {{#each options}}
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="option" id="option{{this.id}}" value="{{this.id}}">
+          <label class="form-check-label" for="option{{this.id}}">
+            {{this.title}}
+          </label>
+        </div>
+        {{/each}}
+      </form>
+    </div>
+  </div>
+  <div id="results"></div>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <h6 class="mt-3 mb-2 text-light">Previous Comments:</h6>
+         <ul class="list-group">
+        <li class="list-group-item">{{this.comment}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
