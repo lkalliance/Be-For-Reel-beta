@@ -7,7 +7,6 @@
           favorite reels. Particpate, create, and comment on polls about
           your favorite movies.</p>
         <p>
-
         </p>
       </div>
     </div>
@@ -15,102 +14,18 @@
 
   <section class="container my-4 card-section">
     <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
-
-      <div class="col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col custom-col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col custom-col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col custom-col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col custom-col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col custom-col">
-        <div class="card custom-card">
-
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Card title 1</h5>
-            <p class="card-text">This is a short card description.</p>
-          </div>
-        </div>
-      </div>
+      {{#if userInfo.loggedIn}}
+        {{#each showPolls as |poll|}}
+          {{> homepanel_loggedIn}}
+        {{/each}}
+      {{else}}
+        {{#each showPolls as |poll|}}
+          {{> homepanel_notLoggedIn}}
+        {{/each}}
+      {{/if}}
     </div>
   </section>
 
 </main>
 
-{{#if userInfo.loggedIn}}
-  <script src="/js/logout.js"></script>
-{{/if}}
 <script src="/js/homepage.js"></script>
