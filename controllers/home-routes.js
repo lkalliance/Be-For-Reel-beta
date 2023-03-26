@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
     function randomArray(index, reference) {
       const numArray = [];
 
-      while (numArray.length < index) {
+      while (numArray.length < Math.min(index, reference)) {
         const random = Math.trunc(Math.random() * reference);
         if ( !numArray.includes(random) ) numArray.push(random);
       }
