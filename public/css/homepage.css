@@ -31,8 +31,8 @@ body {
 }
 
 .card {
-  max-height: 350px;
-  min-height: 350px;
+  max-height: 400px;
+  min-height: 400px;
   margin-top: 20px;
   background-color: black;
   
@@ -45,9 +45,20 @@ body {
 
 .card-img-top {
   object-fit: cover;
-  max-height: 250px;
+  max-height: 300px;
   object-position: top;
 }
+
+.title-container {
+  height: 60px;
+  overflow: hidden;
+}
+
+.card-body.custom-body {
+  height: 100px !important;
+  padding: 0.5em
+}
+
 
 
 footer {
@@ -65,6 +76,22 @@ footer {
   border-top: solid #1BA098;
   margin-top: 100px;
   font-size: 15px;
+}
+
+.homepage-title {
+  font-family: "Limelight", cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.8),
+    0 0 90px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.8);
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.5);
+  -webkit-text-fill-color: transparent;
 }
 }
 
