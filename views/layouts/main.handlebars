@@ -41,13 +41,13 @@
             <ul class="ms-auto list-unstyled">
               <li class="nav-item">
                 {{#if userInfo.loggedIn}}
-                  {{userInfo.username}} 
+                 <span class="username">{{userInfo.username}}</span> 
                   <a href="/profile">Users</a>
                   <a href="/polls/create">Create Polls</a>
                   <a href="/viewPolls">Polls</a>
                   {{!-- <a href="/logout">Logout</a> --}}
                   |
-                  <button class="no-button" id="logout">logout</button>
+                  <button class="no-button" id="logout">Logout</button>
                 {{else}}
                   <a href="/login">Login</a>
                   <a href="/polls">Polls</a>
