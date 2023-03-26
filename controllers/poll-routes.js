@@ -2,6 +2,39 @@ const router = require('express').Router();
 const isAuth = require('../utils/auth');
 const { Poll, Opt, User, Movie, Vote } = require('../models');
 
+router.get('/', async (req, res) => {
+
+  const userInfo = {
+    username: req.session.username,
+    userId: req.session.userId,
+    loggedIn: req.session.loggedIn
+  }
+  const css = { url: '/css/viewPolls.css' };
+  const today = new Date();
+  const currentYear = { year: today.getFullYear() };
+
+  const pollData = await Poll.findAll({
+    attributes: [ 'id', 'title', 'description', 'created_at' ],
+    include: [
+      {
+        model: User,
+        attributes: [ 'id', 'username' ]
+      },
+      {
+        model: Vote,
+        attributes: [ 'poll_id' ]
+      }
+    ]
+  })
+
+  const polls = await pollData.map((poll) => poll.get({ plain: true }));
+  for ( poll of polls ) {
+    poll.totalVotes = poll.votes.length;
+  }
+
+  res.render('view_polls', { css, userInfo, currentYear, polls })
+})
+
 router.get('/vote/:id', async (req, res) => {
   // Sample
   try {
