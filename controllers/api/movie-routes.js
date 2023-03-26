@@ -39,7 +39,7 @@ router.get('/info/:id', async (req, res) => {
     };
 
     const movieData = await fetch.request(movie);
-    console.log(movieData);
+    //console.log(movieData);
     res.status(200).json(movieData.data);
 
   } catch (err) {

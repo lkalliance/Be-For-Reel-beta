@@ -33,12 +33,15 @@ footer p {
 
 
 a {
-  color: rgb(250, 246, 246) !important; 
+  color: rgb(250, 246, 246) !important;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  transition: color 0.2s ease-in-out; 
+  transition: color 0.2s ease-in-out;
+  padding-right: 10px; 
+  text-decoration: none;
 }
+
 
 h2 {
   font-family: "Limelight", cursive;
@@ -47,7 +50,7 @@ h2 {
   margin-top: 15px;
 }
 a:hover {
-  color: #ccc;
+  color: #DEB992 !important;
 }
 
 .custom-navbar {
@@ -75,6 +78,17 @@ a:hover {
   background-color: transparent;
 }
 
+.card-text {
+  color: white; 
+}
+
+.username {
+  font-weight: bold;
+  font-size: 20px;
+  color: #facc9a;
+  margin-right: 10px;
+    font-family: "Limelight", cursive;
+}
 
 .navbar-brand {
   font-size: 2rem;
@@ -87,6 +101,20 @@ a:hover {
   align-items: center;
 }
 
+.no-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.no-button:hover {
+  color: #DEB992 !important;
+}
 
 .custom-btn {
     background-color: #1BA098 !important;
@@ -96,6 +124,7 @@ a:hover {
 
 .custom-btn:hover {
     background-color: #DEB992 !important;
+    
 }
 
 .footer-container {
