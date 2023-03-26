@@ -47,7 +47,10 @@ $(document).ready(() => {
         const fetchUrl = `/api/polls/vote/${selected}`;
         const fetchObj = {
             method: "POST",
-            body: JSON.stringify(bodyObj)
+            body: JSON.stringify(bodyObj),
+            headers: {
+                'Content-Type': 'application/json',
+            }
         }
 
         await fetch(fetchUrl, fetchObj);
