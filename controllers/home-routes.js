@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
       attributes: [ 'id', 'title', 'description' ],
       include: [{
         model: Movie,
-        attributes: [ 'title', 'imdb_id' ]
+        attributes: [ 'title', 'imdb_id', 'image' ]
       },
       {
         model: User,
@@ -31,14 +31,16 @@ router.get('/', async (req, res) => {
       {
         model: Opt,
         attributes: [ 'id' ],
-        include: {
-          model: Vote,
-          attributes: [ 'id' ]
-        }
+      },
+      {
+        model: Vote,
+        attributes: [ 'poll_id' ]
       }]
     });
     
     const polls = await pollData.map((poll) => poll.get({ plain: true }));
+
+    console.log(polls);
 
     // randomly choose six of them
     const randomPolls = randomArray(6, polls.length);
@@ -53,24 +55,15 @@ router.get('/', async (req, res) => {
         poll_description: poll.description,
         poll_opts: poll.opts,
         user_id: poll.user.id,
-        username: poll.user.username
+        username: poll.user.username,
+        poll_votes: poll.votes.length
       }
 
       const randFilm = poll.movies[Math.trunc(Math.random() * poll.movies.length)];
-      obj.imdb = randFilm.imdb_id;
+      obj.image = randFilm.image;
       showPolls.push(obj);
     }
 
-    // for each, get the picture url and the total votes
-    for ( poll of showPolls ) {
-      const filmDetails = await fetch(`http://localhost:${process.env.PORT || 3001}/api/movies/info/${poll.imdb}`);
-      poll.image = filmDetails.data.image;
-      let votes = 0;
-      for ( opt of poll.poll_opts ) votes = votes + opt.votes.length;
-      poll.votes = votes;
-    }
-
-    console.log(showPolls);
 
     function randomArray(index, reference) {
       const numArray = [];
