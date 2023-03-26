@@ -23,3 +23,7 @@ a{
   .pb-6 {
   padding-bottom: 6rem !important;
 }
+
+.list-group-item {
+    background-color: #000 !important;
+}

@@ -3,3 +3,9 @@
     font-weight: bolder;
     width: 45%;
 }
+
+.background {
+    background-color: rgba(0, 0, 0, .5) !important;
+    color: white;
+    border-bottom: solid #1BA098 !important;
+}

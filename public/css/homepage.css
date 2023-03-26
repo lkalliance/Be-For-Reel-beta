@@ -34,18 +34,21 @@ body {
   max-height: 350px;
   min-height: 350px;
   margin-top: 20px;
+  background-color: black;
   
-}
-
-.card-img-top {
-  object-fit: cover;
-  max-height: 200px;
 }
 
 .card-section {
     margin-bottom: 100px !important;
 
 }
+
+.card-img-top {
+  object-fit: cover;
+  max-height: 250px;
+  object-position: top;
+}
+
 
 footer {
   position: relative; 
