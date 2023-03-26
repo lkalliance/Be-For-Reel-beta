@@ -33,12 +33,15 @@ footer p {
 
 
 a {
-  color: rgb(250, 246, 246) !important; 
+  color: rgb(250, 246, 246) !important;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  transition: color 0.2s ease-in-out; 
+  transition: color 0.2s ease-in-out;
+  padding-right: 10px; 
+  text-decoration: none;
 }
+
 
 h2 {
   font-family: "Limelight", cursive;
@@ -47,7 +50,7 @@ h2 {
   margin-top: 15px;
 }
 a:hover {
-  color: #ccc;
+  color: #DEB992 !important;
 }
 
 .custom-navbar {

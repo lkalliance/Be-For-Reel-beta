@@ -67,9 +67,22 @@ text-align: left;
 }
 
 .selected {
-  background-color: #bab682;
+  background-color: #DEB992 !important;
+}
+
+.option {
+    background-color: rgba(0, 0, 0, .5) !important;
+    color: white;
+    border: solid #1BA098 !important;
 }
 
 .option h4:hover {
   cursor: pointer;
+  
+}
+
+#comment-background {
+    background-color: rgba(0, 0, 0, .5) !important;
+    color: white;
+    border-bottom: solid #1BA098 !important;
 }
