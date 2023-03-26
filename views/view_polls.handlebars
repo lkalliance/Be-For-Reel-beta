@@ -6,19 +6,22 @@
     
           <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
             <div class="row align-items-center">
+              {{#each polls}}
+              
               <div class="col-md-8 mb-3 mb-sm-0">
                 <h5>
-                  <a href="#" class="text-primary">Poll Title</a>
+                  <a href="/polls/vote/{{id}}" class="text-primary">{{title}}</a>
                 </h5>
-                <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">20 minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">username</a></p>
-                <div> <p>description</p></div>
+                <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{format_date created_at}}</a> <span class="op-6">ago by</span> <a class="text-black" href="/users/{{user.id}}">{{user.username}}</a></p>
+                <div> <p>{{description}}</p></div>
               </div>
               <div class="col-md-4 op-7">
                 <div class="row text-center op-7">
-                  <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">{{votes}} Votes</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">{{comment}} Comments</span> </div>
+                  <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">{{totalVotes}} Votes</span> </div>
+                  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">{{totalComments}} Comments</span> </div>
                 </div>
               </div>
+              {{/each}}
             </div>
           </div>
           </div>
