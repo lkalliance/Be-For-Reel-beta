@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
     }
 
     const css = { url: '/css/homepage.css' }
-    const currentYear = { year: new Date().getFullYear() }
+    const today = new Date();
+    const currentYear = { year: today.getFullYear() }
+
+    console.log(currentYear);
 
     // Get all polls and their movies
     const pollData = await Poll.findAll({
@@ -26,6 +29,7 @@ router.get('/', async (req, res) => {
         attributes: [ 'id', 'username' ]
       }]
     });
+    
     const polls = await pollData.map((poll) => poll.get({ plain: true }));
 
     // randomly choose six of them
@@ -72,9 +76,17 @@ router.get('/', async (req, res) => {
 }); 
 
 router.get('/login', (req, res) => {
-  const css = { url: "/css/login.css" };
-  // Route to render login page
-  res.render('login', { css });
+  const userInfo = {
+    username: req.session.username,
+    userId: req.session.userId,
+    loggedIn: req.session.loggedIn
+  }
+
+  const css = { url: '/css/login.css' }
+  const today = new Date();
+  const currentYear = { year: today.getFullYear() }
+// Route to render login page
+  res.render('login', { css, userInfo, currentYear });
 });
 
 
