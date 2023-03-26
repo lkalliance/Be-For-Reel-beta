@@ -20,7 +20,7 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    title: {
+    image: {
       type: DataTypes.STRING,
       allowNull: true,
     },

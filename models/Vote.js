@@ -28,6 +28,14 @@ Vote.init(
         key: "id",
       },
     },
+    poll_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "poll",
+        key: "id"
+      }
+    },
     comment: {
       type: DataTypes.TEXT,
       allownull: true,
