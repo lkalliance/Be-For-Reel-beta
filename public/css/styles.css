@@ -78,6 +78,10 @@ a:hover {
   background-color: transparent;
 }
 
+.card-text {
+  color: white; 
+}
+
 
 .navbar-brand {
   font-size: 2rem;
