@@ -70,7 +70,6 @@ $(document).ready(() => {
             image: selected.dataset.image,
             title: selected.getElementsByTagName("H6")[0].textContent
         });
-        console.log(selectedFilms);
         document.querySelector('#selected').appendChild(selected);
     }
 
@@ -84,7 +83,6 @@ $(document).ready(() => {
                 break;
             }
         }
-        console.log(selectedFilms);
         document.querySelector('#search-results').appendChild(selected);
     }
 
@@ -127,9 +125,11 @@ $(document).ready(() => {
             },
         }
 
+        console.log(bodyObj);
+
         await fetch('/api/polls/create', fetchObj);
 
-        window.location.href = window.location.href;
+        window.location.href = "/polls/vote/1";
     }
 
     function warning(type) {
