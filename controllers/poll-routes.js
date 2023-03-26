@@ -22,14 +22,19 @@ router.get('/', async (req, res) => {
       },
       {
         model: Vote,
-        attributes: [ 'poll_id' ]
+        attributes: [ 'poll_id', 'comment' ]
       }
     ]
   })
 
   const polls = await pollData.map((poll) => poll.get({ plain: true }));
   for ( poll of polls ) {
+    let commentCt = 0;
+    for ( vote of poll.votes ) {
+      if ( vote.comment && vote.comment !== "" ) commentCt++
+    }
     poll.totalVotes = poll.votes.length;
+    poll.totalComments = commentCt;
   }
 
   res.render('view_polls', { css, userInfo, currentYear, polls })
