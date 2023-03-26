@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Poll, Movie } = require('../models');
+const { User, Poll, Movie, Opt, Vote } = require('../models');
 const isAuth = require('../utils/auth');
 const fetch = require('axios');
 
@@ -27,6 +27,14 @@ router.get('/', async (req, res) => {
       {
         model: User,
         attributes: [ 'id', 'username' ]
+      },
+      {
+        model: Opt,
+        attributes: [ 'id' ],
+        include: {
+          model: Vote,
+          attributes: [ 'id' ]
+        }
       }]
     });
     
@@ -39,11 +47,13 @@ router.get('/', async (req, res) => {
     const showPolls = [];
     for (ind of randomPolls) {
       const poll = polls[ind];
-
       const obj = {
         poll_id: poll.id,
         poll_title: poll.title,
-        poll_description: poll.description
+        poll_description: poll.description,
+        poll_opts: poll.opts,
+        user_id: poll.user.id,
+        username: poll.user.username
       }
 
       const randFilm = poll.movies[Math.trunc(Math.random() * poll.movies.length)];
@@ -51,11 +61,16 @@ router.get('/', async (req, res) => {
       showPolls.push(obj);
     }
 
-    // for each, get the picture url
+    // for each, get the picture url and the total votes
     for ( poll of showPolls ) {
       const filmDetails = await fetch(`http://localhost:${process.env.PORT || 3001}/api/movies/info/${poll.imdb}`);
       poll.image = filmDetails.data.image;
+      let votes = 0;
+      for ( opt of poll.poll_opts ) votes = votes + opt.votes.length;
+      poll.votes = votes;
     }
+
+    console.log(showPolls);
 
     function randomArray(index, reference) {
       const numArray = [];
