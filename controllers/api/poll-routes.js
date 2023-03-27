@@ -17,16 +17,39 @@ router.post('/create', async (req, res) => {
             description: req.body.desc,
             user_id: req.session.userId,
         });
-        // const opts = await Opt.bulkCreate({
-        //  const movies = await Movie.findOne({
-        //     where: {
-        //         imbd_id: req.body.films
-        //     }            
-        //  });
+        console.log("poll id");
 
+        // tried for each loop does not create data in the movies while searching
+        const newOpts = await req.body.films.map(element => {
+            console.log(element.imdb_id);
+            const newMovie = Movie.findOne({
+                where: {
+                    imdb_id: element.imdb_id,
+                },
+            })
+            console.log(element.imdb_id, 'search');
+            if (!newMovie) {
+                // Movie.create({
+                //     ...element,
+            // });
+            console.log(element.imdb_id, "not found");
+            }            
+            console.log(newMovie, "newmovie");            
+        });
+        console.log(newOpts, "newopts");
+
+        // pushes data in the movie 
+        // const newMovie = await req.body.films.forEach(element => {
+        //     Movie.create ({
+        //         ...element,
+        //     });
+        // })
+        // console.log(newMovie);
+
+        
         // });
-        console.log(newPoll);
-        res.json();
+        // console.log(newPoll);
+        res.json(newPoll);
     }  catch (err) {
         res.status(500).json(err);
     }
