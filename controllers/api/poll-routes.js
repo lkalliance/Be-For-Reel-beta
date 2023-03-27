@@ -42,13 +42,7 @@ router.post('/create', async (req, res) => {
     }
 });
 
-
-// /vote/[option#] for voting
-
 router.post('/vote/:opt_id', async (req, res) => {
-    console.log(req.body);
-    console.log(req.session.userId);
-    console.log(req.body.option);
     try {
         // get poll id for option id
         const optionID = req.body.option;
@@ -68,7 +62,7 @@ router.post('/vote/:opt_id', async (req, res) => {
                 comment: req.body.comment
             }
         });
-        console.log(vote);
+
         res.json();
     }  catch (err) {
         res.status(500).json(err);
