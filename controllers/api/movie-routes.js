@@ -4,8 +4,8 @@ const withAuth = require('../../utils/auth');
 const { Movie, Poll, Option, User } = require('../../models');
 const fetch = require('axios');
 
-//  add the withAuth to request when finished
-router.get('/search/:string', async (req, res) => {
+
+router.get('/search/:string', withAuth, async (req, res) => {
   // Route to get movies by title search
   try {
     const options = {
@@ -30,7 +30,7 @@ router.get('/search/:string', async (req, res) => {
   }
 });
 
-router.get('/info/:id', async (req, res) => {
+router.get('/info/:id', withAuth, async (req, res) => {
   // Route to get specific movie data
   try {
     const movie = {
