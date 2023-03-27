@@ -44,6 +44,7 @@ router.get('/', async (req, res) => {
 
 
 router.get('/view/:id', async (req, res) => {
+  console.log(req);
   try {
     const userInfo = {
       username: req.session.username,
@@ -66,7 +67,7 @@ router.get('/view/:id', async (req, res) => {
           },
           {
             model: Vote,
-            attributes: [ 'id', 'comment', 'created_at' ],
+            attributes: [ 'id', 'comment', 'user_id', 'created_at' ],
             include: {
               model: User,
               attributes: [ 'username' ]
@@ -83,22 +84,28 @@ router.get('/view/:id', async (req, res) => {
     if ( userInfo.loggedIn ) poll.opts.sort(sortByVotes);
     else poll.opts.sort(sortAlpha);
 
-    // get comments
-
+    
+    // get comments, and sniff for whether this user has voted in this poll
     const comments = [];
+    let hasVoted = false;
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
+        console.log(hasVoted, vote.user_id, req.session.userId);
+        if ( vote.user_id == req.session.user) hasVoted=opt.id;
         if ( vote.comment !== "" ) {
           comments.push({
             movie: opt.movie.title,
             user: vote.user.username,
-            user_id: vote.user.id,
+            user_id: vote.user_id,
             comment: vote.comment,
             created: vote.created_at
           })
         }
+        console.log(hasVoted, vote.user_id, req.session.userId);
+
       }
     }
+    poll.hasVoted = hasVoted;
     comments.sort(sortDates);
     
     function sortByVotes(a, b) {
@@ -121,6 +128,7 @@ router.get('/view/:id', async (req, res) => {
       return (aSort > bSort) ? 1 : -1;
     }
 
+    console.log(poll);
     res.render('view', { userInfo, css, currentYear, poll, comments });
   } catch (err) {
     console.log(err);
