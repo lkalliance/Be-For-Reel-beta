@@ -12,21 +12,36 @@ router.post('/create', async (req, res) => {
     console.log("hi");
     console.log(req.body);
     try {
-        // This works to find and create if not there
-        const newMovie = await req.body.films.map(element => {
-            Movie.findOrCreate({
-                where: { imdb_id: element.imdb_id },
+        // // This works to find and create if not there
+        // const newMovie = await req.body.films.map(element => {
+        //     Movie.findOrCreate({
+        //         where: { imdb_id: element.imdb_id },
+        //         defaults: {
+        //             image: element.image,
+        //             title: element.title,
+        //         }
+        //     }).then(([row, created]) => {
+        //     console.log(element.imdb_id);
+        //     console.log("movie id", row.dataValues.id);
+        //     console.log(created);
+        //     return newMovie.push(row.dataValues.id);
+        //     });
+        // });
+
+        const filmList = [];
+        for (film of req.body.films) {
+            console.log("GO!!!!");
+            const temp = await Movie.findOrCreate({
+                where: { imdb_id: film.imdb_id },
                 defaults: {
-                    image: element.image,
-                    title: element.title,
+                    image: film.image,
+                    title: film.title,
                 }
-            }).then(([row, created]) => {
-            console.log(element.imdb_id);
-            console.log("movie id", row.dataValues.id);
-            console.log(created);
-            return newMovie.push(row.dataValues.id);
-            });
-        });
+            })
+            filmList.push(temp[0].dataValues.id);
+            console.log("NEXT!!!!!");
+         }
+        console.log(filmList);
 
         // creates the poll
         const newPoll = await Poll.create({
@@ -37,9 +52,19 @@ router.post('/create', async (req, res) => {
         
         console.log("poll id ", newPoll.dataValues.id);
 
-        // shows undefined
-        console.log(newMovie);
+        for (opts of filmList) {
+            console.log("go!!");
+            console.log(newPoll.dataValues.id);
+            console.log(opts);
+            const temp = await Opt.create({
+                poll_id: newPoll.dataValues.id,
+                movie_id: opts,
+            })
+            console.log(temp[0].dataValues.id);
+            console.log("next!!");
+        }
 
+     
         // tried for each loop does not create data in the movies while searching
         // const newOpts = await req.body.films.map(element => {
         //     console.log(element.imdb_id);
