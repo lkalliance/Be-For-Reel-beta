@@ -47,6 +47,7 @@ body {
   object-fit: cover;
   max-height: 300px;
   object-position: top;
+  margin-top: -20px;
 }
 
 .title-container {
@@ -93,6 +94,10 @@ footer {
   -webkit-text-stroke: 3px rgba(0, 0, 0, 0.5);
   -webkit-text-fill-color: transparent;
 }
+
+ .custom-about {
+    display: none;
+  }
 }
 
 @keyframes slideIn {
