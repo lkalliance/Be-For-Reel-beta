@@ -6,31 +6,11 @@ const { User, Movie, Poll, Vote, Comment, Opt } = require('../../models');
 //  add the withAuth to request when finished
 
 // /create for the poll
-// create multi functions for each create poll, movie, options
-// then post route with try the multi awaits
 router.post('/create', async (req, res) => {
-    console.log("hi");
-    console.log(req.body);
     try {
-        // // This works to find and create if not there
-        // const newMovie = await req.body.films.map(element => {
-        //     Movie.findOrCreate({
-        //         where: { imdb_id: element.imdb_id },
-        //         defaults: {
-        //             image: element.image,
-        //             title: element.title,
-        //         }
-        //     }).then(([row, created]) => {
-        //     console.log(element.imdb_id);
-        //     console.log("movie id", row.dataValues.id);
-        //     console.log(created);
-        //     return newMovie.push(row.dataValues.id);
-        //     });
-        // });
-
+        // creates or finds movies returns ids
         const filmList = [];
         for (film of req.body.films) {
-            console.log("GO!!!!");
             const temp = await Movie.findOrCreate({
                 where: { imdb_id: film.imdb_id },
                 defaults: {
@@ -39,9 +19,7 @@ router.post('/create', async (req, res) => {
                 }
             })
             filmList.push(temp[0].dataValues.id);
-            console.log("NEXT!!!!!");
          }
-        console.log(filmList);
 
         // creates the poll
         const newPoll = await Poll.create({
@@ -50,60 +28,13 @@ router.post('/create', async (req, res) => {
             user_id: req.session.userId,
         });
         
-        console.log("poll id ", newPoll.dataValues.id);
-
+        // creates the options for polls
         for (opts of filmList) {
-            console.log("go!!");
-            console.log(newPoll.dataValues.id);
-            console.log(opts);
             const temp = await Opt.create({
                 poll_id: newPoll.dataValues.id,
                 movie_id: opts,
             })
-            console.log(temp[0].dataValues.id);
-            console.log("next!!");
         }
-
-     
-        // tried for each loop does not create data in the movies while searching
-        // const newOpts = await req.body.films.map(element => {
-        //     console.log(element.imdb_id);
-        //     const newMovie = Movie.findOne({
-        //         where: {
-        //             imdb_id: element.imdb_id,
-        //         },
-        //     })
-        //     console.log(element.imdb_id, 'search');
-        //     if (!newMovie) {
-        //         // Movie.create({
-        //         //     ...element,
-        //     // });
-        //     console.log(element.imdb_id, "not found");
-        //     }            
-        //     console.log(newMovie, "newmovie");            
-        // });
-        // console.log(newOpts, "newopts");
-
-        // pushes data in the movie 
-        // const newMovie = await req.body.films.forEach(element => {
-        //     Movie.create ({
-        //         ...element,
-        //     });
-        // })
-        // console.log(newMovie);
-
-        // works for finding and adding movies
-        // const newMovie = await req.body.films.map(element => { 
-        //     const movieId = Movie.findOrCreate({
-        //         where: { imdb_id: element.imdb_id },
-        //         defaults: {
-        //             image: element.image,
-        //             title: element.title,
-        //         }
-        //     });
-        //     console.log(element.imdb_id);
-        // });
-       
 
         res.json(newPoll.dataValues.id);
     }  catch (err) {
@@ -114,15 +45,35 @@ router.post('/create', async (req, res) => {
 
 // /vote/[option#] for voting
 
-// router.post('/vote/:opt_id/:poll_id', async (req, res) => {
-//     const vote = req.body
-//     try {
+router.post('/vote/:opt_id', async (req, res) => {
+    console.log(req.body);
+    console.log(req.session.userId);
+    console.log(req.body.option);
+    try {
+        // get poll id for option id
+        const optionID = req.body.option;
+        const pollId = await Opt.findOne({
+            where: {id: optionID}
+        });
+        console.log(pollId.dataValues.poll_id, " yup");
 
-//         res.json();
-//     }  catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+        // check for vote by user 
+        const vote = await Vote.findOrCreate({
+            where: {
+                poll_id: pollId.dataValues.poll_id,
+                user_id: req.session.userId,
+            },
+            defaults: {
+                opt_id: optionID,
+                comment: req.body.comment
+            }
+        });
+        console.log(vote);
+        res.json();
+    }  catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;
