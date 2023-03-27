@@ -24,7 +24,7 @@ router.post('/create', async (req, res) => {
             console.log(element.imdb_id);
             console.log("movie id", row.dataValues.id);
             console.log(created);
-            return row.dataValues.id;
+            return newMovie.push(row.dataValues.id);
             });
         });
 
