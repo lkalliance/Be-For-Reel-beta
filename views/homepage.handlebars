@@ -14,15 +14,9 @@
 
   <section class="container my-4 card-section">
     <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
-      {{#if userInfo.loggedIn}}
         {{#each showPolls as |poll|}}
-          {{> homepanel_loggedIn}}
+          {{> homepanel}}
         {{/each}}
-      {{else}}
-        {{#each showPolls as |poll|}}
-          {{> homepanel_notLoggedIn}}
-        {{/each}}
-      {{/if}}
     </div>
   </section>
 
