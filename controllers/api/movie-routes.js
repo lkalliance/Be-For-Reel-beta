@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
+const withAuth = require('../../utils/auth');
 const { Movie, Poll, Option, User } = require('../../models');
 const fetch = require('axios');
 
-
+//  add the withAuth to request when finished
 router.get('/search/:string', async (req, res) => {
   // Route to get movies by title search
   try {
