@@ -19,6 +19,11 @@ Poll.hasMany(Opt, {
 });
 Opt.belongsTo(Poll);
 
+Poll.hasMany(Vote, {
+  foreignKey: 'poll_id'
+});
+Vote.belongsTo(Poll);
+
 Opt.hasMany(Vote, {
   foreignKey: 'opt_id'
 });
@@ -32,9 +37,5 @@ Opt.belongsTo(Movie);
 Poll.belongsToMany(Movie, {
   through: Opt
 });
-
-Vote.hasOne(Movie, {
-  through: Opt
-})
 
 module.exports = { User, Poll, Opt, Movie, Vote };

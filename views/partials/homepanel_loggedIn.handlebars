@@ -2,13 +2,18 @@
     <div class="card custom-card">
 
         <img
-            src="{{this.image}}"
+            src="{{image}}"
             class="card-img-top"
             alt="..."
         />
-        <div class="card-body">
-            <h5 class="card-title"><a href='/polls/vote/{{poll_id}}'>{{poll_title}}</a></h5>            
-            <p class="card-text">{{poll_description}}</p>
-        </div>
+      <div class="card-body custom-body">
+      <div class="title-container">
+        <h5 class="card-title"><a href='/polls/view/{{poll_id}}'>{{poll_title}}</a></h5>
+      </div>
+      <div class="d-flex justify-content-evenly align-items-start">
+        <p class="card-text">Votes: {{poll_votes}}</p>
+        <p class="card-text">Created by: <a href="/users/{{user_id}}">{{username}}</a></p>
+      </div>
     </div>
+  </div>
 </div>
