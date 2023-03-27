@@ -12,6 +12,22 @@ router.post('/create', async (req, res) => {
     console.log("hi");
     console.log(req.body);
     try {
+        // This works to find and create if not there
+        const newMovie = await req.body.films.map(element => {
+            Movie.findOrCreate({
+                where: { imdb_id: element.imdb_id },
+                defaults: {
+                    image: element.image,
+                    title: element.title,
+                }
+            }).then(([row, created]) => {
+            console.log(element.imdb_id);
+            console.log("movie id", row.dataValues.id);
+            console.log(created);
+            return row.dataValues.id;
+            });
+        });
+
         // creates the poll
         const newPoll = await Poll.create({
             title: req.body.title,
@@ -19,7 +35,10 @@ router.post('/create', async (req, res) => {
             user_id: req.session.userId,
         });
         
-        console.log(newPoll);
+        console.log("poll id ", newPoll.dataValues.id);
+
+        // shows undefined
+        console.log(newMovie);
 
         // tried for each loop does not create data in the movies while searching
         // const newOpts = await req.body.films.map(element => {
@@ -48,23 +67,20 @@ router.post('/create', async (req, res) => {
         // })
         // console.log(newMovie);
 
-        // This works to find and create if not there
-        const newMovie = await req.body.films.map(element => { 
-            const movieId = Movie.findOrCreate({
-                where: { imdb_id: element.imdb_id },
-                defaults: {
-                    image: element.image,
-                    title: element.title,
-                }
-            });
-            console.log(element.imdb_id);
-        });
+        // works for finding and adding movies
+        // const newMovie = await req.body.films.map(element => { 
+        //     const movieId = Movie.findOrCreate({
+        //         where: { imdb_id: element.imdb_id },
+        //         defaults: {
+        //             image: element.image,
+        //             title: element.title,
+        //         }
+        //     });
+        //     console.log(element.imdb_id);
+        // });
+       
 
-        // shows undefined
-        console.log(newMovie);
-        
-
-        res.json(newPoll);
+        res.json(newPoll.dataValues.id);
     }  catch (err) {
         res.status(500).json(err);
     }
