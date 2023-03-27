@@ -20,23 +20,23 @@ router.post('/create', async (req, res) => {
         console.log("poll id");
 
         // tried for each loop does not create data in the movies while searching
-        const newOpts = await req.body.films.map(element => {
-            console.log(element.imdb_id);
-            const newMovie = Movie.findOne({
-                where: {
-                    imdb_id: element.imdb_id,
-                },
-            })
-            console.log(element.imdb_id, 'search');
-            if (!newMovie) {
-                // Movie.create({
-                //     ...element,
-            // });
-            console.log(element.imdb_id, "not found");
-            }            
-            console.log(newMovie, "newmovie");            
-        });
-        console.log(newOpts, "newopts");
+        // const newOpts = await req.body.films.map(element => {
+        //     console.log(element.imdb_id);
+        //     const newMovie = Movie.findOne({
+        //         where: {
+        //             imdb_id: element.imdb_id,
+        //         },
+        //     })
+        //     console.log(element.imdb_id, 'search');
+        //     if (!newMovie) {
+        //         // Movie.create({
+        //         //     ...element,
+        //     // });
+        //     console.log(element.imdb_id, "not found");
+        //     }            
+        //     console.log(newMovie, "newmovie");            
+        // });
+        // console.log(newOpts, "newopts");
 
         // pushes data in the movie 
         // const newMovie = await req.body.films.forEach(element => {
@@ -45,6 +45,18 @@ router.post('/create', async (req, res) => {
         //     });
         // })
         // console.log(newMovie);
+
+        // This works to find and create if not there
+        const [newMovie, createdMovie] = await req.body.films.forEach(element => { 
+            Movie.findOrCreate({
+                where: { imdb_id: element.imdb_id },
+                defaults: {
+                    image: element.image,
+                    title: element.title,
+                }
+            });
+        });
+        console.log(createdMovie);
 
         
         // });
