@@ -58,6 +58,10 @@ router.get('/view/:id', async (req, res) => {
     const pollData = await Poll.findByPk(req.params.id, {
       attributes: [ 'id', 'title', 'description' ],
       include: [{
+          model: User,
+          attributes: [ 'id', 'username' ]
+        },
+        {
         model: Opt,
         attributes: [ 'id', 'movie_id' ],
         include: [
