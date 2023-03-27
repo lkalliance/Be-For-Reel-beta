@@ -12,12 +12,14 @@ router.post('/create', async (req, res) => {
     console.log("hi");
     console.log(req.body);
     try {
+        // creates the poll
         const newPoll = await Poll.create({
             title: req.body.title,
             description: req.body.desc,
             user_id: req.session.userId,
         });
-        console.log("poll id");
+        
+        console.log(newPoll);
 
         // tried for each loop does not create data in the movies while searching
         // const newOpts = await req.body.films.map(element => {
@@ -47,20 +49,21 @@ router.post('/create', async (req, res) => {
         // console.log(newMovie);
 
         // This works to find and create if not there
-        const [newMovie, createdMovie] = await req.body.films.forEach(element => { 
-            Movie.findOrCreate({
+        const newMovie = await req.body.films.map(element => { 
+            const movieId = Movie.findOrCreate({
                 where: { imdb_id: element.imdb_id },
                 defaults: {
                     image: element.image,
                     title: element.title,
                 }
             });
+            console.log(element.imdb_id);
         });
-        console.log(createdMovie);
 
+        // shows undefined
+        console.log(newMovie);
         
-        // });
-        // console.log(newPoll);
+
         res.json(newPoll);
     }  catch (err) {
         res.status(500).json(err);
