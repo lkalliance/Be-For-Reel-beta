@@ -43,14 +43,17 @@
                 {{#if userInfo.loggedIn}}
                  <span class="username">{{userInfo.username}}</span> 
                   <a href="/profile">Users</a>
+                  <a href="/polls">Polls</a>
                   <a href="/polls/create">Create Polls</a>
-                  <a href="/viewPolls">Polls</a>
+                  
                   {{!-- <a href="/logout">Logout</a> --}}
                   |
                   <button class="no-button" id="logout">Logout</button>
                 {{else}}
-                  <a href="/login">Login</a>
-                  <a href="/polls">Polls</a>
+                  <a class="loggedOut" href="/polls">Polls</a>|
+                  
+                  
+                  <a class="loggedOut" href="/login">Login</a> 
                 {{/if}}
               </li>
             </ul>

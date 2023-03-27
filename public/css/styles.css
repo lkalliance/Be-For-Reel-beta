@@ -87,7 +87,7 @@ a:hover {
   font-size: 20px;
   color: #facc9a;
   margin-right: 10px;
-    font-family: "Limelight", cursive;
+
 }
 
 .navbar-brand {
@@ -99,6 +99,10 @@ a:hover {
 .navbar-brand, .collapse {
   display: flex;
   align-items: center;
+}
+
+.loggedOut {
+  padding-left: 6px !important;
 }
 
 .no-button {
