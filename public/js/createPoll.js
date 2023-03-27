@@ -38,9 +38,14 @@ $(document).ready(() => {
         if ( result.length == 0 ) {
             noResults();
         } else {
-
             for(movie of result) {
-                if (!selectedFilms.includes(movie.id)) {
+                let alreadyFound = false;
+                for (film of selectedFilms) {
+                    if (movie.id == film.imdb_id) {
+                        alreadyFound = true;
+                    }
+                }
+                if (!alreadyFound) {
                     const title = `${movie.title} ${movie.description.replace('(I) ', '')}`;
                     const plot = movie.plot;
                     
