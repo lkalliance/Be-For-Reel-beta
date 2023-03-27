@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
       },
       {
         model: Vote,
-        attributes: [ 'poll_id', 'comment' ]
+        attributes: [ 'poll_id' ]
       }
     ]
   })
@@ -40,6 +40,97 @@ router.get('/', async (req, res) => {
   res.render('view_polls', { css, userInfo, currentYear, polls })
 })
 
+
+
+
+router.get('/view/:id', async (req, res) => {
+  try {
+    const userInfo = {
+      username: req.session.username,
+      userId: req.session.userId,
+      loggedIn: req.session.loggedIn
+    }
+    const css = { url: '/css/view.css' };
+    const today = new Date();
+    const currentYear = { year: today.getFullYear() };
+
+    const pollData = await Poll.findByPk(req.params.id, {
+      attributes: [ 'id', 'title', 'description' ],
+      include: [{
+        model: Opt,
+        attributes: [ 'id', 'movie_id' ],
+        include: [
+          {
+            model: Movie,
+            attributes: [ 'id', 'title', 'imdb_id' ]
+          },
+          {
+            model: Vote,
+            attributes: [ 'id', 'comment', 'created_at' ],
+            include: {
+              model: User,
+              attributes: [ 'username' ]
+            }
+          }
+        ]
+      }]
+    });
+    const poll = pollData.get({ plain: true });
+    for (opt of poll.opts) {
+      opt.voteCount = opt.votes.length;
+    }
+
+    if ( userInfo.loggedIn ) poll.opts.sort(sortByVotes);
+    else poll.opts.sort(sortAlpha);
+
+    // get comments
+
+    const comments = [];
+    for ( opt of poll.opts ) {
+      for ( vote of opt.votes ) {
+        if ( vote.comment !== "" ) {
+          comments.push({
+            movie: opt.movie.title,
+            user: vote.user.username,
+            user_id: vote.user.id,
+            comment: vote.comment,
+            created: vote.created_at
+          })
+        }
+      }
+    }
+    comments.sort(sortDates);
+    
+    function sortByVotes(a, b) {
+      return b.voteCount - a.voteCount;
+    }
+
+    function sortDates(a,b) {
+      return b.created - a.created;
+    }
+
+    function sortAlpha(a, b) {
+      const aRaw = a.movie.title;
+      const bRaw = b.movie.title;
+      let aSort, bSort;
+      if (aRaw.startsWith("The ")) { aSort = aRaw.replace("The ", ""); }
+      else { aSort = aRaw }
+      if (bRaw.startsWith("The ")) { bSort = bRaw.replace("The ", ""); }
+      else { bSort = bRaw }
+
+      return (aSort > bSort) ? 1 : -1;
+    }
+
+    res.render('view', { userInfo, css, currentYear, poll, comments });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 router.get('/vote/:id', async (req, res) => {
   // Sample
   try {
@@ -49,6 +140,13 @@ router.get('/vote/:id', async (req, res) => {
       loggedIn: req.session.loggedIn
     }
     const css = { url: '/css/vote.css' };
+    const today = new Date();
+    const currentYear = { year: today.getFullYear() };
+
+    if (!userInfo.loggedIn) {
+      res.redirect(`/polls/view/${req.params.id}`);
+      return;
+    }
 
     // const pollData = await Poll.findByPk(req.params.id, {
     //   attributes: [ 'id', 'title', 'description' ],
@@ -284,7 +382,7 @@ router.get('/vote/:id', async (req, res) => {
     
     
 
-    res.render('vote', { userInfo, css, poll, comments });
+    res.render('vote', { userInfo, css, currentYear, poll, comments });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
