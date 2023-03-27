@@ -151,29 +151,4 @@
 
 
 
-// code for footer scrolling 
-
-document.addEventListener("DOMContentLoaded", function () {
-  function toggleFooterVisibility() {
-    const footer = document.querySelector("footer");
-    const scrollHeight = document.documentElement.scrollHeight;
-    const scrollPosition = window.innerHeight + window.scrollY;
-
-    if (
-      scrollHeight <= window.innerHeight ||
-      scrollHeight - scrollPosition <= 1
-    ) {
-      footer.style.display = "block";
-    } else {
-      footer.style.display = "none";
-    }
-  }
-
-  // Call the function once on page load to set the initial visibility
-  toggleFooterVisibility();
-
-  // Add the event listener to update the footer visibility on scroll
-  window.addEventListener("scroll", toggleFooterVisibility);
-});
-
 

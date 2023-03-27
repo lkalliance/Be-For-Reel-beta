@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-12 col-md-6">
           <form id="poll-data">
-            <label for="titleText">Enter your poll's title</label>
-            <input id="titleText" />
+            <label for="titleText" id="title-label">Enter your poll's title</label>
+            <input id="titleText" placeholder="(80 characters max)" />
             <label for="descText">Enter your poll's description</label>
-            <textarea id="descText"></textarea>
+            <textarea id="descText" placeholder="(optional)"></textarea>
           </form>
         </div>
         <div class="col-12 col-md-6">
@@ -15,7 +15,11 @@
             <label for="searchField">Enter all or part of a movie title</label>
             <input id="searchField" />
             <button class="custom-btn" id="searchBtn">Search</button>
+            <div>
+              In the search results below, click or tap on a movie to select it for your poll. Click or tap it again to remove it from the poll.
+            </div>
           </form>
+         
         </div>
         <div class="col-12 col-md-6">
             <ul id="selected" class="list-group">

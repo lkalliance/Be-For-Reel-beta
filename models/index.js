@@ -5,52 +5,37 @@ const Vote = require("./Vote");
 const Opt = require("./Opt");
 
 User.hasMany(Poll, {
-  foreignKey: "user_id",
+  foreignKey: 'user_id'
 });
+Poll.belongsTo(User);
 
 User.hasMany(Vote, {
-  foreignKey: "user_id",
+  foreignKey: 'user_id'
 });
+Vote.belongsTo(User);
 
 Poll.hasMany(Opt, {
-  foreignKey: "poll_id",
+  foreignKey: 'poll_id'
 });
+Opt.belongsTo(Poll);
+
+Poll.hasMany(Vote, {
+  foreignKey: 'poll_id'
+});
+Vote.belongsTo(Poll);
 
 Opt.hasMany(Vote, {
-  foreignKey: "vote_id",
+  foreignKey: 'opt_id'
 });
+Vote.belongsTo(Opt);
 
-Opt.hasOne(Movie, {
-  foreignKey: "movie_id",
+Movie.hasMany(Opt, {
+  foreignKey: 'movie_id'
 });
-
-Poll.belongsTo(User, {
-  foreignKey: "user_id",
-});
-
-Opt.belongsTo(Poll, {
-  foreignKey: "poll_id",
-});
-
-Vote.belongsTo(User, {
-  foreignKey: "user_id",
-});
-
-Vote.belongsTo(Opt, {
-  foreignKey: "Opt_id",
-});
-
-Movie.belongsToMany(Opt, {
-  through: "movie_id",
-});
+Opt.belongsTo(Movie);
 
 Poll.belongsToMany(Movie, {
-  through: Opt,
+  through: Opt
 });
-
-Movie.belongsToMany(Poll, {
-  through: Opt,
-});
-
 
 module.exports = { User, Poll, Opt, Movie, Vote };

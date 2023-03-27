@@ -1,29 +1,29 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  height: 100%; 
+  height: 100vh;
   margin: 0;
-   background-image: url('../images/all.jpg');
+  background-image: url('../images/all.jpg');
   background-size: cover;
-  
- 
+  padding: 20px;
+  background-color: #001d2c;
+  background-repeat: no-repeat;
+
 }
 
 header {
-  border-bottom: solid white;
-  padding: 10px
+  border-bottom: solid #1BA098;
+  padding: 7px;
 
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #fff !important;
-  padding: 40px 30px 30px; 
-  display: none; 
-  line-height: 1.2;
+  position: relative; 
+  height: 70px; 
+  color: white;
+  padding: 0px;
+  border-top: solid #1BA098;
+  margin-top: 90px;
 }
 
 
@@ -33,20 +33,24 @@ footer p {
 
 
 a {
-  color: rgb(250, 246, 246) !important; 
+  color: rgb(250, 246, 246) !important;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  transition: color 0.2s ease-in-out; 
+  transition: color 0.2s ease-in-out;
+  padding-right: 10px; 
+  text-decoration: none;
 }
+
 
 h2 {
   font-family: "Limelight", cursive;
-  color: white !important;
+  color: white;
   text-align: center;
+  margin-top: 15px;
 }
 a:hover {
-  color: #ccc;
+  color: #DEB992 !important;
 }
 
 .custom-navbar {
@@ -55,13 +59,13 @@ a:hover {
 }
 
 .navbar-toggler {
-  border-color: white solid 3px;
-  background-color: rgba(255, 251, 251, 0.2); /* Adds a semi-transparent white background */
-  border-radius: 5px; /* Optional: Adds rounded corners */
+  border-color: white solid 3px !important;
+  background-color: rgba(226, 221, 221, 0.2) !important;
+  border-radius: 5px !important; 
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 
@@ -74,11 +78,57 @@ a:hover {
   background-color: transparent;
 }
 
+.card-text {
+  color: white; 
+}
+
+.username {
+  font-weight: bold;
+  font-size: 20px;
+  color: #facc9a;
+  margin-right: 10px;
+
+}
 
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
   color: rgb(255, 255, 255); 
+}
+
+.navbar-brand, .collapse {
+  display: flex;
+  align-items: center;
+}
+
+.loggedOut {
+  padding-left: 6px !important;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.no-button:hover {
+  color: #DEB992 !important;
+}
+
+.custom-btn {
+    background-color: #1BA098 !important;
+     border: solid #1BA098 1px; 
+     border-radius: 3px;
+}
+
+.custom-btn:hover {
+    background-color: #DEB992 !important;
+    
 }
 
 .footer-container {
@@ -102,4 +152,3 @@ a:hover {
 .imdbRight {
   display: inline-block;
 }
-
