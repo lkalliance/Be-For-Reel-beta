@@ -14,7 +14,13 @@ router.get('/', async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() }
 
-    res.render('userList', { userInfo, css, currentYear });
+    const userData = await User.findAll({
+      attributes: [ 'username', 'id', 'created_at' ],
+      order: [[ 'username', 'ASC' ]]
+    });
+    const users = await userData.map((user) => user.get({ plain: true }));
+
+    res.render('userList', { userInfo, css, currentYear, users });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

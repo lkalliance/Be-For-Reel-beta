@@ -30,7 +30,7 @@ router.get('/search/:string', withAuth, async (req, res) => {
   }
 });
 
-router.get('/info/:id', withAuth, async (req, res) => {
+router.get('/info/:id', async (req, res) => {
   // Route to get specific movie data
   try {
     const movie = {

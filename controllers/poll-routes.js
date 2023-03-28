@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const isAuth = require('../utils/auth');
 const { Poll, Opt, User, Movie, Vote } = require('../models');
+const fetch = require('axios');
 
 router.get('/', async (req, res) => {
 
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
       },
       {
         model: Vote,
-        attributes: [ 'poll_id' ]
+        attributes: [ 'poll_id', 'comment' ]
       }
     ]
   })
@@ -32,7 +33,9 @@ router.get('/', async (req, res) => {
   for ( poll of polls ) {
     let commentCt = 0;
     for ( vote of poll.votes ) {
+      console.log(vote);
       if ( vote.comment && vote.comment !== "" ) commentCt++
+      console.log(commentCt);
     }
     poll.totalVotes = poll.votes.length;
     poll.totalComments = commentCt;
@@ -46,7 +49,6 @@ router.get('/', async (req, res) => {
 
 
 router.get('/view/:id', async (req, res) => {
-  console.log(req);
   try {
     const userInfo = {
       username: req.session.username,
@@ -83,8 +85,16 @@ router.get('/view/:id', async (req, res) => {
       }]
     });
     const poll = pollData.get({ plain: true });
+    let topVotes = 0;
     for (opt of poll.opts) {
+      const voteString = `${opt.votes.length} vote${(opt.votes.length == 1) ? "" : "s"}`;
+      opt.voteString = voteString;
       opt.voteCount = opt.votes.length;
+      topVotes = Math.max(topVotes, opt.voteCount);
+    }
+    for (opt of poll.opts) {
+      if (opt.voteCount == topVotes) opt.voteClass = "top";
+      else opt.voteClass = "";
     }
 
     if ( userInfo.loggedIn ) poll.opts.sort(sortByVotes);
@@ -96,7 +106,8 @@ router.get('/view/:id', async (req, res) => {
     let hasVoted = false;
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        if ( vote.user_id == req.session.user) hasVoted=opt.id;
+        if ( vote.user_id == req.session.userId) opt.votedClass="voted";
+        else opt.votedClass="";
         if ( vote.comment !== "" ) {
           comments.push({
             movie: opt.movie.title,
@@ -107,6 +118,20 @@ router.get('/view/:id', async (req, res) => {
           })
         }
       }
+      const fetchUrl = `http://localhost:${process.env.PORT || 3001}/api/movies/info/${opt.movie.imdb_id}`;
+      const movieData = await fetch(fetchUrl);
+      opt.movie.stars = movieData.data.stars;
+      opt.movie.plot = movieData.data.plot;
+      opt.movie.wikipedia = movieData.data.wikipedia.url;
+      opt.movie.image = movieData.data.image;
+      opt.movie.trailer = movieData.data.trailer.link;
+      opt.movie.genres = movieData.data.genres;
+      opt.movie.rating = movieData.data.contentRating;
+      opt.movie.imdb_rating = movieData.data.imDbRating;
+      opt.movie.usaGross = movieData.data.boxOffice.grossUSA;
+      opt.movie.worldwideGross = movieData.data.boxOffice.cumulativeWOldWideGross;
+
+      console.log(opt);
     }
     poll.hasVoted = hasVoted;
     comments.sort(sortDates);
@@ -130,8 +155,6 @@ router.get('/view/:id', async (req, res) => {
 
       return (aSort > bSort) ? 1 : -1;
     }
-
-    console.log(poll);
     res.render('view', { userInfo, css, currentYear, poll, comments });
   } catch (err) {
     console.log(err);
@@ -187,7 +210,7 @@ router.get('/vote/:id', async (req, res) => {
     const comments = [];
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        if ( vote.user_id == req.session.user) {
+        if ( vote.user_id == req.session.userId) {
           res.redirect(`/polls/view/${req.params.id}`);
           return;
         };
@@ -201,6 +224,18 @@ router.get('/vote/:id', async (req, res) => {
           })
         }
       }
+      const fetchUrl = `http://localhost:${process.env.PORT || 3001}/api/movies/info/${opt.movie.imdb_id}`;
+      const movieData = await fetch(fetchUrl);
+      opt.movie.stars = movieData.data.stars;
+      opt.movie.plot = movieData.data.plot;
+      opt.movie.wikipedia = movieData.data.wikipedia.url;
+      opt.movie.image = movieData.data.image;
+      opt.movie.trailer = movieData.data.trailer.link;
+      opt.movie.genres = movieData.data.genres;
+      opt.movie.rating = movieData.data.contentRating;
+      opt.movie.imdb_rating = movieData.data.imDbRating;
+      opt.movie.usaGross = movieData.data.boxOffice.grossUSA;
+      opt.movie.worldwideGross = movieData.data.boxOffice.cumulativeWOldWideGross;
     }
     comments.sort(sortDates);
 

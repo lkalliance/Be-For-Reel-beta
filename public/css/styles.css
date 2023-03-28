@@ -1,47 +1,63 @@
+:root {
+  --link: #deb992;
+  --secondary-color: #1ba098;
+  --tertiary-color: rgb(28, 59, 91);
+}
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 body {
-  font-family: 'Raleway', sans-serif;
-  height: 100vh;
+  flex-grow: 1;
+  position: relative;
+  font-family: "Raleway", sans-serif;
   margin: 0;
-  background-image: url('../images/all.jpg');
+  background-image: url("../images/all.jpg");
   background-size: cover;
   padding: 20px;
+  padding-bottom: 75px;
   background-color: #001d2c;
   background-repeat: no-repeat;
-
 }
 
 header {
-  border-bottom: solid #1BA098;
+  border-bottom: solid var(--secondary-color);
   padding: 7px;
-
 }
 
 footer {
-  position: relative; 
-  height: 70px; 
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: calc(100vw - 40px);
   color: white;
   padding: 0px;
-  border-top: solid #1BA098;
+  border-top: solid var(--secondary-color);
   margin-top: 90px;
 }
-
 
 footer p {
   text-align: left;
 }
 
+footer #imdb-icon {
+  height: 22px;
+  position: relative;
+  top: -2px;
+}
 
 a {
   color: rgb(250, 246, 246) !important;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   transition: color 0.2s ease-in-out;
-  padding-right: 10px; 
+  padding-right: 10px;
   text-decoration: none;
 }
-
 
 h2 {
   font-family: "Limelight", cursive;
@@ -50,7 +66,7 @@ h2 {
   margin-top: 15px;
 }
 a:hover {
-  color: #DEB992 !important;
+  color: var(--link) !important;
 }
 
 .custom-navbar {
@@ -61,16 +77,15 @@ a:hover {
 .navbar-toggler {
   border-color: white solid 3px !important;
   background-color: rgba(226, 221, 221, 0.2) !important;
-  border-radius: 5px !important; 
+  border-radius: 5px !important;
 }
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-
 .custom-header {
- padding: auto;
+  padding: auto;
   top: 0;
   left: 0;
   right: 0;
@@ -79,24 +94,23 @@ a:hover {
 }
 
 .card-text {
-  color: white; 
+  color: white;
 }
 
 .username {
   font-weight: bold;
   font-size: 20px;
-  color: #facc9a;
-  margin-right: 10px;
-
+  color: var(--link) !important;
 }
 
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
-  color: rgb(255, 255, 255); 
+  color: rgb(255, 255, 255);
 }
 
-.navbar-brand, .collapse {
+.navbar-brand,
+.collapse {
   display: flex;
   align-items: center;
 }
@@ -113,28 +127,28 @@ a:hover {
   font-size: 1em;
   margin-left: 10px;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .no-button:hover {
-  color: #DEB992 !important;
+  color: var(--link) !important;
 }
 
 .custom-btn {
-    background-color: #1BA098 !important;
-     border: solid #1BA098 1px; 
-     border-radius: 3px;
+  background-color: var(--secondary-color) !important;
+  border: solid var(--secondary-color) 1px;
+  border-radius: 3px;
 }
 
 .custom-btn:hover {
-    background-color: #DEB992 !important;
-    
+  background-color: var(--link) !important;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  padding-top: 6px;
   width: 100%;
   height: 100%;
 }
@@ -151,4 +165,119 @@ a:hover {
 
 .imdbRight {
   display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 20px;
+  }
+  .navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: -15px;
+    min-height: 10px;
+  }
+  .navbar-collapse {
+    background-color: #001d2c;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow-y: auto;
+    text-align: center;
+    width: 50%;
+    height: calc(100vh - 560px);
+    padding: 15px;
+    transition: transform 0.1s ease-in-out;
+  }
+  .navbar-collapse.show {
+    transform: translateY(0);
+  }
+  
+}
+
+@media only screen and (max-width: 440px) {
+  footer {
+    font-size: 0.8em;
+    line-height: 1.3em
+  }
+  footer #imdb-icon {
+    height: 20px;
+    top: -5px;
+  }
+}
+
+
+/* LOADING ANIMATION */
+
+.loading-screen{
+  display: flex;
+  visibility: visible;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-screen.hidden {
+  visibility: hidden;
+}
+
+.loading{
+  width: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.loading span{
+  width: 32px;
+  height: 32px;
+  background-color: red;
+  margin: 3px;
+  animation: scale 1.5s linear infinite;
+}
+
+@keyframes scale{
+  50%{
+    transform: scale(1.2);
+  }
+}
+
+.loading span:nth-child(1){
+  border-radius: 50% 50% 0 50%;
+  background-color: #ffbe0b;
+  transform-origin: bottom right;
+}
+
+.loading span:nth-child(2){
+  border-radius: 50% 50% 50% 0;
+  background-color: #ff006e;
+  transform-origin: bottom left;
+  animation-delay: .5s;
+}
+
+.loading span:nth-child(3){
+  border-radius: 50% 0 50% 50%;
+  background-color: #fb5607;
+  transform-origin: top right;
+  animation-delay: 1.5s;
+}
+
+.loading span:nth-child(4){
+  border-radius: 0 50% 50% 50%;
+  background-color: #8338ec;
+  transform-origin: top left;
+  animation-delay: 1s;
 }

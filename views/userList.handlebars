@@ -1,24 +1,5 @@
-<div class="container my-3">
-  <h2 class="text-center title-margin">Users</h2>
-  <div class="row pb-5">
-    <div class="col-sm-10 col-md-9 mx-auto mb-3">
-      {{#each user}}
-        <div
-          class="card row-hover pos-relative py-3 px-3 mb-3 rounded-0 border"
-        >
-          <div class="row align-items-center">
-            <div class="col-sm-8 mb-3 mb-sm-0">
-              <h5 class="mb-1">
-                <a href="/users/{{user.id}}" class="text-primary">{{user}}</a>
-              </h5>
-              <p class="text-sm my-1">
-                <span class="op-6 text-light">Joined</span>
-                <a class="text-light" href="#">{{format_date created_at}}</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  </div>
-</div>
+{{#each data}}
+  <p>
+    <strong>{{username}}</strong> ({{email}})
+  </p>
+{{/each}}
