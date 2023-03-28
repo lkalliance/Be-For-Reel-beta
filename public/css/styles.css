@@ -43,6 +43,12 @@ footer p {
   text-align: left;
 }
 
+footer #imdb-icon {
+  height: 22px;
+  position: relative;
+  top: -2px;
+}
+
 a {
   color: rgb(250, 246, 246) !important;
   font-family: "Raleway", sans-serif;
@@ -141,7 +147,8 @@ a:hover {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  padding-top: 6px;
   width: 100%;
   height: 100%;
 }
@@ -186,6 +193,18 @@ a:hover {
   }
   .navbar-collapse.show {
     transform: translateY(0);
+  }
+  
+}
+
+@media only screen and (max-width: 440px) {
+  footer {
+    font-size: 0.8em;
+    line-height: 1.3em
+  }
+  footer #imdb-icon {
+    height: 20px;
+    top: -5px;
   }
 }
 
