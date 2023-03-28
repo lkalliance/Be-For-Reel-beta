@@ -90,6 +90,11 @@
   text-align: center;
 }
 
+.vote-count {
+  text-align: end;
+}
+
+
 #comment-background {
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: white;
