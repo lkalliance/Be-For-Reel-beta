@@ -1,0 +1,19 @@
+h2 em {
+    color: var(--link);
+    font-style: normal;
+}
+
+main {
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 1em;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    main {
+        margin: 12px 20%;
+    }
+  }
