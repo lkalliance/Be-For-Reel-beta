@@ -29,7 +29,7 @@ h6 {
 
 #selected li:last-child,
 #search-results li:last-child {
-    border-bottom-color: rgba(0, 0, 0, .125);
+    border-bottom-color: var(--tertiary-color);
 }
 
 #selected li#selected-header,
