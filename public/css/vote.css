@@ -104,3 +104,9 @@ text-align: left;
 #submit.disabled:hover {
   cursor: not-allowed;
 }
+
+@media screen and (max-width: 650px) {
+    h4 {
+        font-size: 15px;
+    }
+}

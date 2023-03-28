@@ -36,7 +36,7 @@ a {
 .card {
   background-color: rgba(0, 0, 0, .5);
   border: 1px solid white;
-  border-bottom: #00ADBB;
+  
 }
 
 .card:hover {
@@ -64,17 +64,8 @@ a {
 
 }
 
-.custom-border:last-child {
-  border-bottom: 1px solid rgb(230, 222, 222);
-}
-
 .card-row {
   border: 1px solid rgb(243, 232, 232);
-}
-
-.card-row .posted-by,
-.card-row .votes-comments {
-  border-bottom: 1px solid rgb(225, 211, 211);
 }
 
 .text-sm span.op-6 + a {
