@@ -68,6 +68,11 @@ input {
     margin-bottom: 8px;
 }
 
+form#poll-data textarea,
+form#poll-data input {
+    width: 100%;
+}
+
 textarea:last-child,
 input:last-child {
     margin-bottom: 0;
@@ -78,10 +83,15 @@ ul#selected + button {
 }
 
 li.warning {
-    border-color: #990000;
+    border-color: #cb1d1d;
+    border-width: 3px;
 }
 
 label.warning {
-    color: #990000;
+    color: #cb1d1d;
+    font-weight: bold;
 }
 
+#savePollBtn {
+    margin-bottom: 10px;
+}
