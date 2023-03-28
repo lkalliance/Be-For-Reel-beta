@@ -74,6 +74,8 @@
 
                   <a class="loggedOut" href="/login">Login</a>
                 {{/if}}
+                  <a class="no-button" href="/about">About</a>
+
               </li>
             </ul>
           </div>
@@ -91,9 +93,20 @@
           {{currentYear.year}}
           Be For Reel App. All rights reserved.</p>
         <p class="powered-by">Powered by
-          <i class="fab fa-imdb imdb-icon"></i></p>
+          <a href="https://www.imdb.com" target="_blank"><img src="/images/imdb-icon-48.png" id="imdb-icon" /></a>
+          {{!-- <i class="fab fa-imdb imdb-icon"></i> --}}
+          </p>
       </div>
     </footer>
+
+    <div class="loading-screen hidden" id="spinner">
+      <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

@@ -17,6 +17,10 @@ li.list-group-item {
     border-bottom-color: rgba(255, 255, 255, .125);
 }
 
+ul {
+    padding-left: 0;
+}
+
 ul li:last-child {
     border-bottom-color: rgba(0, 0, 0, .125);
 }

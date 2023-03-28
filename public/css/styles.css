@@ -4,13 +4,21 @@
   --tertiary-color: rgb(28, 59, 91);
 }
 
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
+  flex-grow: 1;
+  position: relative;
   font-family: "Raleway", sans-serif;
-  height: 100vh;
   margin: 0;
   background-image: url("../images/all.jpg");
   background-size: cover;
   padding: 20px;
+  padding-bottom: 75px;
   background-color: #001d2c;
   background-repeat: no-repeat;
 }
@@ -21,8 +29,10 @@ header {
 }
 
 footer {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   height: 70px;
+  width: calc(100vw - 40px);
   color: white;
   padding: 0px;
   border-top: solid var(--secondary-color);
@@ -31,6 +41,12 @@ footer {
 
 footer p {
   text-align: left;
+}
+
+footer #imdb-icon {
+  height: 22px;
+  position: relative;
+  top: -2px;
 }
 
 a {
@@ -131,7 +147,8 @@ a:hover {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  padding-top: 6px;
   width: 100%;
   height: 100%;
 }
@@ -177,4 +194,90 @@ a:hover {
   .navbar-collapse.show {
     transform: translateY(0);
   }
+  
+}
+
+@media only screen and (max-width: 440px) {
+  footer {
+    font-size: 0.8em;
+    line-height: 1.3em
+  }
+  footer #imdb-icon {
+    height: 20px;
+    top: -5px;
+  }
+}
+
+
+/* LOADING ANIMATION */
+
+.loading-screen{
+  display: flex;
+  visibility: visible;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .8);
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-screen.hidden {
+  visibility: hidden;
+}
+
+.loading{
+  width: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate{
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.loading span{
+  width: 32px;
+  height: 32px;
+  background-color: red;
+  margin: 3px;
+  animation: scale 1.5s linear infinite;
+}
+
+@keyframes scale{
+  50%{
+    transform: scale(1.2);
+  }
+}
+
+.loading span:nth-child(1){
+  border-radius: 50% 50% 0 50%;
+  background-color: #ffbe0b;
+  transform-origin: bottom right;
+}
+
+.loading span:nth-child(2){
+  border-radius: 50% 50% 50% 0;
+  background-color: #ff006e;
+  transform-origin: bottom left;
+  animation-delay: .5s;
+}
+
+.loading span:nth-child(3){
+  border-radius: 50% 0 50% 50%;
+  background-color: #fb5607;
+  transform-origin: top right;
+  animation-delay: 1.5s;
+}
+
+.loading span:nth-child(4){
+  border-radius: 0 50% 50% 50%;
+  background-color: #8338ec;
+  transform-origin: top left;
+  animation-delay: 1s;
 }
