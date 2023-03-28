@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
       },
       {
         model: Vote,
-        attributes: [ 'poll_id' ]
+        attributes: [ 'poll_id', 'comment' ]
       }
     ]
   })
@@ -32,7 +32,9 @@ router.get('/', async (req, res) => {
   for ( poll of polls ) {
     let commentCt = 0;
     for ( vote of poll.votes ) {
+      console.log(vote);
       if ( vote.comment && vote.comment !== "" ) commentCt++
+      console.log(commentCt);
     }
     poll.totalVotes = poll.votes.length;
     poll.totalComments = commentCt;
@@ -187,7 +189,9 @@ router.get('/vote/:id', async (req, res) => {
     const comments = [];
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        if ( vote.user_id == req.session.user) {
+
+        if ( vote.user_id == req.session.userId) {
+          console.log('REDIRECTION!')
           res.redirect(`/polls/view/${req.params.id}`);
           return;
         };
@@ -220,6 +224,11 @@ router.get('/vote/:id', async (req, res) => {
     function sortDates(a,b) {
       return b.created - a.created;
     }
+
+   for (opt of poll.opts) {
+    console.log(opt);
+   }
+    console.log(comments);
 
     res.render('vote', { userInfo, css, currentYear, poll, comments });
   } catch (err) {
