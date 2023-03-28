@@ -3,10 +3,8 @@ const bcrypt = require('bcrypt');
 const withAuth = require('../../utils/auth');
 const { User, Movie, Poll, Vote, Comment, Opt } = require('../../models');
 
-//  add the withAuth to request when finished
 
-// /create for the poll
-router.post('/create', async (req, res) => {
+router.post('/create', withAuth, async (req, res) => {
     try {
         // creates or finds movies returns ids
         const filmList = [];
@@ -42,24 +40,25 @@ router.post('/create', async (req, res) => {
     }
 });
 
-router.post('/vote/:opt_id', async (req, res) => {
+
+router.post('/vote/:opt_id', withAuth, async (req, res) => {
+
     try {
         // get poll id for option id
         const optionID = req.body.option;
         const pollId = await Opt.findOne({
             where: {id: optionID}
         });
-        console.log(pollId.dataValues.poll_id, " yup");
 
-        // check for vote by user 
+        // check for vote by user id and poll id
         const vote = await Vote.findOrCreate({
             where: {
-                poll_id: pollId.dataValues.poll_id,
                 user_id: req.session.userId,
+                poll_id: pollId.dataValues.poll_id,
             },
             defaults: {
-                opt_id: optionID,
-                comment: req.body.comment
+                opt_id: req.body.option,
+                comment: req.body.comment,
             }
         });
 

@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
   const currentYear = { year: today.getFullYear() };
 
   const pollData = await Poll.findAll({
+    order: [['created_at', 'DESC']],
     attributes: [ 'id', 'title', 'description', 'created_at' ],
     include: [
       {
@@ -37,6 +38,7 @@ router.get('/', async (req, res) => {
     poll.totalComments = commentCt;
   }
 
+  console.log(polls);
   res.render('view_polls', { css, userInfo, currentYear, polls })
 })
 
@@ -58,6 +60,10 @@ router.get('/view/:id', async (req, res) => {
     const pollData = await Poll.findByPk(req.params.id, {
       attributes: [ 'id', 'title', 'description' ],
       include: [{
+          model: User,
+          attributes: [ 'id', 'username' ]
+        },
+        {
         model: Opt,
         attributes: [ 'id', 'movie_id' ],
         include: [
@@ -90,7 +96,6 @@ router.get('/view/:id', async (req, res) => {
     let hasVoted = false;
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        console.log(hasVoted, vote.user_id, req.session.userId);
         if ( vote.user_id == req.session.user) hasVoted=opt.id;
         if ( vote.comment !== "" ) {
           comments.push({
@@ -101,8 +106,6 @@ router.get('/view/:id', async (req, res) => {
             created: vote.created_at
           })
         }
-        console.log(hasVoted, vote.user_id, req.session.userId);
-
       }
     }
     poll.hasVoted = hasVoted;

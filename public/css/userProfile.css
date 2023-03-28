@@ -1,1 +1,27 @@
-/* */
+cite {
+    font-size: .9em;
+    line-height: 1.2em;
+    font-style: normal;
+    color: #bbbbbb;
+    margin-top: 8px;
+}
+
+h6 cite {
+    font-weight: bold;
+    color: #888888;
+}
+
+li.list-group-item {
+    background-color:rgba(0, 0, 0, .5);
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, .125);
+}
+
+ul li:last-child {
+    border-bottom-color: rgba(0, 0, 0, .125);
+}
+
+ul li.header {
+    background-color: rgb(28, 59, 91);
+    color: white;
+}
