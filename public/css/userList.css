@@ -1,0 +1,111 @@
+.icon-1x {
+  font-size: 24px !important;
+}
+a {
+  text-decoration: none;
+}
+.text-primary,
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #00adbb !important;
+}
+.text-black,
+.text-hover-black:hover {
+  color: #000 !important;
+}
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+
+.my-3 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.pb-6 {
+  padding-bottom: 6rem !important;
+}
+
+.list-group-item {
+  background-color: #000 !important;
+}
+
+.title-margin {
+  margin-top: -25px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  border-bottom: #00adbb;
+}
+
+.card:hover {
+  background-color: #333;
+}
+
+.card a {
+  color: white;
+}
+
+.card a:hover {
+  color: #e8e6df;
+}
+
+.card .op-7 {
+  color: white;
+}
+
+.card .op-7 i {
+  color: #f0f0ef;
+}
+
+.custom-border {
+  border: 1px solid rgb(245, 238, 238);
+}
+
+.custom-border:last-child {
+  border-bottom: 1px solid rgb(230, 222, 222);
+}
+
+.card-row {
+  border: 1px solid rgb(243, 232, 232);
+}
+
+.card-row .posted-by,
+.card-row .votes-comments {
+  border-bottom: 1px solid rgb(225, 211, 211);
+}
+
+.text-sm span.op-6 + a {
+  margin-left: 0;
+}
+
+.card p {
+  line-height: 1.2;
+}
+
+.text {
+  font-size: 13px;
+}
+
+@media (max-width: 575.98px) {
+  .card {
+    padding: 1rem;
+  }
+  .card h5 {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    text-align: center;
+  }
+  .card p a {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
