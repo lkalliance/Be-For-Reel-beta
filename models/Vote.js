@@ -38,11 +38,7 @@ Vote.init(
     },
     comment: {
       type: DataTypes.TEXT,
-      allownull: true,
-      validate: {
-        isAlphanumeric: true,
-        len: [1, 500],
-      },
+      allownull: true
     },
   },
   {
