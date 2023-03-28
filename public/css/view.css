@@ -66,6 +66,15 @@
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: white;
   border: solid #1ba098 !important;
+  border-bottom: none !important;
+}
+
+.option.voted {
+  background-color: rgba(255, 255, 255, .2) !important;
+}
+
+li.option:last-child {
+  border-bottom: solid #1ba098 !important;
 }
 
 .button-container {
@@ -90,10 +99,132 @@
   text-align: center;
 }
 
-#comment-background {
+.movie-title {
+  font-size: 1.2em;
+}
+
+.actors {
+  font-size: .9em;
+  color: #bbbbbb;
+}
+
+.vote-count {
+  text-align: end;
+  padding: 4px 12px;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.no-votes-links {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.no-votes-links a {
+  font-size: .8em;
+}
+
+li div.vote-count {
+  background-color: var(--tertiary-color);
+  border-bottom: 1px solid black;
+}
+
+li.top div.vote-count {
+  background-color: var(--secondary-color);
+  color: black !important;
+}
+
+div.more-film-info {
+  padding: 12px;
+}
+
+div.more-film-info p {
+  margin: 0;
+}
+
+div.more-film-info span {
+  display: block;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+
+div.more-film-info strong {
+  color: white;
+}
+
+div.more-film-info div.info-links {
+  margin-top: 10px;
+}
+div.more-film-info div.info-links a,
+li.no-votes a {
+  position: static; 
+  font-size: .9em;
+  margin-top: 10px;
+}
+
+div.collapse {
+  padding: 12px;
+}
+
+div.actors {
+  text-align: center;
+}
+
+div.info a.imdb,
+div.more-info {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  padding: 0;
+}
+
+div.info a.imdb,
+div.more-info button {
+  font-size: .8em;
+  text-decoration: none;
+  font-weight: bold;
+  color: white !important;
+  padding: 0;
+}
+
+div.more-info {
+  left: 10px;
+}
+
+li.option {
+  padding: 0;
+  position: relative;
+
+}
+
+li.voted {
+  background-color: #666666;
+}
+
+.info {
+  padding: 12px;
+}
+
+.ind-comment {
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: white;
   border-bottom: solid #1ba098 !important;
+}
+
+.ind-comment:last-child {
+  border-bottom: none !important;
+}
+
+.ind-comment span {
+  color: var(--link);
+  display: block;
+}
+
+.ind-comment p {
+  font-size: .8em;
+  color: #bbbbbb;
+  margin-top: 6px;
+  margin-bottom: 0;
 }
 
 #comment.disabled {

@@ -1,0 +1,46 @@
+<li class="list-group-item option {{votedClass}} {{voteClass}}" data-option="{{id}}">
+  <div class="vote-count text-center text-light pt-4 pb-4 pt-sm-1 pb-sm-1">
+    <span>{{voteString}}</span>
+  </div>
+  <div class="info">
+    <h4 class="mb-1 text-center movie-title">{{movie.title}}</h4>
+      <div class="actors text-center">
+        {{movie.stars}}
+      </div>
+      <a
+        href="https://www.imdb.com/title/{{movie.imdb_id}}"
+        class="flex justify-content-end btn btn-link imdb"
+        target="_blank">
+        IMDb Page
+      </a>
+    <div class="more-info">
+      <button
+        class="btn btn-link text-end ml-auto"
+        data-toggle="collapse"
+        data-target="#option{{id}}Collapse"
+        aria-expanded="true"
+        aria-controls="option{{id}}Collapse"
+      >More details</button>
+    </div>
+    <div class="collapse container more-film-info" id="option{{id}}Collapse">
+      <div class="row row-cols-1 row-cols-sm-2">
+        <p class="plot col">{{movie.plot}}</p>
+        <div class="filmInfo col">
+          <span><strong>Rated:</strong> {{movie.rating}}</span>
+          <span><strong>Genres:</strong> {{movie.genres}}</span>
+          <span><strong>IMDb rating:</strong> {{movie.imdb_rating}}</span>
+          <div class="info-links">
+            <a
+              href="{{movie.trailer}}"
+              target="_blank"
+            >Trailer</a>
+            <a
+              href="{{movie.wikipedia}}"
+              target="_blank"
+            >Wikipedia</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

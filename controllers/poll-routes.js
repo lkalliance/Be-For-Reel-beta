@@ -49,7 +49,6 @@ router.get('/', async (req, res) => {
 
 
 router.get('/view/:id', async (req, res) => {
-  console.log(req);
   try {
     const userInfo = {
       username: req.session.username,
@@ -86,8 +85,16 @@ router.get('/view/:id', async (req, res) => {
       }]
     });
     const poll = pollData.get({ plain: true });
+    let topVotes = 0;
     for (opt of poll.opts) {
+      const voteString = `${opt.votes.length} vote${(opt.votes.length == 1) ? "" : "s"}`;
+      opt.voteString = voteString;
       opt.voteCount = opt.votes.length;
+      topVotes = Math.max(topVotes, opt.voteCount);
+    }
+    for (opt of poll.opts) {
+      if (opt.voteCount == topVotes) opt.voteClass = "top";
+      else opt.voteClass = "";
     }
 
     if ( userInfo.loggedIn ) poll.opts.sort(sortByVotes);
@@ -99,7 +106,8 @@ router.get('/view/:id', async (req, res) => {
     let hasVoted = false;
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        if ( vote.user_id == req.session.userId) hasVoted=opt.id;
+        if ( vote.user_id == req.session.userId) opt.votedClass="voted";
+        else opt.votedClass="";
         if ( vote.comment !== "" ) {
           comments.push({
             movie: opt.movie.title,
@@ -112,9 +120,6 @@ router.get('/view/:id', async (req, res) => {
       }
       const fetchUrl = `http://localhost:${process.env.PORT || 3001}/api/movies/info/${opt.movie.imdb_id}`;
       const movieData = await fetch(fetchUrl);
-      console.log('\n\n\n\n\n\n\n\n\n\n\n')
-      console.log(opt);
-      console.log('\n\n\n\n\n\n\n\n\n\n\n')
       opt.movie.stars = movieData.data.stars;
       opt.movie.plot = movieData.data.plot;
       opt.movie.wikipedia = movieData.data.wikipedia.url;
@@ -125,6 +130,8 @@ router.get('/view/:id', async (req, res) => {
       opt.movie.imdb_rating = movieData.data.imDbRating;
       opt.movie.usaGross = movieData.data.boxOffice.grossUSA;
       opt.movie.worldwideGross = movieData.data.boxOffice.cumulativeWOldWideGross;
+
+      console.log(opt);
     }
     poll.hasVoted = hasVoted;
     comments.sort(sortDates);
@@ -203,9 +210,7 @@ router.get('/vote/:id', async (req, res) => {
     const comments = [];
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-
         if ( vote.user_id == req.session.userId) {
-          console.log('REDIRECTION!')
           res.redirect(`/polls/view/${req.params.id}`);
           return;
         };
