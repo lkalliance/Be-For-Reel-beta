@@ -97,6 +97,20 @@ router.get('/login', (req, res) => {
   res.render('login', { css, userInfo, currentYear });
 });
 
+router.get('/about', (req, res) => {
+  const userInfo = {
+    username: req.session.username,
+    userId: req.session.userId,
+    loggedIn: req.session.loggedIn
+  }
+
+  const css = { url: '/css/about.css' }
+  const today = new Date();
+  const currentYear = { year: today.getFullYear() }
+// Route to render login page
+  res.render('about', { css, userInfo, currentYear });
+})
+
 
 
 module.exports = router;
