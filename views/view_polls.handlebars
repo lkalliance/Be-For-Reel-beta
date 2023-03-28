@@ -1,30 +1,36 @@
 <div class="container my-3">
-      <div class="row pb-5">
-        <div class="mx-auto">
-        <!-- Main content -->
-        <div class="col-lg-9 mx-auto mb-3">
-    
-          <div class="card row-hover pos-relative py-3 px-3 mb-3 border-warning border-top-0 border-right-0 border-bottom-0 rounded-0">
-            <div class="row align-items-center">
-              {{#each polls}}
-              
-              <div class="col-md-8 mb-3 mb-sm-0">
-                <h5>
-                  <a href="/polls/vote/{{id}}" class="text-primary">{{title}}</a>
-                </h5>
-                <p class="text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">{{format_date created_at}}</a> <span class="op-6">ago by</span> <a class="text-black" href="/users/{{user.id}}">{{user.username}}</a></p>
-                <div> <p>{{description}}</p></div>
-              </div>
-              <div class="col-md-4 op-7">
-                <div class="row text-center op-7">
-                  <div class="col px-1"> <i class="ion-connection-bars icon-1x"></i> <span class="d-block text-sm">{{totalVotes}} Votes</span> </div>
-                  <div class="col px-1"> <i class="ion-ios-chatboxes-outline icon-1x"></i> <span class="d-block text-sm">{{totalComments}} Comments</span> </div>
+  <h2 class="text-center title-margin">Polls</h2>
+  <div class="row pb-5">
+    <div class="col-sm-10 col-md-9 mx-auto mb-3">
+      {{#each polls}}
+        <div class="card row-hover pos-relative py-3 px-3 mb-3 rounded-0 border">
+          <div class="row align-items-center">
+            <div class="col-sm-8 mb-3 mb-sm-0">
+              <h5 class="mb-1">
+                <a href="/polls/vote/{{id}}" class="text-primary">{{title}}</a>
+              </h5>
+              <p class="text-sm my-1">
+                <span class="op-6 text-light">Posted</span> 
+                <a class="text-light" href="#">{{format_date created_at}}</a> 
+                <span class="op-6 text-light">by</span> 
+                <a class="text-light btn-link" href="/users/{{user.id}}">{{user.username}}</a>
+              </p>
+            </div>
+            <div class="col-sm-4 op-7">
+              <div class="row text-center op-7">
+                <div class="col-6 px-1"> 
+                  <i class="ion-connection-bars icon-1x"></i> 
+                  <span class="d-block text-sm text-light text">{{totalVotes}} Votes</span> 
+                </div>
+                <div class="col-6 px-1"> 
+                  <i class="ion-ios-chatboxes-outline icon-1x"></i> 
+                  <span class="d-block text-sm text-light text">{{totalComments}} Comments</span> 
                 </div>
               </div>
-              {{/each}}
             </div>
           </div>
-          </div>
         </div>
-      </div>
+      {{/each}}
     </div>
+  </div>
+</div>

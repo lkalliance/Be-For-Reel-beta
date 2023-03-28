@@ -3,6 +3,6 @@ module.exports = {
     return date.toLocaleTimeString();
   },
   format_date: (date) => {
-    return date.toDateString();
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
   }
 };
