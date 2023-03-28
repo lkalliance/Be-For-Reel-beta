@@ -14,16 +14,13 @@ router.get('/', async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() }
 
-    let data = [];
-
-    const userData = await User.findAll().then((results) => {
-      for(let i = 0; i < results.length; i++) {
-        data.push(results[i].dataValues);
-      }
+    const userData = await User.findAll({
+      attributes: [ 'username', 'id', 'created_at' ],
+      order: [[ 'username', 'ASC' ]]
     });
+    const users = await userData.map((user) => user.get({ plain: true }));
 
-
-    res.render('userList', { userInfo, css, currentYear, data });
+    res.render('userList', { userInfo, css, currentYear, users });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
