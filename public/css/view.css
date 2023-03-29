@@ -96,7 +96,13 @@ li.option:last-child {
 .numberComments a {
   color: var(--link) !important;
   display: block;
+  font-size: .75em;
+  margin-top: 10px;
   font-weight: 700;
+}
+
+.numberComments a:hover {
+  color: white !important;
 }
 
 .custom-link {
@@ -157,6 +163,7 @@ div.more-film-info span {
   color: #bbbbbb;
 }
 
+
 div.more-film-info strong {
   color: white;
 }
@@ -164,11 +171,27 @@ div.more-film-info strong {
 div.more-film-info div.info-links {
   margin-top: 10px;
 }
+
+div.more-film-info div.info-links a {
+  margin-right: 6px;
+}
+
+div.no-votes a {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
 div.more-film-info div.info-links a,
-li.no-votes a {
+div.no-votes a {
   position: static; 
+  color: var(--link) !important;
   font-size: .9em;
   margin-top: 10px;
+}
+
+div.more-film-info div.info-links a:hover,
+div.no-votes a:hover {
+  color: white !important;
 }
 
 div.actors {

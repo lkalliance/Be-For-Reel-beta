@@ -34,16 +34,16 @@
           </div>
           <div class="form-group mt-3">
             <div class="col-sm-offset-3 col-sm-9">
-              <button type="submit" class="btn custom-btn">Login</button>
+              <button type="submit" class="btn custom-btn" id="login-button">Log in</button>
             </div>
           </div>
         </form>
+        <div id="login-error"></div>
       </div>
       <div class="col-md-6">
         <form id="signup-form" class="form-horizontal">
           <div class="form-group">
             <p class="option">Sign Up</p>
-            <p>If it's your first time, please sign up.</p>
             <label
               for="username-signup"
               class="col-sm-3 control-label"
@@ -87,10 +87,11 @@
           </div>
           <div class="form-group mt-3">
             <div class="col-sm-offset-3 col-sm-9">
-              <button type="submit" class="btn custom-btn">Signup</button>
+              <button type="submit" class="btn custom-btn" id="signup-button">Sign up</button>
             </div>
           </div>
         </form>
+        <div id="create-error"></div>
       </div>
     </div>
   </div>

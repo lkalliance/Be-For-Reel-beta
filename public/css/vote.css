@@ -22,6 +22,7 @@
 .details-container {
   display: flex;
   justify-content: space-between;
+  padding: 8px 6px;
   align-items: center;
   background-color: var(--tertiary-color);
   margin-bottom: 10px;
@@ -170,11 +171,30 @@ div.more-film-info strong {
 div.more-film-info div.info-links {
   margin-top: 10px;
 }
+
+div.more-film-info div.info-links a {
+  margin-right: 6px;
+}
+
 div.more-film-info div.info-links a,
 li.no-votes a {
   position: static; 
+  color: var(--link) !important;
   font-size: .9em;
   margin-top: 10px;
+}
+
+div.more-film-info div.info-links a:hover,
+li.no-votes a:hover {
+  color: white !important;
+}
+
+h6.instructions {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+  font-size: .8em;
+  color: #bbbbbb !important;
+  text-align: center;
 }
 
 div.actors {

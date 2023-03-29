@@ -133,6 +133,10 @@ a:hover {
   color: var(--link) !important;
 }
 
+.custom-navbar .username:hover {
+  color: white;
+}
+
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
@@ -185,6 +189,13 @@ a:hover {
  
 .no-button:hover {
   color: var(--link) !important;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 2px;
+  margin-top: 6px;
 }
 
 .form-control {

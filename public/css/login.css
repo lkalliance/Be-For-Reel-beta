@@ -2,11 +2,9 @@ form {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   margin: auto;
-  padding-left: 5em;
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding: 20px;
   font-family: "Raleway", sans-serif;
-  border-radius: 3px;
+  border-radius: 4px;
   opacity: 1;
   margin-bottom: 20px !important;
 }
@@ -24,19 +22,12 @@ form {
     background-color: #DEB992 !important;
 }
 
+#login-error,
+#create-error {
+  color: #cb1d1d;
+}
+
 @media screen and (max-width: 650px) {
-  form {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    margin: auto;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-family: "Raleway", sans-serif;
-    border-radius: 3px;
-    opacity: 1;
-    width: 90%;
-    margin-bottom: 10px;
-  }
 
  footer {
   position: relative; 
