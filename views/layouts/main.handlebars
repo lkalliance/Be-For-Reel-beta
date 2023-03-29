@@ -39,32 +39,32 @@
     <header
       class="display-flex justify-space-between align-center mx-auto custom-header"
     >
-      <nav class="navbar navbar-expand-lg navbar-dark custom-navbar nav">
+      <nav class="navbar navbar-expand-md navbar-dark custom-navbar nav">
         <div class="container-fluid">
           <div class="logo">
             <a class="navbar-brand custom-navbar" href="/">LOGO</a>
           </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      <button
+  class="navbar-toggler d-md-none"
+  type="button"
+  data-toggle="collapse"
+  data-target="#navbarNav"
+  aria-controls="navbarNav"
+  aria-expanded="false"
+  aria-label="Toggle navigation"
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="ms-auto list-unstyled">
               <li class="nav-item">
                 {{#if userInfo.loggedIn}}
                   <span class="username">
-                    <a  class="username" href="/users/{{users.id}}">{{userInfo.username}}</a>
+                    <a  class="username" href="/users/{{user.id}}">{{userInfo.username}}</a>
                   </span>
-                  <a href="/users">Users</a>
-                  <a href="/polls">Polls</a>
-                  <a href="/polls/create">Create</a>
+                  <a class="customNavLink" href="/users">Users</a>
+                  <a class="customNavLink" href="/polls">Polls</a>
+                  <a class="customNavLink" href="/polls/create">Create</a>
 
                   {{! <a href="/logout">Logout</a> }}
                   |
@@ -74,7 +74,7 @@
 
                   <a class="loggedOut" href="/login">Login</a>
                 {{/if}}
-                  <a class="no-button" href="/about">About</a>
+                  <a class="about" href="/about">About</a>
 
               </li>
             </ul>

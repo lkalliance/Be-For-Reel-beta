@@ -1,7 +1,7 @@
 :root {
   --link: #deb992;
   --secondary-color: #1ba098;
-  --tertiary-color: rgb(28, 59, 91);
+  --tertiary-color: rgb(18, 40, 62);
 }
 
 html {
@@ -63,7 +63,8 @@ h2 {
   font-family: "Limelight", cursive;
   color: white;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 a:hover {
   color: var(--link) !important;
@@ -115,8 +116,18 @@ a:hover {
   align-items: center;
 }
 
+.navbar-collapse.show {
+  padding-right: 0;
+}
+
+
+.navbar-collapse > ul {
+  position: static;
+}
+
 .loggedOut {
   padding-left: 6px !important;
+  margin-right: -2px;
 }
 
 .no-button {
@@ -124,12 +135,27 @@ a:hover {
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 1em;
   margin-left: 10px;
+  margin-right: 5px;
   padding: 0;
   font-family: "Raleway", sans-serif;
+  font-weight: bold;
 }
 
+.about {
+   background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+
+.pollDescription {
+  text-align: center;
+}
+ 
 .no-button:hover {
   color: var(--link) !important;
 }
@@ -143,6 +169,7 @@ a:hover {
 .custom-btn:hover {
   background-color: var(--link) !important;
 }
+
 
 .footer-container {
   display: flex;
@@ -167,9 +194,33 @@ a:hover {
   display: inline-block;
 }
 
-@media only screen and (max-width: 768px) {
+.navbar-collapse {
+  position: relative;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  overflow-y: auto;
+  text-align: center;
+  width: 100%; /* set width to 100% */
+
+}
+
+.navbar-collapse > ul {
+  white-space: nowrap; /* prevent links from wrapping to new line */
+}
+
+@media only screen and (max-device-width: 768px) {
   h2 {
-    font-size: 20px;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  h6 {
+    font-size: 15px;
+    margin-bottom: 5px;
   }
   .navbar {
     padding-top: 0px;
@@ -178,29 +229,67 @@ a:hover {
     min-height: 10px;
   }
   .navbar-collapse {
-    background-color: #001d2c;
     top: 10px;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 100;
     overflow-y: auto;
-    text-align: center;
+    text-align: end;
     width: 50%;
-    height: calc(100vh - 560px);
-    padding: 15px;
-    transition: transform 0.1s ease-in-out;
+    font-size: 11px;
   }
+
+  a {
+    font-size: 11px;
+  }
+  .no-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+  }
+
+  .about {
+  font-size: 11px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+ 
+  .username {
+    font-size: 15px;
+   
+  }
+  .customNavLink {
+    font-size: 11px !important;
+    padding: 1px;
+    margin-right: 2px;
+  }
+
+  .loggedOut {
+    padding-left: 6px !important;
+  }
+
   .navbar-collapse.show {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
-  
+
+  .pollDescription {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
 }
 
 @media only screen and (max-width: 440px) {
   footer {
     font-size: 0.8em;
-    line-height: 1.3em
+    line-height: 1.3em;
   }
   footer #imdb-icon {
     height: 20px;
@@ -208,17 +297,16 @@ a:hover {
   }
 }
 
-
 /* LOADING ANIMATION */
 
-.loading-screen{
+.loading-screen {
   display: flex;
   visibility: visible;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   align-items: center;
   justify-content: center;
@@ -228,20 +316,20 @@ a:hover {
   visibility: hidden;
 }
 
-.loading{
+.loading {
   width: 80px;
   display: flex;
   flex-wrap: wrap;
   animation: rotate 3s linear infinite;
 }
 
-@keyframes rotate{
-  to{
+@keyframes rotate {
+  to {
     transform: rotate(360deg);
   }
 }
 
-.loading span{
+.loading span {
   width: 32px;
   height: 32px;
   background-color: red;
@@ -249,33 +337,33 @@ a:hover {
   animation: scale 1.5s linear infinite;
 }
 
-@keyframes scale{
-  50%{
+@keyframes scale {
+  50% {
     transform: scale(1.2);
   }
 }
 
-.loading span:nth-child(1){
+.loading span:nth-child(1) {
   border-radius: 50% 50% 0 50%;
   background-color: #ffbe0b;
   transform-origin: bottom right;
 }
 
-.loading span:nth-child(2){
+.loading span:nth-child(2) {
   border-radius: 50% 50% 50% 0;
   background-color: #ff006e;
   transform-origin: bottom left;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
 }
 
-.loading span:nth-child(3){
+.loading span:nth-child(3) {
   border-radius: 50% 0 50% 50%;
   background-color: #fb5607;
   transform-origin: top right;
   animation-delay: 1.5s;
 }
 
-.loading span:nth-child(4){
+.loading span:nth-child(4) {
   border-radius: 0 50% 50% 50%;
   background-color: #8338ec;
   transform-origin: top left;
