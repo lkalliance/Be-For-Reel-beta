@@ -1,19 +1,20 @@
 <div class="col">
     <div class="card custom-card">
-
-        <img
-            src="{{image}}"
-            class="card-img-top"
-            alt="..."
-        />
-      <div class="card-body custom-body">
-      <div class="title-container">
-        <h5 class="card-title pollTitle"><a href='/polls/vote/{{poll_id}}'>{{poll_title}}</a></h5>
-      </div>
-      <div class="d-flex justify-content-evenly align-items-start">
-        <p class="card-text">Votes: {{poll_votes}}</p>
-        <p class="card-text">Created by: <a href="/users/{{user_id}}">{{username}}</a></p>
-      </div>
+        <a href='/polls/vote/{{poll_id}} ' class="img-link">
+            <img
+                src="{{image}}"
+                class="card-img-top"
+                alt="..."
+            />
+        </a>
+        <div class="card-body custom-body">
+            <div class="title-container">
+                <h5 class="card-title"><a class="pollTitle" href='/polls/vote/{{poll_id}}'>{{poll_title}}</a></h5>
+            </div>
+            <div class="info-container">
+                <p class="card-text">Votes: {{poll_votes}}</p>
+                <p class="card-text"><a class="card-text" href="/users/{{user_id}}">{{username}}</a></p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
