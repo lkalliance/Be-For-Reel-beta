@@ -37,16 +37,24 @@ a.text-primary:hover {
 
 .card {
   background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid white;
-  border-bottom: #00adbb;
 }
 
 .card:hover {
   background-color: #333;
 }
 
-.card a {
-  color: white;
+.users {
+  justify-content: center;
+}
+
+.user {
+  padding: 12px;
+}
+
+.user p {
+  color: #bbbbbb;
+  font-size: .9em;
+  margin-bottom: 0;
 }
 
 .card a:hover {
