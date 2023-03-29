@@ -151,11 +151,6 @@ a:hover {
   white-space: nowrap; /* prevent links from wrapping to new line */
 }
 
-/* .loggedOut {
-  padding-left: 6px !important;
-  margin-right: -2px;
-} */
-
 .no-button {
   background: none;
   border: none;
@@ -293,11 +288,6 @@ a:hover {
     padding: 1px;
     margin-right: 2px;
   }
-
-  /* .loggedOut {
-    padding-left: 6px !important;
-    font-size: 11px !important;
-  } */
 
   .navbar-collapse.show {
     transform: translate(0, 0);

@@ -130,11 +130,10 @@ router.get('/view/:id', async (req, res) => {
       opt.movie.imdb_rating = movieData.data.imDbRating;
       opt.movie.usaGross = movieData.data.boxOffice.grossUSA;
       opt.movie.worldwideGross = movieData.data.boxOffice.cumulativeWOldWideGross;
-
-      console.log(opt);
     }
     poll.hasVoted = hasVoted;
     comments.sort(sortDates);
+    poll.commentsText = ( comments.length == 1 ) ? "1 comment has been left on this poll" : `${comments.length} comments have been left on this poll`;
     
     function sortByVotes(a, b) {
       return b.voteCount - a.voteCount;
