@@ -1,14 +1,13 @@
-cite {
-    font-size: .9em;
-    line-height: 1.2em;
-    font-style: normal;
-    color: #bbbbbb;
-    margin-top: 8px;
-}
-
-h6 cite {
-    font-weight: bold;
-    color: #888888;
+span {
+    color: var(--link);
+    display: block;
+  }
+  
+p {
+font-size: .8em;
+color: #bbbbbb;
+margin-top: 4px;
+margin-bottom: 0;
 }
 
 li.list-group-item {

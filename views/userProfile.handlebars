@@ -1,21 +1,20 @@
-<h2>{{user.username}}</h2>
-<p class="lead text-light">Joined on {{format_date user.created_at}}</p>
+<h2 class="mb-0">{{user.username}}</h2>
+<p class="lead text-light subhead">Joined on {{format_date user.created_at}}</p>
 
 
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6">
-            <ul>
+            <ul class="list-group">
                 <li class="list-group-item header">Polls created</li>
                 {{#each user.polls as |poll|}}
                 <li class="list-group-item">
                     <h6>
                         <a href="/polls/vote/{{poll.id}}">{{poll.title}}</a>
-                        <cite> {{format_date poll.created_at}}</cite>
                     </h6>
-                    <cite>
-                        {{poll.description}}
-                    </cite>
+                    <p>
+                        {{poll.description}} ({{format_date poll.created_at}})
+                    </p>
                 </li>
                 {{/each}}
             </ul>
@@ -25,13 +24,11 @@
                 <li class="list-group-item header">Comments left</li>
                 {{#each comments as |comment|}}
                 <li class="list-group-item">
-                    <h6>
-                        <a href="/polls/vote/{{comment.poll_id}}">{{comment.poll_title}}</a>
-                        <cite>vote: {{comment.movie}}</cite>
-                    </h6>
-                    <cite>
+                    <h6><a href="/polls/vote/{{comment.poll_id}}">{{comment.poll_title}}</a></h6>
+                    <span>{{comment.movie}}</span>
+                    <p>
                         {{comment.content}} ({{format_date comment.created_at}})
-                    </cite>
+                    </p>
                 </li>
                 {{/each}}
             </ul>

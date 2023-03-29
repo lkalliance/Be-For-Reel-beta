@@ -18,7 +18,7 @@ body {
   background-image: url("../images/all.jpg");
   background-size: cover;
   padding: 20px;
-  padding-bottom: 75px;
+  padding-bottom: 100px;
   background-color: #01141e;
   background-repeat: no-repeat;
 }
@@ -64,7 +64,7 @@ h2 {
   color: white;
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 a:hover {
   color: var(--link) !important;
@@ -293,6 +293,12 @@ a:hover {
     height: 20px;
     top: -5px;
   }
+}
+p.subhead {
+  text-align: center;
+  margin-top: 0;
+  color: #bbbbbb !important;
+  margin-bottom: 10px;
 }
 
 /* LOADING ANIMATION */
