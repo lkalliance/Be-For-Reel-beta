@@ -23,6 +23,12 @@ body {
   background-repeat: no-repeat;
 }
 
+textarea:disabled,
+input:disabled,
+button:disabled {
+  opacity: .5;
+}
+
 header {
   border-bottom: solid var(--secondary-color);
 }
@@ -41,7 +47,7 @@ footer {
   height: 70px;
   width: calc(100vw - 40px);
   color: white;
-  padding: 0px;
+  padding: 6px 0 0;
   border-top: solid var(--secondary-color);
   margin-top: 90px;
 }
@@ -151,11 +157,6 @@ a:hover {
   white-space: nowrap; /* prevent links from wrapping to new line */
 }
 
-/* .loggedOut {
-  padding-left: 6px !important;
-  margin-right: -2px;
-} */
-
 .no-button {
   background: none;
   border: none;
@@ -186,14 +187,31 @@ a:hover {
   color: var(--link) !important;
 }
 
+.form-control {
+  border: 1px solid #020202;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  padding: 6px;
+  background: #ffffff;
+  color: #2e323c;
+}
+
 .custom-btn {
   background-color: var(--secondary-color) !important;
   border: solid var(--secondary-color) 1px;
   border-radius: 3px;
+  color: black;
+  margin-top: 4px;
 }
 
 .custom-btn:hover {
   background-color: var(--link) !important;
+}
+
+.custom-btn:disabled:hover {
+  background-color: var(--secondary-color) !important;
 }
 
 
@@ -294,11 +312,6 @@ a:hover {
     margin-right: 2px;
   }
 
-  /* .loggedOut {
-    padding-left: 6px !important;
-    font-size: 11px !important;
-  } */
-
   .navbar-collapse.show {
     transform: translate(0, 0);
   }
@@ -312,8 +325,8 @@ a:hover {
 
 @media only screen and (max-width: 440px) {
   footer {
-    font-size: 1em;
-    line-height: 1.1em;
+    font-size: .8em;
+    line-height: 1.5em;
   }
   footer #imdb-icon {
     height: 20px;

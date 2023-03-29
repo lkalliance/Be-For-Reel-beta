@@ -31,7 +31,6 @@ $(document).ready(() => {
         })
 
         if ( !oneSelected ) selected = 0;
-        commentText.attr('disabled', !oneSelected )
         submitBtn.attr('disabled', !oneSelected )        
     }
 

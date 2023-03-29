@@ -1,3 +1,8 @@
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 ul#selected cite {
     display: none;
 }
@@ -40,7 +45,7 @@ h6 {
 
 form {
     background-color: rgba(0, 0, 0, .5);
-    padding: 25px;
+    padding: 18px;
     border-radius: 10px;
     margin-bottom: 12px;
     color: white;
@@ -53,8 +58,14 @@ form div {
     line-height: 1.1em;
 }
 
+div#create-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 label {
     display: block;
+    margin-bottom: 2px;
 }
 
 textarea {
