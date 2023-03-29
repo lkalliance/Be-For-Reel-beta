@@ -1,19 +1,19 @@
 <h2>Create your poll</h2>
 
-<div class="container">
+<div class="container" id="create-container">
     <div class="row">
         <div class="col-12 col-md-6">
           <form id="poll-data">
             <label for="titleText" id="title-label">Enter your poll's title</label>
-            <input id="titleText" placeholder="(80 characters max)" />
+            <input id="titleText" class="form-control" placeholder="(80 characters max)" />
             <label for="descText">Enter your poll's description</label>
-            <textarea id="descText" placeholder="(optional)"></textarea>
+            <textarea id="descText" class="form-control" placeholder="(optional)"></textarea>
           </form>
         </div>
         <div class="col-12 col-md-6">
           <form id="searchMovies" class="col-12">
             <label for="searchField">Enter all or part of a movie title</label>
-            <input id="searchField" />
+            <input id="searchField" class="form-control" />
             <button class="custom-btn" id="searchBtn">Search</button>
             <div>
               In the search results below, click or tap on a movie to select it for your poll. Click or tap it again to remove it from the poll.

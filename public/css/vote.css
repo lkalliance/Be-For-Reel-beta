@@ -30,15 +30,6 @@
 .imdb-link {
   margin-left: 10px;
 }
-.form-control {
-  border: 1px solid #020202;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  font-size: 0.825rem;
-  background: #ffffff;
-  color: #2e323c;
-}
 
 .links {
   display: flex !important;
@@ -270,9 +261,6 @@ li.voted {
     display: block;
   }
 
-  .custom-btn {
-    width: 100%;
-  }
 
   .btn-link {
     display: block;
