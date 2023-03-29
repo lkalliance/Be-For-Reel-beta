@@ -133,6 +133,10 @@ a:hover {
   color: var(--link) !important;
 }
 
+.custom-navbar .username:hover {
+  color: white;
+}
+
 .navbar-brand {
   font-size: 2rem;
   font-weight: bold;
