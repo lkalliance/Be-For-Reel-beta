@@ -34,7 +34,10 @@ router.post('/create', withAuth, async (req, res) => {
           })
       }
 
-      res.json(newPoll.dataValues.id);
+      const idPoll = newPoll.dataValues.id;
+
+      res.json({ a: idPoll });
+
   }  catch (err) {
       res.status(500).json(err);
   }

@@ -132,10 +132,13 @@ $(document).ready(() => {
 
         console.log(bodyObj);
 
-        const created = await fetch('/api/polls/create', fetchObj);
-        console.log(created);
+        const response = await fetch('/api/polls/create', fetchObj);
+        const created = await response.json();
 
-        // window.location.href = "/polls/vote/1";
+        if (response.status === 200) {
+            window.location.href = `/polls/vote/${created.a}`;
+        }
+
     }
 
     function warning(type) {
