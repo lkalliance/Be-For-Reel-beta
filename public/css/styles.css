@@ -25,7 +25,14 @@ body {
 
 header {
   border-bottom: solid var(--secondary-color);
-  padding: 7px;
+}
+
+.navbar {
+  padding-top: 0;
+}
+
+.navbar img {
+  height: 80px;
 }
 
 footer {
