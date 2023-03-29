@@ -7,14 +7,19 @@ body {
   background-color: #001d2c;
 }
 
+.pollTitle {
+  margin-bottom: 10px;
+}
+
 .homepage-title {
 font-family: "Limelight", cursive;
   font-size: 4rem;
+  margin-top: 5px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: rgb(250, 239, 239);
- text-shadow: 5px 5px #0f1010;
+ text-shadow: 2px 2px #1ba098;
 }
 
 
@@ -32,15 +37,10 @@ font-family: "Limelight", cursive;
   background-color: black;
 }
 
-.card-section {
-  margin-bottom: 100px !important;
-}
-
 .card-img-top {
   object-fit: cover;
   max-height: 200px;
   object-position: top;
-  margin-top: -20px;
 }
 
 .card-img {
@@ -76,14 +76,20 @@ footer {
 
   .homepage-title {
     font-family: "Limelight", cursive;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
     margin-top: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.886);
   
   }
+
+  .pollTitle {
+  font-size: 15px !important;
+  padding: 5px;
+  text-align: center;
+}
 
   .custom-about {
     display: none;
