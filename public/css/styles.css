@@ -62,7 +62,6 @@ a {
   font-size: 1rem;
   font-weight: 600;
   transition: color 0.2s ease-in-out;
-  padding-right: 10px;
   text-decoration: none;
 }
 
@@ -77,23 +76,41 @@ a:hover {
   color: var(--link) !important;
 }
 
-.custom-navbar {
+#header-container {
+  padding: 0;
+}
+
+.custom-navbar a {
   color: white;
-  font-weight: bold;
+  font-size: 1em;
+  font-weight: 500;
+  padding-left: 12px;
+}
+
+.custom-navbar #bfr-logo {
+  padding-left: 0;
 }
 
 .navbar-toggler {
   border-color: white solid 3px !important;
   background-color: rgba(226, 221, 221, 0.2) !important;
   border-radius: 5px !important;
+  position: relative;
+  top: 20px;
 }
 
 .navbar-toggler-icon {
+  height: 20px;
+  width: 20px;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
+.nav-item {
+  text-align: right;
+}
+
 .custom-header {
-  padding: auto;
+  padding-bottom: 3px;
   top: 0;
   left: 0;
   right: 0;
@@ -105,9 +122,8 @@ a:hover {
   color: white;
 }
 
-.username {
-  font-weight: bold;
-  font-size: 20px;
+.custom-navbar .username {
+  font-weight: 800;
   color: var(--link) !important;
 }
 
@@ -127,9 +143,12 @@ a:hover {
   padding-right: 0;
 }
 
-
 .navbar-collapse > ul {
-  position: static;
+  position: relative;
+  top: 18px;
+  display: flex;
+  float: right;
+  white-space: nowrap; /* prevent links from wrapping to new line */
 }
 
 .loggedOut {
@@ -214,11 +233,7 @@ a:hover {
 
 }
 
-.navbar-collapse > ul {
-  white-space: nowrap; /* prevent links from wrapping to new line */
-}
-
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   h2 {
     font-size: 25px;
     margin-top: 10px;
@@ -244,7 +259,11 @@ a:hover {
     overflow-y: auto;
     text-align: end;
     width: 50%;
-    font-size: 11px;
+    /* font-size: 11px; */
+  }
+
+  .navbar-collapse > ul {
+    top: 0;
   }
 
   .no-button {
@@ -293,12 +312,12 @@ a:hover {
 
 @media only screen and (max-width: 440px) {
   footer {
-    font-size: 0.8em;
-    line-height: 1.3em;
+    font-size: 1em;
+    line-height: 1.1em;
   }
   footer #imdb-icon {
     height: 20px;
-    top: -5px;
+    top: -2px;
   }
 }
 p.subhead {

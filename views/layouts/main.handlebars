@@ -40,43 +40,50 @@
       class="display-flex justify-space-between align-center mx-auto custom-header"
     >
       <nav class="navbar navbar-expand-md navbar-dark custom-navbar nav">
-        <div class="container-fluid">
+        <div class="container-fluid" id="header-container">
           <div class="logo">
-            <a class="navbar-brand custom-navbar" href="/">
+            <a class="navbar-brand custom-navbar" id="bfr-logo" href="/">
             <img src="/images/b4r_icon.png" /></a>
           </div>
-      <button
-  class="navbar-toggler d-md-none"
-  type="button"
-  data-toggle="collapse"
-  data-target="#navbarNav"
-  aria-controls="navbarNav"
-  aria-expanded="false"
-  aria-label="Toggle navigation"
->
-  <span class="navbar-toggler-icon"></span>
-</button>
+          <button
+            class="navbar-toggler d-md-none"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="ms-auto list-unstyled">
+            <ul class="ms-auto list-unstyled flex-column flex-sm-row clearfix">
+              {{#if userInfo.loggedIn}}
               <li class="nav-item">
-                {{#if userInfo.loggedIn}}
-                  <span class="username">
-                    <a  class="username" href="/users/{{userInfo.userId}}">{{userInfo.username}}</a>
-                  </span>
-                  <a class="customNavLink" href="/users">Users</a>
-                  <a class="customNavLink" href="/polls">Polls</a>
-                  <a class="customNavLink" href="/polls/create">Create</a>
-
-                  {{! <a href="/logout">Logout</a> }}
-                  |
-                  <button class="no-button" id="logout">Logout</button>
-                {{else}}
-                  <a class="loggedOut" href="/polls">Polls</a>|
-
-                  <a class="loggedOut" href="/login">Login</a>
-                {{/if}}
-                  <a class="about" href="/about">About</a>
-
+                <a class="username" href="/users/{{userInfo.userId}}">{{userInfo.username}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="/users">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="/polls">Polls</a>
+              </li>
+              <li class="nav-item">
+                <a class="" href="/polls/create">Create</a>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" id="logout">Logout</a>
+              </li>
+              {{else}}
+              <li class="nav-item">
+                <a class="loggedOut" href="/polls">Polls</a>
+              </li>
+              <li class="nav-item">
+                <a class="loggedOut" href="/login">Login</a>
+              </li>
+              {{/if}}
+              <li class="nav-item">
+                <a class="about" href="/about">About</a>
               </li>
             </ul>
           </div>
