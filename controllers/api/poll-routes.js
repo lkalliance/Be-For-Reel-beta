@@ -34,7 +34,14 @@ router.post('/create', withAuth, async (req, res) => {
           })
       }
 
-      res.json(newPoll.dataValues.id);
+      console.log(newPoll.dataValues.id);
+      const idPoll = newPoll.dataValues.id;
+
+      // doesn't work because page doesn't exist 
+      // res.redirect(`../../poll/vote/${idPoll}`)
+
+      res.json({ a: idPoll });
+
   }  catch (err) {
       res.status(500).json(err);
   }
