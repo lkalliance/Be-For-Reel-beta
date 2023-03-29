@@ -7,20 +7,21 @@ body {
   background-color: #001d2c;
 }
 
+.pollTitle {
+  margin-bottom: 10px;
+}
+
 .homepage-title {
-  font-family: "Limelight", cursive;
+font-family: "Limelight", cursive;
   font-size: 4rem;
+  margin-top: 5px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.7);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-    0 0 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.8),
-    0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.8),
-    0 0 90px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.8);
-  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.5);
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  color: rgb(250, 239, 239);
+ text-shadow: 2px 2px #1ba098;
 }
+
 
 .custom-about {
   opacity: 0;
@@ -36,15 +37,14 @@ body {
   background-color: black;
 }
 
-.card-section {
-  margin-bottom: 100px !important;
-}
-
 .card-img-top {
   object-fit: cover;
   max-height: 200px;
   object-position: top;
-  margin-top: -20px;
+}
+
+.card-img {
+  margin-top: -10px;
 }
 
 .title-container {
@@ -76,19 +76,20 @@ footer {
 
   .homepage-title {
     font-family: "Limelight", cursive;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
     margin-top: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
-      0 0 10px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.8),
-      0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.8),
-      0 0 90px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.8);
-    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.5);
-    -webkit-text-fill-color: transparent;
+    color: rgba(255, 255, 255, 0.886);
+  
   }
+
+  .pollTitle {
+  font-size: 15px !important;
+  padding: 5px;
+  text-align: center;
+}
 
   .custom-about {
     display: none;
