@@ -189,6 +189,14 @@ li.no-votes a:hover {
   color: white !important;
 }
 
+h6.instructions {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+  font-size: .8em;
+  color: #bbbbbb !important;
+  text-align: center;
+}
+
 div.actors {
   text-align: center;
 }
