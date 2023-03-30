@@ -240,6 +240,21 @@ li.voted {
   padding: 12px;
 }
 
+span {
+  display: block;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+
+span#publisher {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+span#publisher a {
+  font-size: .9em !important;
+}
+
 .ind-comment {
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: white;

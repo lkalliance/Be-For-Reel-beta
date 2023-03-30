@@ -60,7 +60,7 @@ router.get('/view/:id', async (req, res) => {
     const currentYear = { year: today.getFullYear() };
 
     const pollData = await Poll.findByPk(req.params.id, {
-      attributes: [ 'id', 'title', 'description' ],
+      attributes: [ 'id', 'title', 'description', 'created_at' ],
       include: [{
           model: User,
           attributes: [ 'id', 'username' ]
@@ -84,7 +84,14 @@ router.get('/view/:id', async (req, res) => {
         ]
       }]
     });
-    const poll = pollData.get({ plain: true });
+    const poll = await pollData.get({ plain: true });
+
+    const userData = await User.findByPk(req.session.userId, {
+      where: { id: req.session.userId },
+      attributes: [ 'id' ]
+    })
+    const user = await userData.get({ plain: true });
+
     let topVotes = 0;
     for (opt of poll.opts) {
       const voteString = `${opt.votes.length} vote${(opt.votes.length == 1) ? "" : "s"}`;
@@ -106,7 +113,10 @@ router.get('/view/:id', async (req, res) => {
     let hasVoted = false;
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
-        if ( vote.user_id == req.session.userId) opt.votedClass="voted";
+        if ( vote.user_id == req.session.userId) {
+          opt.votedClass = "voted";
+          user.voted = opt.movie.title;
+        }
         else opt.votedClass="";
         if ( vote.comment !== "" ) {
           comments.push({
@@ -154,7 +164,7 @@ router.get('/view/:id', async (req, res) => {
 
       return (aSort > bSort) ? 1 : -1;
     }
-    res.render('view', { userInfo, css, currentYear, poll, comments });
+    res.render('view', { userInfo, css, currentYear, poll, comments, user });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -182,7 +192,7 @@ router.get('/vote/:id', async (req, res) => {
     }
 
     const pollData = await Poll.findByPk(req.params.id, {
-      attributes: [ 'id', 'title', 'description' ],
+      attributes: [ 'id', 'title', 'description', 'created_at' ],
       include: [{
         model: Opt,
         attributes: [ 'id', 'movie_id' ],
@@ -200,6 +210,10 @@ router.get('/vote/:id', async (req, res) => {
             }
           }
         ]
+      },
+      {
+        model: User,
+        attributes: [ 'id', 'username' ]
       }]
     });
     const poll = pollData.get({ plain: true });

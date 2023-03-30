@@ -2,10 +2,17 @@
   <div class="row pb-2">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <h2>{{poll.title}}</h2>
-
+        {{#if poll.description}}
+        <p class="pollDescription">
+          {{poll.description}}
+        </p> 
+        {{/if}}     
+        <span id="publisher">
+          <a href='/users/{{poll.user.id}}'>{{poll.user.username}}</a> ({{format_date poll.created_at}})
+        </span>
       {{#if userInfo.loggedIn}}
         <div class="alert alert-primary align-items-center" role="alert">
-            ✅ Thanks for voting on this poll. Check out the Results!
+            Your vote: <span>{{user.voted}}</span>
         </div>
       {{/if}}
     </div>
