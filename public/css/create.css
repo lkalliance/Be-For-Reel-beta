@@ -3,6 +3,10 @@
     padding-right: 0;
 }
 
+h6 {
+    margin-bottom: 0;
+}
+
 ul#selected cite {
     display: none;
 }
@@ -13,10 +17,6 @@ ul#search-results cite {
     font-style: normal;
     color: #aaaaaa;
     margin-top: 8px;
-}
-
-h6 {
-    margin-bottom: 0;
 }
 
 #selected li,
@@ -58,11 +58,6 @@ form div {
     line-height: 1.1em;
 }
 
-div#create-container {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 label {
     display: block;
     margin-bottom: 2px;
@@ -78,6 +73,11 @@ input {
     margin-right: 10px;
     margin-bottom: 8px;
 }
+
+div#create-container {
+    padding-left: 0;
+    padding-right: 0;
+}    
 
 form#poll-data textarea,
 form#poll-data input {
