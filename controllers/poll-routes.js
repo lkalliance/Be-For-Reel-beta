@@ -44,7 +44,7 @@ router.get('/', async (req, res) => {
       poll.totalComments = commentCt;
     }
 
-    res.render('view_polls', { css, userInfo, currentYear, polls })
+    res.render('pollList', { css, userInfo, currentYear, polls })
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
