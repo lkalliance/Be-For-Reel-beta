@@ -1,5 +1,5 @@
 <h2 class="mb-0">{{user.username}}</h2>
-<p class="lead text-light subhead">Joined on {{format_date user.created_at}}</p>
+<p class="text-light subhead">Member since {{format_date user.created_at}}</p>
 
 
 <div class="container">
@@ -19,7 +19,7 @@
                 {{/each}}
             </ul>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mt-3 mt-md-0">
             <ul class="list-group">
                 <li class="list-group-item header">Comments left</li>
                 {{#each comments as |comment|}}

@@ -98,6 +98,7 @@ router.get("/:id", async (req, res) => {
     }
 
     user.polls.sort(sortDates);
+    comments.sort(sortDates);
 
     function sortDates(a, b) {
       return b.created_at - a.created_at;

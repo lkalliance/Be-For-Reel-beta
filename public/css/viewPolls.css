@@ -65,6 +65,10 @@ a.by-user:hover {
   color: white;
 }
 
+.card a:hover {
+  color: (--link);
+}
+
 /* .card a:hover {
   color: #e8e6df;
 } */
@@ -116,5 +120,23 @@ a.by-user:hover {
   p {
     font-size: 0.7rem;
     text-align: center;
+  }
+
+  #votes span {
+    text-align: left;
+  }
+
+  #comments span {
+    text-align: right;
+  }
+  
+  i#vote-icon,
+  i#comment-icon {
+    display: none;
+  }
+
+  div#data {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
