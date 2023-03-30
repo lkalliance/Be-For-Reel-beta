@@ -264,9 +264,9 @@ label {
 
 @media only screen and (max-width: 768px) {
   h2 {
-    font-size: 25px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /* font-size: px; */
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
   }
 
   h6 {
@@ -342,6 +342,11 @@ label {
   footer #imdb-icon {
     height: 20px;
     top: -2px;
+  }
+
+  h2 {
+    margin-top: 12px;
+    font-size: 22px;
   }
 }
 
