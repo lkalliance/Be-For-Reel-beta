@@ -17,11 +17,12 @@ const sess = {
     maxAge: (1000 * 60 * 60 * 24 * 180),
     httpOnly: true
   },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
+  rolling: true,
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize,
+    })
 };
 
 app.use(session(sess));
