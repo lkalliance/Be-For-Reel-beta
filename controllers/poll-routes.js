@@ -85,12 +85,22 @@ router.get('/view/:id', async (req, res) => {
       }]
     });
     const poll = await pollData.get({ plain: true });
+    const user = {
+      loggedIn: req.session.loggedIn
+    }
 
-    const userData = await User.findByPk(req.session.userId, {
-      where: { id: req.session.userId },
-      attributes: [ 'id' ]
-    })
-    const user = await userData.get({ plain: true });
+    if (user.loggedIn) {
+      const userData = await User.findByPk(req.session.userId, {
+        where: { id: req.session.userId },
+        attributes: [ 'id' ]
+      })
+      const userClean = await userData.get({ plain: true });
+      user.data = userClean
+    } else {
+      user.data = null
+    }
+
+    console.log(user);
 
     let topVotes = 0;
     for (opt of poll.opts) {
@@ -115,7 +125,7 @@ router.get('/view/:id', async (req, res) => {
       for ( vote of opt.votes ) {
         if ( vote.user_id == req.session.userId) {
           opt.votedClass = "voted";
-          user.voted = opt.movie.title;
+          if (user.data) user.voted = opt.movie.title;
         }
         else opt.votedClass="";
         if ( vote.comment !== "" ) {
@@ -175,7 +185,6 @@ router.get('/view/:id', async (req, res) => {
 
 
 router.get('/vote/:id', async (req, res) => {
-  // Sample
   try {
     const userInfo = {
       username: req.session.username,
