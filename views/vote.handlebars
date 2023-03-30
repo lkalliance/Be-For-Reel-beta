@@ -2,7 +2,14 @@
   <div class="row mb-3">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <h2>{{poll.title}}</h2>
-      <p class="lead pollDescription text-light">{{poll.description}}</p>
+      {{#if poll.description}}
+        <p class="lead pollDescription text-light">
+          {{poll.description}}
+        </p> 
+      {{/if}}     
+      <span id="publisher">
+        <a href='/users/{{poll.user.id}}'>{{poll.user.username}}</a> ({{format_date poll.created_at}})
+      </span>
     </div>
   </div>
   <div class="row">

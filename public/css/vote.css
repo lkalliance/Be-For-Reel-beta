@@ -2,6 +2,12 @@
   max-width: 690px;
 }
 
+p.pollDescription {
+  font-size: 1em;
+  line-height: 1.2em;
+  color: #bbbbbb !important;
+  padding: 0 20px;
+}
 .custom-card .card-body h6 {
   color: white !important;
   font-weight: bolder !important;
@@ -240,6 +246,21 @@ li.voted {
   padding: 12px;
 }
 
+span {
+  display: block;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+
+span#publisher {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+span#publisher a {
+  font-size: .9em !important;
+}
+
 .ind-comment {
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: white;
@@ -292,5 +313,11 @@ li.voted {
 
   h4 {
     font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  p.pollDescription {
+    display: none;
   }
 }

@@ -1,7 +1,18 @@
 .main-container {
   max-width: 690px;
+  padding-top: 0 !important;
 }
 
+h2 {
+  margin-bottom: 4px;
+}
+
+p.pollDescription {
+  font-size: 1em;
+  line-height: 1.2em;
+  color: #bbbbbb;
+  padding: 0 20px;
+}
 
 .custom-card .card-body h6 {
   color: white !important;
@@ -162,10 +173,23 @@ div.more-film-info p {
   margin: 0;
 }
 
-div.more-film-info span {
+span {
   display: block;
   font-size: .9em;
   color: #bbbbbb;
+}
+
+li.top div.vote-count span {
+  color: black;
+}
+
+span#publisher {
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+span#publisher a {
+  font-size: .9em !important;
 }
 
 
@@ -226,9 +250,16 @@ div.more-info {
 
 div.alert {
   background-color: rgba(0, 0, 0, .5);
+  margin: 12px 0;
   color: white;
   border: none;
   text-align: center;
+  text-transform: uppercase;
+}
+
+div.alert span {
+  display: inline;
+  color: var(--link);
 }
 
 li.option {
@@ -303,6 +334,10 @@ li.voted {
   div.info a.imdb,
   div.more-info button {
     font-size: .7em;
+  }
+
+  p.pollDescription {
+    display: none;
   }
 
 }
