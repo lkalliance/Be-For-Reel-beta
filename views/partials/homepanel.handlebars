@@ -11,10 +11,10 @@
             <div class="title-container">
                 <h5 class="card-title"><a class="pollTitle" href='/polls/vote/{{poll_id}}'>{{poll_title}}</a></h5>
             </div>
-            <div class="info-container">
-                <p class="card-text">Votes: {{poll_votes}}</p>
-                <p class="card-text"><a class="card-text" href="/users/{{user_id}}">{{username}}</a></p>
-            </div>
+            {{!-- <div class="info-container"> --}}
+                <p class="card-text" id="votes">Votes: {{poll_votes}}</p>
+                <p class="card-text" id="user"><a class="card-text" href="/users/{{user_id}}">{{username}}</a></p>
+            {{!-- </div> --}}
         </div>
     </div>
 </div>

@@ -54,6 +54,6 @@ $(document).ready(() => {
 
         await fetch(fetchUrl, fetchObj);
 
-        window.location.href='/';
+        window.location.href=window.location.href;
     }
 })
