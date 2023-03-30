@@ -1,7 +1,7 @@
 $(document).ready(() => {
+  // front end javascript for login/create page
 
-  const loginBtn = $('#login-button');
-  const signupBtn = $('#signup-button');
+  // collect containers
   const loginForm = $('#login-form');
   const signupForm = $('#signup-form');
   const loginAlert = $('#login-error');
@@ -12,11 +12,12 @@ $(document).ready(() => {
   const signupPwd = $('#password-signup');
   const signupEmail = $('#email-signup');
 
-
-
+  // create listeners
   const loginFormHandler = async (e) => {
+    // user has clicked to log in
     e.preventDefault();
 
+    // clear any alerts and get the values
     loginAlert.text("");
     const username = document.querySelector("#username-login").value.trim();
     const password = document.querySelector("#password-login").value.trim();
@@ -31,15 +32,17 @@ $(document).ready(() => {
       const message = await response.json();
 
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
+        // if everything cool, send user to the home page
         document.location.replace("/");
       } else {
+        // if not, let them know why
         loginError(message);
       }
     }
   };
 
   const signupFormHandler = async (event) => {
+    // user has clicked to sign up
     event.preventDefault();
 
     const username = document.querySelector("#username-signup").value.trim();
@@ -47,18 +50,19 @@ $(document).ready(() => {
     const password = document.querySelector("#password-signup").value.trim();
 
     if (username && email && password) {
+      // make a call to the API to create the user
       const response = await fetch("/api/users", {
         method: "POST",
         body: JSON.stringify({ username, email, password }),
         headers: { "Content-Type": "application/json" },
       });
       const message = await response.json();
-      console.log(message);
-      console.log(response);
-
+      
       if (response.ok) {
+        // if everything cool, send user to the home page
         document.location.replace("/");
       } else {
+        // if not, let them know why
         signupError(message);
       }
     }
@@ -67,6 +71,7 @@ $(document).ready(() => {
   loginForm.on("submit", loginFormHandler);
   signupForm.on("submit", signupFormHandler);
 
+  // some utility functions
   function loginError(obj) {
     clearForms()
     loginAlert.text(obj.message);

@@ -4,52 +4,59 @@ const { Poll, Opt, User, Movie, Vote } = require('../models');
 const fetch = require('axios');
 
 router.get('/', async (req, res) => {
+  try {
+    // render the polls list page
 
-  const userInfo = {
-    username: req.session.username,
-    userId: req.session.userId,
-    loggedIn: req.session.loggedIn
-  }
-  const css = { url: '/css/viewPolls.css' };
-  const today = new Date();
-  const currentYear = { year: today.getFullYear() };
-
-  const pollData = await Poll.findAll({
-    order: [['created_at', 'DESC']],
-    attributes: [ 'id', 'title', 'description', 'created_at' ],
-    include: [
-      {
-        model: User,
-        attributes: [ 'id', 'username' ]
-      },
-      {
-        model: Vote,
-        attributes: [ 'poll_id', 'comment' ]
-      }
-    ]
-  })
-
-  const polls = await pollData.map((poll) => poll.get({ plain: true }));
-  for ( poll of polls ) {
-    let commentCt = 0;
-    for ( vote of poll.votes ) {
-      console.log(vote);
-      if ( vote.comment && vote.comment !== "" ) commentCt++
-      console.log(commentCt);
+    // create the rendering assets
+    const userInfo = {
+      username: req.session.username,
+      userId: req.session.userId,
+      loggedIn: req.session.loggedIn
     }
-    poll.totalVotes = poll.votes.length;
-    poll.totalComments = commentCt;
+    const css = { url: '/css/viewPolls.css' };
+    const today = new Date();
+    const currentYear = { year: today.getFullYear() };
+
+    // get information on all polls
+    const pollData = await Poll.findAll({
+      order: [['created_at', 'DESC']],
+      attributes: [ 'id', 'title', 'description', 'created_at' ],
+      include: [
+        {
+          model: User,
+          attributes: [ 'id', 'username' ]
+        },
+        {
+          model: Vote,
+          attributes: [ 'poll_id', 'comment' ]
+        }
+      ]
+    })
+    const polls = await pollData.map((poll) => poll.get({ plain: true }));
+
+    // for each poll, count up the votes and comments
+    for ( poll of polls ) {
+      let commentCt = 0;
+      for ( vote of poll.votes ) {
+        if ( vote.comment && vote.comment !== "" ) commentCt++
+      }
+      poll.totalVotes = poll.votes.length;
+      poll.totalComments = commentCt;
+    }
+
+    res.render('pollList', { css, userInfo, currentYear, polls })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
-
-  console.log(polls);
-  res.render('view_polls', { css, userInfo, currentYear, polls })
 })
-
-
 
 
 router.get('/view/:id', async (req, res) => {
   try {
+    // render the "view poll" page
+
+    // create the rendering assets
     const userInfo = {
       username: req.session.username,
       userId: req.session.userId,
@@ -59,6 +66,7 @@ router.get('/view/:id', async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() };
 
+    // get the data on this poll
     const pollData = await Poll.findByPk(req.params.id, {
       attributes: [ 'id', 'title', 'description', 'created_at' ],
       include: [{
@@ -85,10 +93,11 @@ router.get('/view/:id', async (req, res) => {
       }]
     });
     const poll = await pollData.get({ plain: true });
+
+    // get the information on the logged-in user's vote on this poll
     const user = {
       loggedIn: req.session.loggedIn
     }
-
     if (user.loggedIn) {
       const userData = await User.findByPk(req.session.userId, {
         where: { id: req.session.userId },
@@ -100,8 +109,7 @@ router.get('/view/:id', async (req, res) => {
       user.data = null
     }
 
-    console.log(user);
-
+    // first determine what the high vote count is
     let topVotes = 0;
     for (opt of poll.opts) {
       const voteString = `${opt.votes.length} vote${(opt.votes.length == 1) ? "" : "s"}`;
@@ -109,25 +117,31 @@ router.get('/view/:id', async (req, res) => {
       opt.voteCount = opt.votes.length;
       topVotes = Math.max(topVotes, opt.voteCount);
     }
+    // now determine and mark which options are the top vote-getters
     for (opt of poll.opts) {
       if (opt.voteCount == topVotes) opt.voteClass = "top";
       else opt.voteClass = "";
     }
 
+    // if the user is logged in, sort the options by vote count
+    // if not, sort by alpha
     if ( userInfo.loggedIn ) poll.opts.sort(sortByVotes);
     else poll.opts.sort(sortAlpha);
 
-    
-    // get comments, and sniff for whether this user has voted in this poll
+    // iterate over the options and collect various things
     const comments = [];
     let hasVoted = false;
     for ( opt of poll.opts ) {
+      // iterate over the votes on this comment
       for ( vote of opt.votes ) {
+        // did the current user vote on this option?
         if ( vote.user_id == req.session.userId) {
           opt.votedClass = "voted";
           if (user.data) user.voted = opt.movie.title;
+        } else {
+          opt.votedClass="";
         }
-        else opt.votedClass="";
+        // collect the comment with this option
         if ( vote.comment !== "" ) {
           comments.push({
             movie: opt.movie.title,
@@ -138,6 +152,8 @@ router.get('/view/:id', async (req, res) => {
           })
         }
       }
+
+      // call our API to go fetch information on each movie
       const fetchUrl = `http://localhost:${process.env.PORT || 3001}/api/movies/info/${opt.movie.imdb_id}`;
       const movieData = await fetch(fetchUrl);
       opt.movie.stars = movieData.data.stars;
@@ -151,10 +167,15 @@ router.get('/view/:id', async (req, res) => {
       opt.movie.usaGross = movieData.data.boxOffice.grossUSA;
       opt.movie.worldwideGross = movieData.data.boxOffice.cumulativeWOldWideGross;
     }
+
+    // flag for what this user has voted on
     poll.hasVoted = hasVoted;
     comments.sort(sortDates);
+
+    // craft the appropriate phrasing for the not-logged-in message
     poll.commentsText = ( comments.length == 1 ) ? "1 comment has been left on this poll" : `${comments.length} comments have been left on this poll`;
     
+    // various sorting functions
     function sortByVotes(a, b) {
       return b.voteCount - a.voteCount;
     }
@@ -174,6 +195,7 @@ router.get('/view/:id', async (req, res) => {
 
       return (aSort > bSort) ? 1 : -1;
     }
+
     res.render('view', { userInfo, css, currentYear, poll, comments, user });
   } catch (err) {
     console.log(err);
@@ -182,10 +204,11 @@ router.get('/view/:id', async (req, res) => {
 });
 
 
-
-
 router.get('/vote/:id', async (req, res) => {
   try {
+    // render the voting page
+
+    // create the rendering assets
     const userInfo = {
       username: req.session.username,
       userId: req.session.userId,
@@ -195,11 +218,13 @@ router.get('/vote/:id', async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() };
 
+    // if the user isn't logged in, send him to the view page instead
     if (!userInfo.loggedIn) {
       res.redirect(`/polls/view/${req.params.id}`);
       return;
     }
 
+    // get the data on the poll
     const pollData = await Poll.findByPk(req.params.id, {
       attributes: [ 'id', 'title', 'description', 'created_at' ],
       include: [{
@@ -228,14 +253,16 @@ router.get('/vote/:id', async (req, res) => {
     const poll = pollData.get({ plain: true });
     poll.opts.sort(sortAlpha);
 
-    // get comments, and sniff for whether this user has voted in this poll
+    // iterate over this poll's options
     const comments = [];
     for ( opt of poll.opts ) {
       for ( vote of opt.votes ) {
         if ( vote.user_id == req.session.userId) {
+          // the user has voted, reroute him to the view page
           res.redirect(`/polls/view/${req.params.id}`);
           return;
         };
+        // collect all the comments
         if ( vote.comment !== "" ) {
           comments.push({
             movie: opt.movie.title,
@@ -246,6 +273,8 @@ router.get('/vote/:id', async (req, res) => {
           })
         }
       }
+
+      // call our API get data on each movie
       const fetchUrl = `http://localhost:${process.env.PORT || 3001}/api/movies/info/${opt.movie.imdb_id}`;
       const movieData = await fetch(fetchUrl);
       opt.movie.stars = movieData.data.stars;
@@ -261,7 +290,7 @@ router.get('/vote/:id', async (req, res) => {
     }
     comments.sort(sortDates);
 
-    
+    // sorting functions
     function sortAlpha(a, b) {
       const aRaw = a.movie.title;
       const bRaw = b.movie.title;
@@ -286,9 +315,11 @@ router.get('/vote/:id', async (req, res) => {
 });
 
 
-
 router.get('/create', isAuth, async (req, res) => {
   try {
+    // render the "create poll" page
+
+    // create render assets
     const userInfo = {
       username: req.session.username,
       userId: req.session.userId,
@@ -297,6 +328,7 @@ router.get('/create', isAuth, async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() };
     const css = { url: '/css/create.css' };
+    
     res.render('createpoll', { userInfo, css, currentYear });
   } catch (err) {
     console.log(err);
