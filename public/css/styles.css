@@ -344,11 +344,13 @@ label {
     top: -2px;
   }
 }
+
 p.subhead {
   text-align: center;
   margin-top: 0;
   color: #bbbbbb !important;
   margin-bottom: 10px;
+  font-size: 1em;
 }
 
 /* LOADING ANIMATION */
