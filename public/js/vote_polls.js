@@ -1,5 +1,7 @@
 $(document).ready(() => {
-    // get some DOM elements
+    // user is voting
+
+    // get some containers
     const submitBtn = $('#submit');
     const commentText = $('#comment');
     const optionList = $('#option-list');
@@ -35,10 +37,13 @@ $(document).ready(() => {
     }
 
     async function sendData(e) {
+        // user has clicked to submit
         e.preventDefault();
 
+        // if there's no film selected, never mind
         if ( selected == 0 ) return;
 
+        // collect the info and send it along
         const bodyObj = {
             option: selected,
             comment: commentText.val()
@@ -51,9 +56,9 @@ $(document).ready(() => {
                 'Content-Type': 'application/json',
             }
         }
-
         await fetch(fetchUrl, fetchObj);
 
+        // refresh the page
         window.location.href=window.location.href;
     }
 })
