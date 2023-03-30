@@ -3,17 +3,61 @@ h2 em {
     font-style: normal;
 }
 
+div.container-fluid {
+    position: relative;
+}
+
+h2 {
+    position: relative;
+    top: 25px;
+}
+
+img {
+    visibility: hidden;
+}
+
+img#main-image {
+    z-index: 1;
+    position: absolute;
+    top: -229px;
+    left: 0;
+    margin-left: -95px;
+    visibility: visible;
+}
+
 main {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .85);
     font-size: 1em;
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 12px;
     color: white;
+    position: relative;
+    top: 20px;
+    z-index: 5;
 }
 
 @media only screen and (min-width: 768px) {
     main {
         margin: 12px 20%;
     }
-  }
+ }
+
+@media only screen and (max-width: 768px) {
+    img {
+        visibility: visible;
+    }
+    
+    img#main-image {
+        display: none;
+    }
+
+    h2 {
+        display: block;
+        position: static
+    }
+
+    main {
+        position: static;
+    }
+}
