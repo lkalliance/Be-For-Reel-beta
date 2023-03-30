@@ -134,7 +134,7 @@ a:hover {
 }
 
 .custom-navbar .username:hover {
-  color: white;
+  color: white !important;
 }
 
 .navbar-brand {
