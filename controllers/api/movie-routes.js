@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const withAuth = require('../../utils/auth');
-const { Movie, Poll, Option, User } = require('../../models');
 const fetch = require('axios');
 
 
@@ -39,7 +37,6 @@ router.get('/info/:id', async (req, res) => {
     };
 
     const movieData = await fetch.request(movie);
-    //console.log(movieData);
     res.status(200).json(movieData.data);
 
   } catch (err) {

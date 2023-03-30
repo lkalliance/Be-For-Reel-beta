@@ -1,10 +1,11 @@
 const router = require("express").Router();
-const isAuth = require("../utils/auth");
 const { Poll, Opt, User, Movie, Vote } = require("../models");
 
 router.get("/", async (req, res) => {
-  // Getting a list of users
   try {
+    // render the list of users
+
+    // create render assets
     const userInfo = {
       username: req.session.username,
       userId: req.session.userId,
@@ -14,6 +15,7 @@ router.get("/", async (req, res) => {
     const today = new Date();
     const currentYear = { year: today.getFullYear() };
 
+    // get the user data, and send it on
     const userData = await User.findAll({
       attributes: ["username", "id", "created_at"],
       order: [["username", "ASC"]],
@@ -27,9 +29,12 @@ router.get("/", async (req, res) => {
   }
 });
 
+
 router.get("/:id", async (req, res) => {
-  // Render user profile
   try {
+    // render a user profile
+
+    // create render assets
     const userInfo = {
       username: req.session.username,
       userId: req.session.userId,
@@ -39,6 +44,7 @@ router.get("/:id", async (req, res) => {
     const currentYear = { year: today.getFullYear() };
     const css = { url: "/css/userProfile.css" };
 
+    // grab all the user data
     const userData = await User.findByPk(req.params.id, {
       attributes: ["id", "username", "created_at"],
       include: [

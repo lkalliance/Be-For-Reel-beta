@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const withAuth = require('../../utils/auth');
-const { User, Movie, Poll, Vote, Comment, Opt } = require('../../models');
+const { Movie, Poll, Vote, Opt } = require('../../models');
 
 
 router.post('/create', withAuth, async (req, res) => {
   try {
-      // creates or finds movies returns ids
+      // creates an array of ids of the requested films
       const filmList = [];
       for (film of req.body.films) {
           const temp = await Movie.findOrCreate({
@@ -34,8 +33,8 @@ router.post('/create', withAuth, async (req, res) => {
           })
       }
 
+      // send back the new poll's id
       const idPoll = newPoll.dataValues.id;
-
       res.json({ a: idPoll });
 
   }  catch (err) {
@@ -44,15 +43,9 @@ router.post('/create', withAuth, async (req, res) => {
 });
 
 router.get('/vote/:id', async (req, res) => {
-  // Sample
   try {
-    const userInfo = {
-      username: req.session.username,
-      userId: req.session.userId,
-      loggedIn: req.session.loggedIn
-    }
-    const css = { url: '/css/vote.css' };
-
+    // gets a user's vote
+    
     html = ''
     // Query the database to get a user with a specific ID
     await Vote.findByPk(req.params.id).then((vote) => {
@@ -78,51 +71,36 @@ router.get('/vote/:id', async (req, res) => {
 
 
 
-router.get('/create', withAuth, async (req, res) => {
-  try {
-    const userInfo = {
-      username: req.session.username,
-      userId: req.session.userId,
-      loggedIn: req.session.loggedIn
-    }
-    const today = new Date();
-    const currentYear = { year: today.getFullYear() };
-    const css = { url: '/css/create.css' };
-    res.render('createpoll', { userInfo, css, currentYear });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-
 router.post('/vote/:opt_id', withAuth, async (req, res) => {
-
     try {
-        // get poll id for option id
-        const optionID = req.body.option;
-        const pollId = await Opt.findOne({
-            where: {id: optionID}
-        });
+      // records a user's vote
 
-        // check for vote by user id and poll id
-        const vote = await Vote.findOrCreate({
-            where: {
-                user_id: req.session.userId,
-                poll_id: pollId.dataValues.poll_id,
-            },
-            defaults: {
-                opt_id: req.body.option,
-                comment: req.body.comment,
-            }
-        });
+      // first make sure the user hasn't voted on this poll
 
-        res.json();
+      // get poll id for option id
+      const optionID = req.body.option;
+      const pollId = await Opt.findOne({
+          where: {id: optionID}
+      });
+
+      // check for vote by user id and poll id
+      // if it exists, do nothing. If not, record it.
+      await Vote.findOrCreate({
+          where: {
+              user_id: req.session.userId,
+              poll_id: pollId.dataValues.poll_id,
+          },
+          defaults: {
+              opt_id: req.body.option,
+              comment: req.body.comment,
+          }
+      });
+      
+      res.json();
     }  catch (err) {
         res.status(500).json(err);
     }
 });
 
 
-module.exports = router;
 module.exports = router;
