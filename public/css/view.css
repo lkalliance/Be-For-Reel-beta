@@ -1,3 +1,8 @@
+.main-container {
+  max-width: 690px;
+}
+
+
 .custom-card .card-body h6 {
   color: white !important;
   font-weight: bolder !important;
@@ -125,8 +130,8 @@ li.option:last-child {
 
 .vote-count {
   text-align: end;
-  padding: 4px 12px;
-  font-size: 1.7em;
+  padding: 12px 15px !important;
+  font-size: 1.6em;
   font-weight: 700;
 }
 
@@ -286,4 +291,18 @@ li.voted {
   h4 {
     font-size: 15px;
   }
+}
+
+
+@media only screen and (max-width: 440px) {
+
+  div.vote-count {
+    padding: 30px 6px 12px !important;
+  }
+
+  div.info a.imdb,
+  div.more-info button {
+    font-size: .7em;
+  }
+
 }

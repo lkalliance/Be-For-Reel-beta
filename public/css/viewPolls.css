@@ -1,4 +1,6 @@
-
+.main-container {
+  max-width: 690px;
+}
 .icon-1x {
     font-size: 24px !important;
 }
@@ -24,6 +26,23 @@ a {
   padding-bottom: 6rem !important;
 }
 
+a.by-user {
+  text-decoration: none;
+  color: var(--link) !important;
+  font-weight: 600;
+  font-size: .9em;
+}
+
+h5 + p {
+  margin-top: 6px;
+  font-size: .9em;
+  color: #bbbbbb;
+}
+
+a.by-user:hover {
+  color: white !important;
+}
+
 .list-group-item {
     background-color: #000 !important;
 }
@@ -38,17 +57,17 @@ a {
  
 }
 
-.card:hover {
+/* .card:hover {
   background-color: #333;
-}
+} */
 
 .card a {
   color: white;
 }
 
-.card a:hover {
+/* .card a:hover {
   color: #e8e6df;
-}
+} */
 
 .card .op-7 {
   color: white;

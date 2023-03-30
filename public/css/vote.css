@@ -1,3 +1,7 @@
+.main-container {
+  max-width: 690px;
+}
+
 .custom-card .card-body h6 {
   color: white !important;
   font-weight: bolder !important;
@@ -192,7 +196,7 @@ li.no-votes a:hover {
 h6.instructions {
   margin-top: 0 !important;
   margin-bottom: 12px !important;
-  font-size: .8em;
+  font-size: .9em;
   color: #bbbbbb !important;
   text-align: center;
 }
@@ -264,12 +268,12 @@ li.voted {
     border-bottom: solid #1BA098 !important;
 }
 
-#comment.disabled {
-  background-color: #9a8b8b !important;
+#comment {
+  margin-top: 12px;
 }
 
-#comment.disabled {
-  background-color: #9a8b8b !important;
+#submit {
+  margin-top: 10px !important;
 }
 
 #submit.disabled:hover {
