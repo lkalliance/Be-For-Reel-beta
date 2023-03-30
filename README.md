@@ -4,7 +4,8 @@
 
 Do you like movies? Most people do, at least a litle. Do you fondly remember the movies you grew up with (or are growing up with now)? I'd bet you do too. Do you like the Oscars? Well, that question will get a more mixed set of responses.
 
-<img src="public/images/b4r-screenshot-1.png" width="250" style="float: right; margin-left: 10px;" />
+<img src="public/images/b4r-screenshot-1.png" width="300" />
+
 Be for Reel wants to bring to users the feelings that Oscar season stirs in movie buffs every year (which would be similar to the feelings that sports stir in many people). The feeling of having an emotional stake--if even just a small one--in who wins and loses. It's an emotional stake that many people lack surrounding the Oscars. Be For Reak is like the  Oscars for the rest of us.
 
 Be For Real is a site for lovers of movies, and for lovers of debating, reviewing, and comparing movies. It is a place where users create polls inviting others to choose their favorite from among the presented group of movies. And since the subject of your poll is completely up to you, and is a subject on which you probably have an opinion, and involves films you've probably seen, then you probably are interested in who wins. When you feel that way, YOU win.
@@ -24,7 +25,7 @@ Along the way, users can submit a comment with their vote, which comment is made
 * [Software License](#software-license)
 * [Contact the Developer](#contact-the-developer)
 
-<img src="public/images/b4r-screenshot-2.png" width="250" style="float: left; margin-right: 20px;" />
+<img src="public/images/b4r-screenshot-2.png" width="300" />
 
 ## Installation Instructions
 
@@ -35,7 +36,7 @@ Users interact with Be For Reel over the Web, so no installation is necessary, j
 
 There is no charge to be a member on Be For Reel, but a membership is required to participate. People without a membership or who are not currently logged in can see all the available polls, can can see what the options are...but cannot vote or see any comments. All functions are available to users with a free membership.
 
-<img src="public/images/b4r-screenshot-3.png" width="250" style="float: right; margin-left: 20px;" />
+<img src="public/images/b4r-screenshot-3.png" width="300" />
 
 The [home page](https://be-for-reel-app.heroku.com) of the app features six randomly-chosen polls, and each is displayed with the movie poster from a randomly-chosen option on each poll. The user can click on any of the pictures or the headlines to view the poll.
 
@@ -43,7 +44,7 @@ When on the poll's page, the user may vote and comment if they haven't yet done 
 
 Whether on the voting page or just the viewing page, each movie comes with a selection of data about the movie: the stars, a brief description of the plot, its rating, the genres it belongs to, its IMDb user score, and links to its IMDb page, its Wikipedia page, and it's movie trailer. All of this data is automatically included with each film in the poll, with no effort required by the user.
 
-<img src="public/images/b4r-screenshot-4.png" width="250" style="float: left; margin-right: 20px;" />
+<img src="public/images/b4r-screenshot-4.png" width="300" />
 
 [Creating the poll](https://be-for-real-app.heroku.com/polls/create) (membership required) is simple. The user enters a title and description of the poll, and then can do a series of searches on the titles of films they would like to include. Search results appear in a column, with the title of the movie and a brief plot description. The user can click or tap on any of the search results to select the film for their poll, and it moves to the "Selected Films" column. If the user decides against that film, they can tap it again to remove it from among the selected films. Then click the button to save the poll.
 
@@ -58,7 +59,7 @@ Users can access the list of all polls on a [poll directory page](https://be-for
 * User profiles that aggregate a member's created polls and comments left
 * Complete directories of both polls and users
 
-<img src="public/images/b4r-screenshot-5.png" width="250" style="float: left; margin-right: 20px;" />
+<img src="public/images/b4r-screenshot-5.png" width="300" />
 
 ## Design Notes
 
